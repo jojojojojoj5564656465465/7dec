@@ -1,0 +1,22 @@
+---
+import EachElement from 'src/components/hero/Exemples/EachElement.astro'
+
+import {
+  containerExemple,
+  backgroundImage
+} from '@/components/hero/Exemples/Exemple.css.ts'
+const Business = Object.keys(backgroundImage) as Array<
+  keyof typeof backgroundImage
+>
+---
+
+<div>
+  <h2>Exemple</h2>
+  <div class={containerExemple}>
+    {
+      Business.map((item) => {
+        return <EachElement BusinessCategory={item} icon="fk" />
+      })
+    }
+  </div>
+</div>

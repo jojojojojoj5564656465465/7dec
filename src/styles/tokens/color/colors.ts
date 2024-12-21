@@ -1,6 +1,6 @@
 type Theme = Record<'light' | 'dark', string>
 type Colors = Record<string, Theme>
-
+ 
 export const colorsTheme = {
   azure: {
     light: 'oklch(58.01% 0.18 259.96)',

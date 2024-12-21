@@ -4,45 +4,118 @@ import * as s from './index.css'
 import 'src/styles/global/globalStyle.css.ts'
 ---
 
-<section class:list={s.contentHeroSpace}>
+<section class={s.contentHeroSpace}>
   <div>
     <h1 class={s.firstName}>Jonathan <span class={s.lastName}>Hayat</span></h1>
     <h4 class={s.subTitle}>Google trusted photographer</h4>
     <p class={s.text}>
-     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam, tempora incidunt. Quas ducimus eveniet, repellat consectetur natus aspernatur, aliquid, aut blanditiis facilis corporis animi unde consequatur non excepturi voluptatum velit. Odio, possimus suscipit sapiente, vel sunt libero atque optio voluptas incidunt repellendus quo. Reiciendis necessitatibus nemo, labore optio assumenda quidem culpa odit consectetur laboriosam quam, magnam eius dicta voluptatem molestias.
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam, tempora
+      incidunt. Quas ducimus eveniet, repellat consectetur natus aspernatur,
+      aliquid, aut blanditiis facilis corporis animi unde consequatur non
+      excepturi voluptatum velit. Odio, possimus suscipit sapiente, vel sunt
+      libero atque optio voluptas incidunt repellendus quo. Reiciendis
+      necessitatibus nemo, labore optio assumenda quidem culpa odit consectetur
+      laboriosam quam, magnam eius dicta voluptatem molestias.
     </p>
     <h5 class={s.slogan}>67% des recherches de vos clients sont sur Google</h5>
   </div>
 
   <div class={s.image}></div>
 </section>
-
 <section>
-  <div><p>photo</p></div>
+  <div class="bg-white @dark:bg-gray-700 ~py-6/24 relative">
+    <div class="max-w-7xl mx-auto ~px-4/8 text-center">
+      <h2
+        class="~text-7/15 font-extrabold tracking-tight text-gray-900 @dark:text-white font-exo">
+        Mon Engagement et Notre Succès En Chiffres
+      </h2>
+      <p
+        class="~mt-2/4 max-w-2xl mx-auto ~text-6/10 tracking-wide text-gray-500 @dark:text-gray-300 inline font-nunito sm:leading-12">
+        Découvrez pourquoi je suis votre meilleur choix pour les visites
+        virtuelles
+      </p>
+      <span
+        class="<sm:hidden ~text-6/10 tracking-wide text-gray-500 @dark:text-gray-300 font-nunito sm:leading-12 inline">
+        Google
+      </span>
+
+      <div class="~mt-6/20 relative">
+        <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-10-6">
+          <div class="relative">
+            <dt>
+              <p
+                class="text-lg leading-6 font-medium text-gray-900 @dark:text-orange-500">
+                Expérience
+              </p>
+            </dt>
+            <dd
+              class="mt-2 text-3xl font-extrabold tracking-tight text-green-light @dark:text-green-dark">
+              10+ Ans
+            </dd>
+          </div>
+
+          <div class="relative">
+            <dt>
+              <p
+                class="text-lg leading-6 font-medium text-gray-900 @dark:text-orange-500">
+                Clients Satisfaits
+              </p>
+            </dt>
+            <dd
+              class="mt-2 text-3xl font-extrabold tracking-tight text-green-light @dark:text-green-dark">
+              1500+
+            </dd>
+          </div>
+
+          <div class="relative">
+            <dt>
+              <p
+                class="text-lg leading-6 font-medium text-gray-900 @dark:text-orange-500">
+                Bureau Basé à
+              </p>
+            </dt>
+            <dd
+              class="mt-2 text-3xl font-extrabold tracking-tight text-green-light @dark:text-green-dark">
+              75
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+    <span
+      class="absolute size-30 top-90 -md:left-10 md:top-50 lg:(-left-15 size-50 top-67) xl:(-left-20 size-80 top-60) @dark:fill-orange-500 fill-green-light">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        x="10px"
+        y="0px"
+        width="100%"
+        height="100%"
+        viewBox="0 0 50 50">
+        <path
+          d="M 24 3.6347656 L 23.5 3.9238281 L 19.5 6.234375 L 19 6.5234375 L 19 7.0996094 L 19 14.607422 L 12.5 10.853516 L 12 10.564453 L 11.5 10.853516 L 7.5 13.164062 L 7 13.453125 L 7 14.029297 L 7 20.960938 L 7 21.537109 L 7.5 21.826172 L 19 28.466797 L 19 41.740234 L 19 42.316406 L 19.498047 42.605469 L 25.498047 46.076172 L 25.998047 46.365234 L 26.498047 46.076172 L 30.498047 43.765625 L 30.998047 43.476562 L 30.998047 42.900391 L 30.998047 35.392578 L 37.498047 39.146484 L 37.998047 39.435547 L 38.498047 39.146484 L 42.498047 36.835938 L 42.998047 36.546875 L 42.998047 35.970703 L 42.998047 29.039062 L 42.998047 28.462891 L 42.498047 28.173828 L 31 21.533203 L 31 8.2597656 L 31 7.6835938 L 30.501953 7.3945312 L 24.501953 3.9238281 L 24 3.6347656 z M 24 5.078125 L 29.5 8.2597656 L 26 10.277344 L 20.5 7.0996094 L 24 5.078125 z M 20.25 7.5332031 L 25.75 10.710938 L 25.75 24.423828 A 0.250025 0.250025 0 0 0 25.875 24.638672 L 37.75 31.496094 L 37.75 37.847656 L 30.125 33.443359 L 30.103516 33.431641 L 26.125 31.134766 A 0.250025 0.250025 0 0 0 25.980469 31.101562 A 0.250025 0.250025 0 0 0 25.75 31.351562 L 25.75 44.777344 L 20.25 41.595703 L 20.25 27.890625 A 0.250025 0.250025 0 0 0 20.125 27.673828 L 8.25 20.816406 L 8.25 14.462891 L 19.875 21.175781 A 0.250025 0.250025 0 0 0 20.25 20.958984 L 20.25 16.339844 L 20.25 7.5332031 z M 29.75 8.6933594 L 29.75 21.966797 L 26.25 23.990234 L 26.25 10.710938 L 29.75 8.6933594 z M 12 12.007812 L 19.75 16.484375 L 19.75 20.525391 L 8.4980469 14.03125 L 12 12.007812 z M 30 22.398438 L 41.501953 29.041016 L 38 31.0625 L 26.498047 24.421875 L 30 22.398438 z M 41.75 29.472656 L 41.75 35.826172 L 38.25 37.847656 L 38.25 31.496094 L 41.75 29.472656 z M 26.25 31.785156 L 29.75 33.804688 L 29.75 42.755859 L 26.25 44.777344 L 26.25 31.785156 z">
+        </path>
+      </svg>
+    </span>
+  </div>
+</section> 
+<section class={s.contentHeroSpace} >
+  <div class={s.image}></div>
   <div>
-    <h2>About Me</h2>
-    <h5>Ce n'est pas un metier mais ma passion</h5>
-    <p>
+    <h2 class="text-3xl font-exo text-bold">About Me</h2>
+    <h5 class="~py-4/8 text-orange-400 font-LibreFranklin font-700">
+      Ce n'est pas un metier mais ma passion
+    </h5>
+    <p class="font-nunito">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti earum,
       voluptate nihil animi odit aspernatur minus labore reiciendis placeat,
       molestias dolores eum adipisci magnam. Quaerat facilis voluptatem
-      consequatur, dolor neque autem maxime quia impedit quod temporibus
-      sapiente molestiae animi et praesentium ullam corporis magnam ipsa
-      explicabo eius omnis distinctio corrupti aliquam deleniti adipisci?
-      Debitis quam quae molestiae inventore reprehenderit eligendi sint natus
-      labore totam, ipsum, sunt at tenetur odio eius facilis repudiandae libero
-      omnis vero. Pariatur odit reprehenderit est, quibusdam et labore quam,
-      magnam maiores quos quis nesciunt dolore exercitationem. Voluptates esse
-      aut ipsam laboriosam eum dolorum vitae quo blanditiis!
+      consequatur, dolor neque autem maxime quia impedit quod temporibus aut
+      ipsam laboriosam eum dolorum vitae quo blanditiis!
     </p>
-    <ul>
+    <ul class={s.aboutMeList}>
       <li>Equipement de qualité</li>
       <li>Acréditation Google France</li>
       <li>perfexioniste</li>
     </ul>
   </div>
-</section>
-
-<section>
-  <h2>Avantages</h2>
 </section>

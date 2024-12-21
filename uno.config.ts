@@ -118,7 +118,18 @@ export default defineConfig({
   ],
   theme: {
     colors: {
-      // hello:theme.color.green,
+      azure: {
+        light: 'oklch(58.01% 0.18 259.96)',
+        dark: 'oklch(62.76% 0.18 259.96)',
+      },
+      red: {
+        light: 'oklch(58.9% 0.2037 13.339641794332277)',
+        dark: 'oklch(66.02% 0.2037 13.339641794332277)',
+      },
+      green: {
+        light: 'oklch(60% 0.1507 154.1)',
+        dark: 'oklch(68.4% 0.1507 154.1)',
+      },
       text: {
         dark: '#212922',
         light: '#AEF6C7',
