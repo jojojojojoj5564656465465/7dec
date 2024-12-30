@@ -38,6 +38,7 @@ export default defineConfig({
         'build',
         'mock',
         './stats.html',
+        '*.css.ts'
       ],
     },
   },

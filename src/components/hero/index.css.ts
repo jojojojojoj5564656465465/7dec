@@ -80,6 +80,7 @@ globalStyle(`${aboutMeList} li:before`, {
 export const Avantages = style([
   container.large,
   {
+    
     zIndex: 10,
     marginInline: 'auto',
     paddingBlock: theme.space.md,

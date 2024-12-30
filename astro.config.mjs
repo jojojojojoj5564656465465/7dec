@@ -5,16 +5,18 @@ import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import qwikdev from '@qwikdev/astro'
 import icon from 'astro-icon'
 
-import robotsTxt from 'astro-robots-txt'
+//import robotsTxt from 'astro-robots-txt'
 
 export default defineConfig({
+  //output:'static',
   vite: {
     css: {
       transformer: 'lightningcss'
     },
     plugins: [
       vanillaExtractPlugin({
-        enabled: true
+        enabled: true,
+        identifiers: 'short'
       })
     ],
     optimizeDeps: {
@@ -28,6 +30,6 @@ export default defineConfig({
     }),
     qwikdev(),
     icon({ iconDir: 'src/assets/icons' }),
-    robotsTxt()
+   // robotsTxt()
   ]
 })

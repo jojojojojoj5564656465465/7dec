@@ -1,0 +1,7 @@
+{
+  "key": "alt+p",
+  "command": "workbench.action.terminal.sendSequence",
+  "args": {
+    "text": "bun run dev"
+  }
+}

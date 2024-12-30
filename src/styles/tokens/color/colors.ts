@@ -8,7 +8,7 @@ export const colorsTheme = {
   },
   red: {
     light: 'oklch(58.9% 0.2037 13.339641794332277)',
-    dark: 'oklch(66.02% 0.2037 13.339641794332277)',
+    dark: 'oklch(64.84% 0.2037 13.339641794332277)',
   },
   green: {
     light: 'oklch(60% 0.1507 154.1)',

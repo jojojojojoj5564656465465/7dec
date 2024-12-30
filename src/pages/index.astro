@@ -1,20 +1,20 @@
 ---
-import Welcome from '../components/Welcome.astro'
-import A from '../components/A/A.astro'
+
 import Layout from '../layouts/Layout.astro'
 import Hero from '../components/hero/index.astro'
 import Avantages from '../components/hero/Avantages.astro'
 import Pricing from 'src/components/pricing/index.astro'
 import ListBusiness from 'src/components/hero/Exemples/index.astro'
-import type { backgroundImage } from '@/components/hero/Exemples/Exemple.css'
-import { container } from '@/styles/global/main.css'
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
+import {Cards} from 'src/components/Grafikart/index.tsx'
 ---
 
 <Layout>
   <Hero />
   <ListBusiness />
-  <Pricing />
-  <Avantages />
+ <Avantages />
+ <Pricing />
+
+  <Cards />
+ 
 </Layout>

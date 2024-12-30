@@ -1,17 +1,21 @@
 ---
+import { button } from '@/styles/global/main.css'
 import * as s from 'src/components/pricing/pricing.css.ts'
 ---
 
 <section class={s.section}>
   <div class={s.textBox}>
-    <span class="text-amber-800 @dark:text-amber-200 text-sm">A partir de</span>
-    <h2 class="text-[xl,red] font-800">450€ TTC</h2>
+    <span class="text-amber-800 @dark:text-amber-200 text-md">À partir de</span>
+    <h2 class={s.prixApartir}>450€ TTC</h2>
     <ul class={s.ul}>
-      <li>360 ° scanning of the entire surface of the establishment</li>
+      <li>360° scanning of the entire surface of the establishment</li>
       <li>Mounting and assembling of panoramics</li>
       <li>Publishing images on Google</li>
       <li>Panoramic delivery by email</li>
       <li>HTML code for website integration</li>
+      <button class={button.green} type="button">
+        Contact
+      </button>
     </ul>
   </div>
   <div class={s.image}></div>

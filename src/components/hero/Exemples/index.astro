@@ -1,6 +1,5 @@
 ---
 import EachElement from 'src/components/hero/Exemples/EachElement.astro'
-
 import {
   containerExemple,
   backgroundImage
@@ -13,10 +12,10 @@ const Business = Object.keys(backgroundImage) as Array<
 <div>
   <h2>Exemple</h2>
   <div class={containerExemple}>
-    {
+    <!-- {
       Business.map((item) => {
         return <EachElement BusinessCategory={item} icon="fk" />
       })
-    }
+    } -->
   </div>
 </div>
