@@ -16,21 +16,20 @@ type CardProps = {
   Link: string
 }
 
-export const Card = component$<CardProps>((props) => {
+const Card = component$<CardProps>((props) => {
   return (
-    //  <a href={props.Link} >
-    //    </a>
-    <div class={CardStyle.wrapper}>
-      {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
-      <div
-        class={CardStyle.image}
-        style={assignInlineVars({ [bgImage]: `url(${props.Image})` })}></div>
-      <h3 class={CardStyle.category}>{props.Category}</h3>
-      <p class={CardStyle.price}>{props.Price}</p>
-    </div>
+    <a href={props.Link}>
+      <div class={CardStyle.wrapper}>
+        {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
+        <div
+          class={CardStyle.image}
+          style={assignInlineVars({ [bgImage]: `url(${props.Image})` })}></div>
+        <h3 class={CardStyle.category}>{props.Category}</h3>
+        <p class={CardStyle.price}>{props.Price}</p>
+      </div>
+    </a>
   )
 })
-
 
 export const Cards = component$(() => {
   const wrapperRef = useSignal<HTMLElement>()
@@ -47,7 +46,6 @@ export const Cards = component$(() => {
   const getWrapperRefSize = $(() => {
     if (!wrapperRef.value) return
     const { clientWidth } = wrapperRef.value
-
     p.clientWidth = clientWidth
   })
 
@@ -65,14 +63,15 @@ export const Cards = component$(() => {
 
   const move = $((direction: 'LEFT' | 'RIGHT') => {
     if (!wrapperRef.value) return
-    const scrollLeft = direction === 'RIGHT' ? p.clientWidth : -p.clientWidth
+    //const scrollLeft = direction === 'RIGHT' ? p.clientWidth : -p.clientWidth
     wrapperRef.value?.scrollBy({
-      left: scrollLeft,
+      left:  20,
       behavior: 'smooth'
     })
   })
 
   return (
+    <>
     <section class=" mx-auto grid gap-1">
       <div class={CardsStyle} ref={wrapperRef}>
         {Array.from({ length: 100 }, (_, i) => {
@@ -82,7 +81,7 @@ export const Cards = component$(() => {
               Category={`${i}`}
               Link="/"
               Price={350}
-              Image="public/nasa-rTZW4f02zY8-unsplash.jpg"
+              Image="/nasa-rTZW4f02zY8-unsplash.jpg"
             />
           )
         })}
@@ -90,16 +89,17 @@ export const Cards = component$(() => {
 
       <span
         class={buttonState.prev ? button.available : button.disable}
-        onClick$={[$(() => move('LEFT'))]}
-        aria-label="Previous scroll">
+        onClick$={$(() => move('LEFT'))}
+>
         ← Prev
       </span>
       <span
         class={buttonState.next ? button.available : button.disable}
-        onClick$={[getWrapperRefSize, $(() => move('RIGHT'))]}
-        aria-label="Next cards">
+        onClick$={() => move('RIGHT')}>
         Next →
       </span>
     </section>
+    </>
   )
 })
+export default Cards

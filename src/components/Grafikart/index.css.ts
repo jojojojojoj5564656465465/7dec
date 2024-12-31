@@ -108,7 +108,7 @@ export const CardsStyle = style([
     scrollPaddingInline: 0,
     '@media': {
       [media.lg]: {
-        overflow: 'hidden',
+        //overflow: 'hidden',
         scrollPaddingInline: `calc(${vars.space.gap} * 0.5)`,
         scrollSnapAlign: 'start',
         padding: '1rem',
