@@ -83,7 +83,7 @@ const Card = component$<CardProps>((props) => {
                  Category={`${i}`}
                  Link="/"
                  Price={350}
-                 Image="public/nasa-rTZW4f02zY8-unsplash.jpg"
+                 Image="/nasa-rTZW4f02zY8-unsplash.jpg"
                />
              )
            })}
