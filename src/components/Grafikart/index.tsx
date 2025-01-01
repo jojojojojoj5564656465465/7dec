@@ -119,7 +119,8 @@ export default component$(() => {
           {Array.from({ length: 20 }, (_, i) => {
             return (
               <Card
-                key={`Cards exemple n°${i}`}
+                key={`Cards exemple n°${// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+i}`}
                 Category={`${i}`}
                 Link="/"
                 Price={wrapper.clientWidth}
