@@ -55,7 +55,9 @@ export const bgImage = createVar()
 export const CardStyle = {
   wrapper: style([
     {
-      display: 'inline flex',
+    // display:"block",
+
+     //  display: 'inline flex',
       padding: '1rem',
       borderRadius: '0.5rem',
       backgroundColor: 'orange',
@@ -70,7 +72,7 @@ export const CardStyle = {
       maxInlineSize: `calc((100% - (${vars.space.items} - 1) * ${vars.space.gap}) / ${vars.space.items})`,
       '@media': {
         [media.lg]: {
-        scrollSnapAlign: 'center', ///bad media qr
+          scrollSnapAlign: 'center', ///bad media qr
         },
       },
     },
@@ -88,14 +90,17 @@ export const CardStyle = {
     fontSize: '1.5rem',
     fontWeight: 'bold',
     color: 'black',
+    display: 'block',
   }),
   price: style({
     fontSize: '1.5rem',
     color: theme.color.azure,
+    display: 'block',
   }),
 }
 export const CardsStyle = style([
   {
+    overflowBlock:"hidden",
     display: 'flex',
     gap: vars.space.gap,
     flexWrap: 'nowrap',
