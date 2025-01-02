@@ -4,7 +4,8 @@ import {
   useOnDocument,
   useSignal,
   useStore,
-  useOnWindow
+  useOnWindow,
+  useComputed$
 } from '@builder.io/qwik'
 import { CardStyle, bgImage, CardsStyle, button } from './index.css.ts'
 import { assignInlineVars } from '@vanilla-extract/dynamic'
@@ -23,9 +24,7 @@ const Card = component$<CardProps>((props) => {
         {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
         <div
           class={CardStyle.image}
-          style={assignInlineVars({ [bgImage]: `url(${props.Image})` })}>
-          
-        </div>
+          style={assignInlineVars({ [bgImage]: `url(${props.Image})` })}></div>
         <h3 class={CardStyle.category}>{props.Category}</h3>
         <p class={CardStyle.price}>{props.Price}</p>
       </div>
@@ -33,74 +32,82 @@ const Card = component$<CardProps>((props) => {
   )
 })
 
- const Cards = component$(() => {
-   const wrapperRef = useSignal<HTMLElement>()
-   const buttonState = useStore({
-     prev: false,
-     next: true
-   })
-   const p = useStore({
-     nbPages: 1,
-     containerWidth: 0,
-     clientWidth: 0
-   })
+const Cards = component$(() => {
+  const wrapperRef = useSignal<HTMLDivElement>()
 
-   const getWrapperRefSize = $(() => {
-     if (!wrapperRef.value) return
-     const { clientWidth } = wrapperRef.value
-     p.clientWidth = clientWidth
-   })
+  type Wrapper = {
+    clientWidth: number
+    scrollLeft: number
+    scrollWidth: number
+  }
+  const wrapper = useStore<Wrapper>({
+    clientWidth: 500,
+    scrollLeft: 0,
+    scrollWidth: 300
+  })
 
-   useOnWindow('resize', getWrapperRefSize)
-   useOnDocument(
-     'scroll',
-     $(() => {
-       if (!wrapperRef.value) return
-       const { scrollLeft, scrollWidth } = wrapperRef.value
+  const initSize = $(() => {
+    if (!wrapperRef.value) return
+    wrapper.clientWidth = wrapperRef.value?.clientWidth
+    wrapper.scrollWidth = wrapperRef.value?.scrollWidth
+  })
+  useOnWindow('resize', initSize)
+  useOnDocument(
+    'scroll',
+    $(() => {
+      if (!wrapperRef.value) return
+      wrapper.scrollLeft = wrapperRef.value?.scrollLeft
+    })
+  )
 
-       buttonState.next = scrollWidth > scrollLeft * 1.06
-       buttonState.prev = scrollLeft > 8
-     })
-   )
+  const buttonState = {
+    prev: useComputed$(() => {
+      return wrapper.scrollLeft > 8
+    }),
+    next: useComputed$(() => {
+      return wrapper.scrollWidth >= wrapper.scrollLeft * 1.06
+    })
+  }
 
-   const move = $((direction: 'LEFT' | 'RIGHT') => {
-     if (!wrapperRef.value) return
-     const scrollLeft = direction === 'RIGHT' ? p.clientWidth : -p.clientWidth
-     wrapperRef.value?.scrollBy({
-       left: scrollLeft,
-       behavior: 'smooth'
-     })
-   })
+  const move = $((direction: 'LEFT' | 'RIGHT') => {
+    if (!wrapperRef.value) return
+    const scrollLeft =
+      direction === 'RIGHT' ? wrapper.clientWidth : -wrapper.clientWidth
 
-   return (
-     <>
-       <section class=" mx-auto grid gap-1">
-         <div class={CardsStyle} ref={wrapperRef}>
-           {Array.from({ length: 100 }, (_, i) => {
-             return (
-               <Card
-                 key={i}
-                 Category={`${i}`}
-                 Link="/"
-                 Price={350}
-                 Image="/nasa-rTZW4f02zY8-unsplash.jpg"
-               />
-             )
-           })}
-         </div>
+    wrapperRef.value?.scrollBy({
+      left: scrollLeft,
+      behavior: 'smooth'
+    })
+  })
 
-         <span
-           class={buttonState.prev ? button.available : button.disable}
-           onClick$={$(() => move('LEFT'))}>
-           ← Prev
-         </span>
-         <span
-           class={buttonState.next ? button.available : button.disable}
-           onClick$={[getWrapperRefSize,$(() => move('RIGHT'))]}>
-           Next →
-         </span>
-       </section>
-     </>
-   )
- })
+  return (
+    <>
+      <section class="mx-auto grid gap-1">
+        <div class={CardsStyle} ref={wrapperRef}>
+          {Array.from({ length: 100 }, (_, i) => {
+            return (
+              <Card
+                key={i}
+                Category={`${i}`}
+                Link="/"
+                Price={wrapper.clientWidth}
+                Image="/nasa-rTZW4f02zY8-unsplash.jpg"
+              />
+            )
+          })}
+        </div>
+        <span
+          class={buttonState.prev.value ? button.available : button.disable}
+          onClick$={$(() => move('LEFT'))}>
+          ← Prev
+        </span>
+        <span
+          class={buttonState.next.value ? button.available : button.disable}
+          onClick$={[initSize, $(() => move('RIGHT'))]}>
+          Next →
+        </span>
+      </section>
+    </>
+  )
+})
 export default Cards

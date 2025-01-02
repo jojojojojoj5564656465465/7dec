@@ -55,9 +55,9 @@ export const bgImage = createVar()
 export const CardStyle = {
   wrapper: style([
     {
-    // display:"block",
+     display:"block",
 
-     //  display: 'inline flex',
+     // display: 'inline flex',
       padding: '1rem',
       borderRadius: '0.5rem',
       backgroundColor: 'orange',
@@ -68,7 +68,7 @@ export const CardStyle = {
       scrollSnapAlign: 'start',
       //maxInlineSize: 304,
       blockSize: 304,
-      // minInlineSize: 220,
+       minInlineSize: 220,
       maxInlineSize: `calc((100% - (${vars.space.items} - 1) * ${vars.space.gap}) / ${vars.space.items})`,
       '@media': {
         [media.lg]: {
