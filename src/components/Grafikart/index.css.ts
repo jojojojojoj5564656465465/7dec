@@ -100,7 +100,7 @@ export const CardStyle = {
 }
 export const CardsStyle = style([
   {
-    overflowBlock:"hidden",
+    overflowBlock: 'hidden',
     display: 'flex',
     gap: vars.space.gap,
     flexWrap: 'nowrap',
@@ -123,6 +123,7 @@ export const CardsStyle = style([
   },
   responsiveTheme,
   container.small,
+  style({ backgroundColor: 'orange' }),
 ])
 const baseButton = style({
   marginTop: '4.5rem',
