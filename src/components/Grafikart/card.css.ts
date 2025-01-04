@@ -103,7 +103,6 @@ export const wapperCard = style([
     },
   },
   ColorTheme,
-
 ])
 
 export const Btn = style({

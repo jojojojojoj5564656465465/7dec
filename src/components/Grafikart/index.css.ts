@@ -125,6 +125,7 @@ export const CardsStyle = style([
   },
   responsiveTheme,
   container.small,
+  style({ backgroundColor: 'orange' }),
 ])
 
 const baseButton = style({
