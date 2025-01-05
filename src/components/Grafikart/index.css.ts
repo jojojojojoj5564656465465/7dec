@@ -125,7 +125,7 @@ export const CardsStyle = style([
   },
   responsiveTheme,
   container.small,
- // bgg("orange"),
+
 ])
 const baseButton = style({
   marginTop: '4.5rem',
@@ -142,7 +142,10 @@ const baseButton = style({
 export const button = styleVariants({
   available: [
     baseButton,
-    hover({ backgroundColor: '#004445', color: '#f8b400' }),
+    hover({
+      backgroundColor: 'oklch(44.79% 0.1347 153.85 / 26.49%)',
+      color: 'oklch(70% 0.1575 160.2)',
+    }),
     {
       cursor: 'pointer',
       background: theme.color.green,
@@ -156,7 +159,8 @@ export const button = styleVariants({
       background: 'oklch(89.76% 0.0031 34 / 85.4%)',
       color: theme.color.red,
       cursor: 'none',
-      border: '2px solid red',
+      border: `1.5px solid ${theme.color.red}`,
+      boxShadow: '0 1.5px 0 0 oklch(82.35% 0.1191 348.14 / 52.89%)',
     },
   ],
 })

@@ -31,31 +31,28 @@ export const media = {
   dark: 'screen and (prefers-color-scheme: dark)',
 } as const
 
-//type hoverProps = Record<"backgroundColor"|"color",string>
+
 type hoverProps = {
   backgroundColor: string
   color?: string | 'inherit'
 }
 
-
- export const hover = (props: hoverProps) => {
+export const hover = (props: hoverProps) => {
   return style({
-    ':hover': {
+    ':active': {
       backgroundColor: props.backgroundColor,
       color: props.color ?? 'inherit',
     },
+    ':focus': {
+      outline: `4px solid ${props.backgroundColor}`,
+      outlineOffset: '1px',
+      color: props.color ?? 'inherit',
+    },
     '@media': {
-      'screen and (hover: hover) and (max-width: 940px)': {
-        selectors: {
-          '&:active': {
-            backgroundColor: props.backgroundColor,
-            color: props.color ?? 'inherit',
-          },
-          '&:focus': {
-            outline: `4px solid ${props.backgroundColor}`,
-            outlineOffset: '1px',
-            color: props.color ?? 'inherit',
-          },
+      [media.md]: {
+        ':hover': {
+          backgroundColor: props.backgroundColor,
+          color: props.color ?? 'inherit',
         },
       },
     },
