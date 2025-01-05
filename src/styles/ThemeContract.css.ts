@@ -33,7 +33,6 @@ export const media = {
   dark: 'screen and (prefers-color-scheme: dark)',
 } as const
 
-
 type hoverProps = {
   backgroundColor: string
   color?: string | 'inherit'

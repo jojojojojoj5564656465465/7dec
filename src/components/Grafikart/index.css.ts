@@ -1,12 +1,12 @@
 import { container } from '@/styles/global/main.css'
-import { theme, media, hover, flex } from '@theme'
+import { theme, media,hover } from '@theme'
+import { bgg } from 'src/styles/utils.ts'
 import {
   assignVars,
   createThemeContract,
   createVar,
   style,
   styleVariants,
-  keyframes,
 } from '@vanilla-extract/css'
 
 
@@ -103,7 +103,7 @@ export const CardStyle = {
 export const CardsStyle = style([
   {
     overflowBlock: 'hidden',
-    display:"flex",
+    display: 'flex',
     gap: vars.space.gap,
     flexWrap: 'nowrap',
     padding: `calc(${vars.space.gap} * 0.5)`,
@@ -125,15 +125,10 @@ export const CardsStyle = style([
   },
   responsiveTheme,
   container.small,
-  style({ backgroundColor: 'orange' }),
+ // bgg("orange"),
 ])
-
 const baseButton = style({
-  all:"unset",
-  marginBlock: 'auto',
-  display:["flex","grid"],
-  placeItems:"center",
-  alignContent:"center",
+  marginTop: '4.5rem',
   color: theme.color.black,
   padding: '1rem',
   borderRadius: '1.5rem',
@@ -144,29 +139,15 @@ const baseButton = style({
     },
   },
 })
-const greenAnimation = keyframes({
-  '0%': { boxShadow: '0 0.1px 0 0 green' },
-  '50%': { boxShadow: '0 1.00px 0 0 oklch(77.06% 0.1723 159.88 / 88.47%)' },
-  '70%': { boxShadow: '0 2.80px 0 0 oklch(77.06% 0.1723 159.88 / 38.47%)' },
-  '100%': { boxShadow: '0 4.00px 0 0 oklch(77.06% 0.1723 159.88 / 20.47%)' },
-})
 export const button = styleVariants({
   available: [
     baseButton,
-    hover({
-      backgroundColor: 'oklch(44.79% 0.1347 153.85 / 26.49%)',
-      color: 'oklch(56% 0.2322 324)',
-    }),
+    hover({ backgroundColor: '#004445', color: '#f8b400' }),
     {
       cursor: 'pointer',
       background: theme.color.green,
       color: theme.color.black,
       border: '2px solid green',
-      ':hover': {
-        animationName: greenAnimation,
-        animationDuration: '1s',
-        animationTimingFunction: 'ease',
-      },
     },
   ],
   disable: [
@@ -174,27 +155,8 @@ export const button = styleVariants({
     {
       background: 'oklch(89.76% 0.0031 34 / 85.4%)',
       color: theme.color.red,
-      cursor: 'not-allowed',
-      pointerEvents: 'none',
-      border: `1.5px solid ${theme.color.red}`,
-      boxShadow: '0 1.51px 0 0 oklch(82.35% 0.1191 348.14 / 52.89%)',
+      cursor: 'none',
+      border: '2px solid red',
     },
   ],
 })
-export const sectionWrapperCardButtons = style([
-  container.large,
-  {
-    backgroundColor: 'pink',
-
-    marginInline: 'auto',
-    // '@supports': {
-    //   '(display: grid)': {
-    //     display: 'grid',
-    //     gridTemplateColumns: 'max-content 1fr max-content',
-    //     justifyContent: 'center',
-    //   },
-    // },
-    display: ['inline', 'flex'],
-    flexDirection: 'row',
-  },
-])
