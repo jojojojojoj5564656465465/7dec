@@ -160,7 +160,7 @@ export const button = styleVariants({
       color: theme.color.red,
       cursor: 'none',
       border: `1.5px solid ${theme.color.red}`,
-      boxShadow: '0 1.5px 0 0 oklch(82.35% 0.1191 348.14 / 52.89%)',
+      boxShadow: '0 1.51px 0 0 oklch(82.35% 0.1191 348.14 / 52.89%)',
     },
   ],
 })
