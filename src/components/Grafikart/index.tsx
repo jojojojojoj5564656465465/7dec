@@ -17,7 +17,7 @@ type CardProps = {
   Link: string
 }
 
-
+ /** MARK: Card */
 const Card = component$<CardProps>((props) => {
   return (
     <div class={card.wapperCard}>
@@ -25,7 +25,7 @@ const Card = component$<CardProps>((props) => {
         <img src={props.Image} alt={props.Category} />
       </div>
       <p class={card.Title}>{props.Category}</p>
-      <p class={card.price}>{props.Price} €</p>
+      <p class={card.price}>{props.Price}</p>
       <div class={card.Btn}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +47,8 @@ const Card = component$<CardProps>((props) => {
   )
 })
 
-const Cards = component$(() => {
+ /** MARK: Cards */
+export default component$(() => {
   const wrapperRef = useSignal<HTMLDivElement>()
 
   type Wrapper = {
@@ -90,7 +91,7 @@ const Cards = component$(() => {
       direction === 'RIGHT' ? wrapper.clientWidth : -wrapper.clientWidth
 
     wrapperRef.value?.scrollBy({
-      left: scrollLeft,
+      left: scrollLeft ?? 150,
       behavior: 'smooth'
     })
   })
@@ -125,4 +126,3 @@ const Cards = component$(() => {
     </>
   )
 })
-export default Cards
