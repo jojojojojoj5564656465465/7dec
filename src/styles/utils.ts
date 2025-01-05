@@ -1,27 +1,10 @@
 import * as v from 'valibot'
+import { style } from '@vanilla-extract/css'
 
-export function hoverfn(x: string) {
-  return {
-    '(hover: hover)': {
-      selectors: {
-        '&:hover': {
-          backgroundColor: x,
-        },
-      },
-    },
-    'screen and (max-width: 940px)': {
-      selectors: {
-        '&:active': {
-          backgroundColor: x,
-        },
-        '&:focus': {
-          outline: `4px solid ${x}`,
-          outlineOffset: '1px',
-        },
-      },
-    },
-  }
-}
+
+
+
+export const bgg = (x:string)=>style({backgroundColor:x})
 
 /**
  * @interface FluidTypeOptions

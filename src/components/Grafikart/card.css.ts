@@ -1,4 +1,5 @@
-import { media, theme } from '@/styles/ThemeContract.css'
+
+import { media, theme,hover } from '@/styles/ThemeContract.css'
 import { assignVars, createThemeContract, style } from '@vanilla-extract/css'
 export const vars = createThemeContract({
   space: {
@@ -6,6 +7,8 @@ export const vars = createThemeContract({
     gap: null,
   },
 })
+
+
 
 export const responsiveTheme = style({
   vars: assignVars(vars, {
@@ -74,11 +77,6 @@ export const ColorTheme = style({
   },
 })
 
-
-
-
-
-
 export const wapperCard = style([
   {
     display: 'flex',
@@ -105,6 +103,7 @@ export const wapperCard = style([
     },
   },
   ColorTheme,
+
 ])
 
 export const Btn = style({
@@ -137,7 +136,7 @@ export const Btn = style({
   },
 })
 
-export const price = style({
+export const price = style([{
   WebkitBoxOrient: 'vertical',
   overflow: 'hidden',
   display: 'block',
@@ -155,7 +154,7 @@ export const price = style({
   '::after': {
     content: '€',
   },
-})
+}])
 
 export const ImageContainer = style({
   width: '100%',

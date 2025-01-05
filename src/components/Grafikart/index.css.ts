@@ -1,5 +1,6 @@
 import { container } from '@/styles/global/main.css'
-import { theme, media } from '@theme'
+import { theme, media,hover } from '@theme'
+import { bgg } from 'src/styles/utils.ts'
 import {
   assignVars,
   createThemeContract,
@@ -55,9 +56,9 @@ export const bgImage = createVar()
 export const CardStyle = {
   wrapper: style([
     {
-     display:"block",
+      display: 'block',
 
-     // display: 'inline flex',
+      // display: 'inline flex',
       padding: '1rem',
       borderRadius: '0.5rem',
       backgroundColor: 'orange',
@@ -68,7 +69,7 @@ export const CardStyle = {
       scrollSnapAlign: 'start',
       //maxInlineSize: 304,
       blockSize: 304,
-       minInlineSize: 220,
+      minInlineSize: 220,
       maxInlineSize: `calc((100% - (${vars.space.items} - 1) * ${vars.space.gap}) / ${vars.space.items})`,
       '@media': {
         [media.lg]: {
@@ -76,6 +77,7 @@ export const CardStyle = {
         },
       },
     },
+ 
   ]),
   image: style({
     content: '',
@@ -123,7 +125,7 @@ export const CardsStyle = style([
   },
   responsiveTheme,
   container.small,
-  style({ backgroundColor: 'orange' }),
+ // bgg("orange"),
 ])
 const baseButton = style({
   marginTop: '4.5rem',
@@ -140,6 +142,7 @@ const baseButton = style({
 export const button = styleVariants({
   available: [
     baseButton,
+    hover({ backgroundColor: '#004445', color: '#f8b400' }),
     {
       cursor: 'pointer',
       background: theme.color.green,
