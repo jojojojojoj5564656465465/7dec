@@ -60,3 +60,34 @@ export const hover = (props: hoverProps) => {
     },
   })
 }
+	
+
+
+export function flex(
+  direction: 'row' | 'column',
+  flexNumber: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
+) {
+  type PositionProps = Readonly<'start' | 'center' | 'end'>
+  const positions = {
+    1: ['start', 'start'],
+    2: ['center', 'start'],
+    3: ['end', 'start'],
+    4: ['start', 'center'],
+    5: ['center', 'center'],
+    6: ['end', 'center'],
+    7: ['start', 'end'],
+    8: ['center', 'end'],
+    9: ['end', 'end'],
+  } as const satisfies Record<
+    typeof flexNumber,
+    readonly [PositionProps, PositionProps]
+  >
+  const [justify, align] = positions[flexNumber]
+  return style({
+    display: 'flex',
+    flexDirection: direction,
+    justifyContent: justify,
+    alignItems: align,
+  })
+}
+
