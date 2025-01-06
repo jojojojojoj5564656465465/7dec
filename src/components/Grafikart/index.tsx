@@ -24,7 +24,7 @@ type CardProps = {
   Link: string
 }
 
- /** MARK: Card */
+/** MARK: Card */
 const Card = component$<CardProps>((props) => {
   return (
     <div class={card.wapperCard}>
@@ -54,7 +54,7 @@ const Card = component$<CardProps>((props) => {
   )
 })
 
- /** MARK: Cards */
+/** MARK: Cards */
 export default component$(() => {
   const wrapperRef = useSignal<HTMLDivElement>()
 

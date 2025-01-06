@@ -9,6 +9,7 @@ import {
   styleVariants,
   keyframes,
 } from '@vanilla-extract/css'
+import { backgroundImage } from '../hero/Exemples/Exemple.css'
 
 
 export const vars = createThemeContract({
@@ -53,8 +54,8 @@ export const responsiveTheme = style({
   },
 })
 
-export const bgImage = createVar()
-export const CardStyle = {
+ const bgImage = createVar()
+const CardStyle = {
   wrapper: style([
     {
       display: 'block',
@@ -78,7 +79,6 @@ export const CardStyle = {
         },
       },
     },
- 
   ]),
   image: style({
     content: '',
@@ -89,22 +89,31 @@ export const CardStyle = {
     borderRadius: theme.radius[100],
     aspectRatio: '16 / 9',
   }),
-  category: style({
-    fontSize: '1.5rem',
-    fontWeight: 'bold',
-    color: 'black',
-    display: 'block',
-  }),
-  price: style({
-    fontSize: '1.5rem',
-    color: theme.color.azure,
-    display: 'block',
-  }),
 }
-export const CardsStyle = style([
+
+
+
+export const sectionWrapperCardButtons = style([
+  container.large,
   {
+    backgroundColor: 'pink',
+    display: ['inline', 'flex', 'grid'],
+    marginInline: 'auto',
+    '@supports': {
+      '(display: grid)': {
+        display: 'grid',
+        gridTemplateColumns: 'max-content 1fr max-content',
+        justifyContent: 'center',
+      },
+    },
+  },
+])
+
+ export const CardsStyle = style([
+  {
+
     overflowBlock: 'hidden',
-    display: 'flex',
+    display: ['inline', 'flex'],
     gap: vars.space.gap,
     flexWrap: 'nowrap',
     padding: `calc(${vars.space.gap} * 0.5)`,
@@ -126,14 +135,18 @@ export const CardsStyle = style([
   },
   responsiveTheme,
   container.small,
-
 ])
+
 const baseButton = style({
-  marginTop: '4.5rem',
+  marginBlock: 'auto',
+  display:["flex","grid"],
+  placeItems:"center",
+  alignContent:"center",
   color: theme.color.black,
-  padding: '1rem',
+  padding: '1rem 2rem',
   borderRadius: '1.5rem',
   fontSize: '1.5rem',
+  maxHeight:"60px",
   '@media': {
     'only screen and (max-width: 1000px) and (pointer: coarse)': {
       display: 'none',
