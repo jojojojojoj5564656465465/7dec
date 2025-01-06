@@ -7,9 +7,16 @@ import {
   useOnWindow,
   useComputed$
 } from '@builder.io/qwik'
-import { CardStyle, bgImage, CardsStyle, button } from './index.css.ts'
+import {
+  
+  CardsStyle,
+  
+  button,
+  sectionWrapperCardButtons
+} from './index.css.ts'
 import { assignInlineVars } from '@vanilla-extract/dynamic'
 import * as card from './card.css.ts'
+
 type CardProps = {
   Category: string
   Image: string
@@ -17,7 +24,7 @@ type CardProps = {
   Link: string
 }
 
- /** MARK: Card */
+/** MARK: Card */
 const Card = component$<CardProps>((props) => {
   return (
     <div class={card.wapperCard}>
@@ -47,7 +54,7 @@ const Card = component$<CardProps>((props) => {
   )
 })
 
- /** MARK: Cards */
+/** MARK: Cards */
 export default component$(() => {
   const wrapperRef = useSignal<HTMLDivElement>()
 
@@ -98,9 +105,15 @@ export default component$(() => {
 
   return (
     <>
-      <section class="mx-auto grid gap-1">
+      <section class={sectionWrapperCardButtons}>
+        <span
+          class={buttonState.prev.value ? button.available : button.disable}
+          onClick$={$(() => move('LEFT'))}>
+          ← Prev
+        </span>
+
         <div class={CardsStyle} ref={wrapperRef}>
-          {Array.from({ length: 100 }, (_, i) => {
+          {Array.from({ length: 10 }, (_, i) => {
             return (
               <Card
                 key={`Cards exemple n°${i}`}
@@ -112,11 +125,6 @@ export default component$(() => {
             )
           })}
         </div>
-        <span
-          class={buttonState.prev.value ? button.available : button.disable}
-          onClick$={$(() => move('LEFT'))}>
-          ← Prev
-        </span>
         <span
           class={buttonState.next.value ? button.available : button.disable}
           onClick$={[initSize, $(() => move('RIGHT'))]}>
