@@ -11,12 +11,18 @@ import {
   type QRL,
   useStylesScoped$
 } from '@builder.io/qwik'
+<<<<<<< Updated upstream
 import { CardsStyle, button, sectionWrapperCardButtons } from './index.css.ts'
 import { assignInlineVars } from '@vanilla-extract/dynamic'
 import * as card from './card.css.ts'
 import { flex } from '@/styles/ThemeContract.css.ts'
 import { style } from '@vanilla-extract/css'
 
+=======
+import { CardStyle, bgImage, CardsStyle, button } from './index.css.ts'
+import { assignInlineVars } from '@vanilla-extract/dynamic'
+import * as card from './card.css.ts'
+>>>>>>> Stashed changes
 type CardProps = {
   Category: string
   Image: string
@@ -24,7 +30,7 @@ type CardProps = {
   Link: string
 }
 
-/** MARK: Card */
+ /** MARK: Card */
 const Card = component$<CardProps>((props) => {
   return (
     <div class={card.wapperCard}>
@@ -54,7 +60,7 @@ const Card = component$<CardProps>((props) => {
   )
 })
 
-/** MARK: Cards */
+ /** MARK: Cards */
 export default component$(() => {
   const wrapperRef = useSignal<HTMLDivElement>()
 
@@ -98,13 +104,14 @@ export default component$(() => {
       direction === 'RIGHT' ? wrapper.clientWidth : -wrapper.clientWidth
 
     wrapperRef.value?.scrollBy({
-      left: scrollLeft ?? 150,
+      left: scrollLeft ?? 250,
       behavior: 'smooth'
     })
   })
 
   return (
     <>
+<<<<<<< Updated upstream
       <section class={sectionWrapperCardButtons}>
         <button
           type="button"
@@ -112,8 +119,11 @@ export default component$(() => {
           onClick$={$(() => move('LEFT'))}>
           ← Prev
         </button>
+=======
+      <section class="mx-auto grid gap-1">
+>>>>>>> Stashed changes
         <div class={CardsStyle} ref={wrapperRef}>
-          {Array.from({ length: 10 }, (_, i) => {
+          {Array.from({ length: 20 }, (_, i) => {
             return (
               <Card
                 key={`Cards exemple n°${i}`}
@@ -125,8 +135,17 @@ export default component$(() => {
             )
           })}
         </div>
+<<<<<<< Updated upstream
         <button
           type="button"
+=======
+        <span
+          class={buttonState.prev.value ? button.available : button.disable}
+          onClick$={$(() => move('LEFT'))}>
+          ← Prev
+        </span>
+        <span
+>>>>>>> Stashed changes
           class={buttonState.next.value ? button.available : button.disable}
           onClick$={[initSize, $(() => move('RIGHT'))]}>
           Next →
