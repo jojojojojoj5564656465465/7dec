@@ -13,14 +13,16 @@ export const theme = createThemeContract({
 })
 export const media = {
   mobile: {
-    portrait: 'screen and (orientation: portrait) and (max-width: 26.875em)',
-    landscape: 'screen and (orientation: landscape) and (max-height: 26.875em)',
+    portrait:
+      'screen and (orientation: portrait) and (max-width: 26.875em) and (pointer: coarse)',
+    landscape:
+      'screen and (orientation: landscape) and (max-height: 26.875em) and (pointer: coarse)',
   },
   tablet: {
     portrait:
-      'screen and (orientation: portrait) and (27em <= width <= 52.02em)',
+      'screen and (orientation: portrait) and (27em <= width <= 52.02em) and (pointer: coarse)',
     landscape:
-      'screen and (orientation: landscape) and (27em <= height <= 51em)',
+      'screen and (orientation: landscape) and (27em <= height <= 51em) and (pointer: coarse)',
   },
   md: 'screen and (hover: hover) and (min-width: 51em)',
   lg: 'screen and (min-width: 64em)',

@@ -7,6 +7,7 @@ import {
   createVar,
   style,
   styleVariants,
+  keyframes,
 } from '@vanilla-extract/css'
 
 
@@ -139,6 +140,12 @@ const baseButton = style({
     },
   },
 })
+const greenAnimation = keyframes({
+  '0%': { boxShadow: '0 0.1px 0 0 green' },
+  '50%': { boxShadow: '0 1.00px 0 0 oklch(77.06% 0.1723 159.88 / 88.47%)' },
+  '70%': { boxShadow: '0 2.80px 0 0 oklch(77.06% 0.1723 159.88 / 38.47%)' },
+  '100%': { boxShadow: '0 4.00px 0 0 oklch(77.06% 0.1723 159.88 / 20.47%)' },
+})
 export const button = styleVariants({
   available: [
     baseButton,
@@ -151,6 +158,11 @@ export const button = styleVariants({
       background: theme.color.green,
       color: theme.color.black,
       border: '2px solid green',
+      ':hover': {
+        animationName: greenAnimation,
+        animationDuration: '1s',
+        animationTimingFunction:"ease"
+      },
     },
   ],
   disable: [
@@ -158,7 +170,8 @@ export const button = styleVariants({
     {
       background: 'oklch(89.76% 0.0031 34 / 85.4%)',
       color: theme.color.red,
-      cursor: 'none',
+      cursor: 'not-allowed',
+      pointerEvents: 'none',
       border: `1.5px solid ${theme.color.red}`,
       boxShadow: '0 1.51px 0 0 oklch(82.35% 0.1191 348.14 / 52.89%)',
     },

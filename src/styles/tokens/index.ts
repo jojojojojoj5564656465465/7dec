@@ -7,7 +7,7 @@ import { spaces, radii, sizes } from './size/index.ts'
  * 
  * ! This file is auto generated !
  */
-const tokens = {
+export default  {
  // colors,  
   fontSizes,
   fontFamilies,
@@ -15,4 +15,4 @@ const tokens = {
   spaces,
   radii
 }
-export default tokens
+

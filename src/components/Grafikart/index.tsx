@@ -103,7 +103,7 @@ export default component$(() => {
           {Array.from({ length: 100 }, (_, i) => {
             return (
               <Card
-                key={i}
+                key={`Cards exemple n°${i}`}
                 Category={`${i}`}
                 Link="/"
                 Price={wrapper.clientWidth}
