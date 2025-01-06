@@ -5,17 +5,17 @@ import {
   useSignal,
   useStore,
   useOnWindow,
-  useComputed$
+  useComputed$,
+  Slot,
+  useOn,
+  type QRL,
+  useStylesScoped$
 } from '@builder.io/qwik'
-import {
-  
-  CardsStyle,
-  
-  button,
-  sectionWrapperCardButtons
-} from './index.css.ts'
+import { CardsStyle, button, sectionWrapperCardButtons } from './index.css.ts'
 import { assignInlineVars } from '@vanilla-extract/dynamic'
 import * as card from './card.css.ts'
+import { flex } from '@/styles/ThemeContract.css.ts'
+import { style } from '@vanilla-extract/css'
 
 type CardProps = {
   Category: string
@@ -88,7 +88,7 @@ export default component$(() => {
       return wrapper.scrollLeft > 8
     }),
     next: useComputed$(() => {
-      return wrapper.scrollWidth >= wrapper.scrollLeft * 1.06
+      return wrapper.scrollLeft <= wrapper.scrollWidth - wrapper.clientWidth
     })
   }
 
@@ -106,12 +106,12 @@ export default component$(() => {
   return (
     <>
       <section class={sectionWrapperCardButtons}>
-        <span
+        <button
+          type="button"
           class={buttonState.prev.value ? button.available : button.disable}
           onClick$={$(() => move('LEFT'))}>
           ← Prev
-        </span>
-
+        </button>
         <div class={CardsStyle} ref={wrapperRef}>
           {Array.from({ length: 10 }, (_, i) => {
             return (
@@ -125,11 +125,12 @@ export default component$(() => {
             )
           })}
         </div>
-        <span
+        <button
+          type="button"
           class={buttonState.next.value ? button.available : button.disable}
           onClick$={[initSize, $(() => move('RIGHT'))]}>
           Next →
-        </span>
+        </button>
       </section>
     </>
   )

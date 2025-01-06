@@ -1,5 +1,5 @@
 import { container } from '@/styles/global/main.css'
-import { theme, media,hover } from '@theme'
+import { theme, media, hover, flex } from '@theme'
 import { bgg } from 'src/styles/utils.ts'
 import {
   assignVars,
@@ -138,6 +138,7 @@ export const sectionWrapperCardButtons = style([
 ])
 
 const baseButton = style({
+  all:"unset",
   marginBlock: 'auto',
   display:["flex","grid"],
   placeItems:"center",
@@ -164,7 +165,7 @@ export const button = styleVariants({
     baseButton,
     hover({
       backgroundColor: 'oklch(44.79% 0.1347 153.85 / 26.49%)',
-      color: 'oklch(70% 0.1575 160.2)',
+      color: 'oklch(56% 0.2322 324)',
     }),
     {
       cursor: 'pointer',
@@ -174,7 +175,7 @@ export const button = styleVariants({
       ':hover': {
         animationName: greenAnimation,
         animationDuration: '1s',
-        animationTimingFunction:"ease"
+        animationTimingFunction: 'ease',
       },
     },
   ],

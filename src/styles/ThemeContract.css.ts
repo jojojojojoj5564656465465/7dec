@@ -43,12 +43,12 @@ export const hover = (props: hoverProps) => {
   return style({
     ':active': {
       backgroundColor: props.backgroundColor,
-      color: props.color ?? 'inherit',
+      color:  'inherit',
     },
     ':focus': {
       outline: `4px solid ${props.backgroundColor}`,
       outlineOffset: '1px',
-      color: props.color ?? 'inherit',
+      color: 'inherit',
     },
     '@media': {
       [media.md]: {
@@ -84,7 +84,7 @@ export function flex(
   >
   const [justify, align] = positions[flexNumber]
   return style({
-    display: 'flex',
+    display: 'block flex',
     flexDirection: direction,
     justifyContent: justify,
     alignItems: align,
