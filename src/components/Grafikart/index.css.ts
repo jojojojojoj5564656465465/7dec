@@ -1,9 +1,5 @@
 import { container } from '@/styles/global/main.css'
-<<<<<<< Updated upstream
 import { theme, media, hover, flex } from '@theme'
-=======
-import { theme, media,hover,flex } from '@theme'
->>>>>>> Stashed changes
 import { bgg } from 'src/styles/utils.ts'
 import {
   assignVars,
@@ -134,15 +130,11 @@ export const CardsStyle = style([
 
 ])
 const baseButton = style({
-<<<<<<< Updated upstream
   all:"unset",
   marginBlock: 'auto',
   display:["flex","grid"],
   placeItems:"center",
   alignContent:"center",
-=======
-  marginTop: '4.5rem',
->>>>>>> Stashed changes
   color: theme.color.black,
   padding: '1rem',
   borderRadius: '1.5rem',
