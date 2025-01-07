@@ -73,25 +73,25 @@ export default component$(() => {
     if (!wrapperRef.value) return
     wrapper.clientWidth = wrapperRef.value?.clientWidth
     wrapper.scrollWidth = wrapperRef.value?.scrollWidth
+    wrapper.scrollLeft = wrapperRef.value?.scrollLeft ?? 0
   })
   useOnWindow('resize', initSize)
   useOnDocument(
     'scrollend',
     $(() => {
       if (!wrapperRef.value) {
-        return initSize()
+        $(() => initSize)
       }
-      wrapper.scrollLeft = wrapperRef.value?.scrollLeft
+      wrapper.scrollLeft = wrapperRef.value?.scrollLeft ?? 0
     })
   )
-
 
   const buttonState = {
     prev: useComputed$(() => {
       return wrapper.scrollLeft > 8
     }),
     next: useComputed$(() => {
-      return wrapper.scrollLeft <= wrapper.scrollWidth - wrapper.clientWidth
+      return wrapper.scrollLeft + 10 < wrapper.scrollWidth - wrapper.clientWidth
     })
   }
 
@@ -119,9 +119,8 @@ export default component$(() => {
           {Array.from({ length: 20 }, (_, i) => {
             return (
               <Card
-                key={`Cards exemple n°${// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-i}`}
-                Category={`${i}`}
+                key={`Cards exemple n°${i}`}
+                Category={`${i} ${wrapper.scrollLeft} ${wrapper.scrollWidth}`}
                 Link="/"
                 Price={wrapper.clientWidth}
                 Image="/nasa-rTZW4f02zY8-unsplash.jpg"
