@@ -11,18 +11,12 @@ import {
   type QRL,
   useStylesScoped$
 } from '@builder.io/qwik'
-<<<<<<< Updated upstream
 import { CardsStyle, button, sectionWrapperCardButtons } from './index.css.ts'
 import { assignInlineVars } from '@vanilla-extract/dynamic'
 import * as card from './card.css.ts'
 import { flex } from '@/styles/ThemeContract.css.ts'
 import { style } from '@vanilla-extract/css'
 
-=======
-import { CardStyle, bgImage, CardsStyle, button } from './index.css.ts'
-import { assignInlineVars } from '@vanilla-extract/dynamic'
-import * as card from './card.css.ts'
->>>>>>> Stashed changes
 type CardProps = {
   Category: string
   Image: string
@@ -114,7 +108,6 @@ export default component$(() => {
 
   return (
     <>
-<<<<<<< Updated upstream
       <section class={sectionWrapperCardButtons}>
         <button
           type="button"
@@ -122,9 +115,6 @@ export default component$(() => {
           onClick$={$(() => move('LEFT'))}>
           ← Prev
         </button>
-=======
-      <section class="mx-auto grid gap-1">
->>>>>>> Stashed changes
         <div class={CardsStyle} ref={wrapperRef}>
           {Array.from({ length: 20 }, (_, i) => {
             return (
@@ -139,17 +129,8 @@ i}`}
             )
           })}
         </div>
-<<<<<<< Updated upstream
         <button
           type="button"
-=======
-        <span
-          class={buttonState.prev.value ? button.available : button.disable}
-          onClick$={$(() => move('LEFT'))}>
-          ← Prev
-        </span>
-        <span
->>>>>>> Stashed changes
           class={buttonState.next.value ? button.available : button.disable}
           onClick$={[initSize, $(() => move('RIGHT'))]}>
           Next →

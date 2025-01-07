@@ -52,6 +52,21 @@ export const responsiveTheme = style({
     },
   },
 })
+export const sectionWrapperCardButtons = style([
+  container.large,
+  {
+    backgroundColor: 'pink',
+    display: ['inline', 'flex', 'grid'],
+    marginInline: 'auto',
+    '@supports': {
+      '(display: grid)': {
+        display: 'grid',
+        gridTemplateColumns: 'max-content 1fr max-content',
+        justifyContent: 'center',
+      },
+    },
+  },
+])
 
 export const bgImage = createVar()
 export const CardStyle = {
