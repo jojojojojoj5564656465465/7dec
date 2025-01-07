@@ -119,7 +119,7 @@ export const CardStyle = {
 export const CardsStyle = style([
   {
     overflowBlock: 'hidden',
-    
+    display: 'block flex',
     gap: vars.space.gap,
     flexWrap: 'nowrap',
     padding: `calc(${vars.space.gap} * 0.5)`,
