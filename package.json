@@ -22,7 +22,7 @@
     "bun-types": "^1.1.42",
     "lightningcss": "^1.28.2",
     "typescript": "^5.7.2",
-    "valibot": "^1.0.0-beta.10"
+    "valibot": "^0.42.1"
   },
   "devDependencies": {
     "@unocss/preset-wind": "^0.65.3",
