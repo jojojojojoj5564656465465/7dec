@@ -156,16 +156,7 @@ export const price = style([{
   },
 }])
 
-export const ImageContainer = style({
-  width: '100%',
-  height: '64%',
-  borderRadius: '10px',
-  marginBottom: '12px',
-  overflow: 'hidden',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-})
+
 
 export const Title = style({
   margin: '0',
@@ -198,3 +189,33 @@ export const BtnText = style({
     },
   },
 })
+
+
+
+
+export const imageHoverContract = createThemeContract({
+  image:null,
+  gif:null,
+})
+export const ImageContainer = style([
+  {
+    width: '100%',
+    height: '64%',
+    borderRadius: '10px',
+    marginBottom: '12px',
+    overflow: 'hidden',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundSize:'cover',
+  },
+
+])
+    export const hoverImg = style([ImageContainer,
+      {
+        backgroundImage: imageHoverContract.image,
+        ':hover': {
+          backgroundImage: imageHoverContract.gif,
+        },
+      },
+    ])

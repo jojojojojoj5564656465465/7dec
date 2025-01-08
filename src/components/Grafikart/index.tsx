@@ -14,23 +14,34 @@ import {
 import { CardsStyle, button, sectionWrapperCardButtons } from './index.css.ts'
 import { assignInlineVars } from '@vanilla-extract/dynamic'
 import * as card from './card.css.ts'
-import { flex } from '@/styles/ThemeContract.css.ts'
-import { style } from '@vanilla-extract/css'
+
 
 type CardProps = {
   Category: string
   Image: string
+  Gif?: string
   Price: number
   Link: string
 }
 
- /** MARK: Card */
+/** MARK: Card
+ * @param {CardProps} props - The props for the Card component.
+ * @param {string} props.Category - The category of the product.
+ * @param {string} props.Image - The URL of the product image.
+ * @param {number} props.Price - The price of the product.
+ * @param {string} props.Link - The URL link to the product details.
+ * @returns {JSX.Element} The rendered Card component.
+ */
 const Card = component$<CardProps>((props) => {
   return (
-    <div class={card.wapperCard}>
-      <div class={card.ImageContainer}>
-        <img src={props.Image} alt={props.Category} />
-      </div>
+    <section class={card.wapperCard}>
+      {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
+      <div
+        class={card.hoverImg}
+        style={assignInlineVars(card.imageHoverContract, {
+          gif: `url(${props.Gif})` || `url(${props.Image})`,
+          image: `url(${props.Image})`
+        })}></div>
       <p class={card.Title}>{props.Category}</p>
       <p class={card.price}>{props.Price}</p>
       <div class={card.Btn}>
@@ -50,11 +61,11 @@ const Card = component$<CardProps>((props) => {
         </svg>
         <span class={card.BtnText}>Voir la Visite</span>
       </div>
-    </div>
+    </section>
   )
 })
 
- /** MARK: Cards */
+/** MARK: Cards */
 export default component$(() => {
   const wrapperRef = useSignal<HTMLDivElement>()
 
@@ -68,16 +79,6 @@ export default component$(() => {
     scrollLeft: 0,
     scrollWidth: 3000
   })
-
-  const initSize = $(() => {
-    if (!wrapperRef.value) return
-    wrapper.clientWidth = wrapperRef.value?.clientWidth
-    wrapper.scrollWidth = wrapperRef.value?.scrollWidth
-    wrapper.scrollLeft = wrapperRef.value?.scrollLeft ?? 0
-  })
-  useOnWindow('resize', initSize)
-  useOnDocument('scrollend', initSize)
-
   const buttonState = {
     prev: useComputed$(() => {
       return wrapper.scrollLeft > 8
@@ -87,6 +88,15 @@ export default component$(() => {
     })
   }
 
+  /** MARK: FUNCTIONS
+   *
+   */
+  const initSize = $(() => {
+    if (!wrapperRef.value) return
+    wrapper.clientWidth = wrapperRef.value?.clientWidth
+    wrapper.scrollWidth = wrapperRef.value?.scrollWidth
+    wrapper.scrollLeft = wrapperRef.value?.scrollLeft ?? 0
+  })
   const move = $((direction: 'LEFT' | 'RIGHT') => {
     if (!wrapperRef.value) return
     initSize()
@@ -99,6 +109,23 @@ export default component$(() => {
     })
   })
 
+  /** MARK: Event LISTNER
+   *
+   */
+  useOnWindow('resize', initSize)
+  useOnDocument('scrollend', initSize)
+
+  useOn(
+    'keydown',
+    $((event) => {
+      if (event.key === 'ArrowRight') {
+        move('RIGHT')
+      } else if (event.key === 'ArrowLeft') {
+        move('LEFT')
+      }
+      return
+    })
+  )
   return (
     <>
       <section class={sectionWrapperCardButtons}>
@@ -116,7 +143,8 @@ export default component$(() => {
                 Category={`${i} ${wrapper.scrollLeft} ${wrapper.scrollWidth}`}
                 Link="/"
                 Price={wrapper.clientWidth}
-                Image="/nasa-rTZW4f02zY8-unsplash.jpg"
+                Image="public/nasa-rTZW4f02zY8-unsplash.jpg"
+                Gif="public/giphy.webp"
               />
             )
           })}
