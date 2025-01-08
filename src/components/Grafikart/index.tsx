@@ -66,7 +66,7 @@ export default component$(() => {
   const wrapper = useStore<Wrapper>({
     clientWidth: 500,
     scrollLeft: 0,
-    scrollWidth: 300
+    scrollWidth: 3000
   })
 
   const initSize = $(() => {
@@ -76,15 +76,7 @@ export default component$(() => {
     wrapper.scrollLeft = wrapperRef.value?.scrollLeft ?? 0
   })
   useOnWindow('resize', initSize)
-  useOnDocument(
-    'scrollend',
-    $(() => {
-      if (!wrapperRef.value) {
-        $(() => initSize)
-      }
-      wrapper.scrollLeft = wrapperRef.value?.scrollLeft ?? 0
-    })
-  )
+  useOnDocument('scrollend', initSize)
 
   const buttonState = {
     prev: useComputed$(() => {
@@ -97,11 +89,12 @@ export default component$(() => {
 
   const move = $((direction: 'LEFT' | 'RIGHT') => {
     if (!wrapperRef.value) return
-    const scrollLeft =
+    initSize()
+    const scrollLength =
       direction === 'RIGHT' ? wrapper.clientWidth : -wrapper.clientWidth
 
     wrapperRef.value?.scrollBy({
-      left: scrollLeft ?? 250,
+      left: scrollLength ?? 250,
       behavior: 'smooth'
     })
   })
@@ -131,7 +124,7 @@ export default component$(() => {
         <button
           type="button"
           class={buttonState.next.value ? button.available : button.disable}
-          onClick$={[initSize, $(() => move('RIGHT'))]}>
+          onClick$={$(() => move('RIGHT'))}>
           Next →
         </button>
       </section>

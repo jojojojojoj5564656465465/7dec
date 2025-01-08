@@ -53,8 +53,11 @@ export const responsiveTheme = style({
   },
 })
 export const sectionWrapperCardButtons = style([
-  // container.large,
+  container.large,
   {
+    scrollbarWidth: 'thin',
+    scrollbarGutter: 'stable',
+    scrollbarColor: `${theme.color.azure} transparent`,
     backgroundColor: 'pink',
     display: ['inline', 'flex', 'grid'],
     marginInline: 'auto',
