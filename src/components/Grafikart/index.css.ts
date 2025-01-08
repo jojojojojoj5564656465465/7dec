@@ -71,54 +71,6 @@ export const sectionWrapperCardButtons = style([
   },
 ])
 
-export const bgImage = createVar()
-export const CardStyle = {
-  wrapper: style([
-    {
-      display: 'block',
-
-      // display: 'inline flex',
-      padding: '1rem',
-      borderRadius: '0.5rem',
-      backgroundColor: 'orange',
-      color: theme.color.white,
-      textDecoration: 'none',
-      border: `1.5px solid ${theme.color.green}`,
-
-      scrollSnapAlign: 'start',
-      //maxInlineSize: 304,
-      blockSize: 304,
-      minInlineSize: 220,
-      maxInlineSize: `calc((100% - (${vars.space.items} - 1) * ${vars.space.gap}) / ${vars.space.items})`,
-      '@media': {
-        [media.lg]: {
-          scrollSnapAlign: 'center', ///bad media qr
-        },
-      },
-    },
- 
-  ]),
-  image: style({
-    content: '',
-    width: 256,
-    backgroundImage: bgImage,
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat',
-    borderRadius: theme.radius[100],
-    aspectRatio: '16 / 9',
-  }),
-  category: style({
-    fontSize: '1.5rem',
-    fontWeight: 'bold',
-    color: 'black',
-    display: 'block',
-  }),
-  price: style({
-    fontSize: '1.5rem',
-    color: theme.color.azure,
-    display: 'block',
-  }),
-}
 export const CardsStyle = style([
   {
     overflowBlock: 'hidden',
@@ -130,7 +82,7 @@ export const CardsStyle = style([
     border: `1.5px solid ${theme.color.azure}`,
     overflowX: 'auto',
     scrollSnapType: 'x proximity',
-    scrollSnapAlign: 'start',
+    scrollSnapAlign: 'center',
     scrollPaddingInline: 0,
     '@media': {
       [media.lg]: {
@@ -147,6 +99,10 @@ export const CardsStyle = style([
 
 
 ])
+
+/** MARK: BUTTON
+ * 
+ */
 const baseButton = style({
   all:"unset",
   marginBlock: 'auto',

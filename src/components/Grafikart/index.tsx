@@ -6,7 +6,7 @@ import {
   useStore,
   useOnWindow,
   useComputed$,
-  Slot,
+
   useOn,
   type QRL,
   useStylesScoped$
@@ -41,7 +41,8 @@ const Card = component$<CardProps>((props) => {
         style={assignInlineVars(card.imageHoverContract, {
           gif: `url(${props.Gif})` || `url(${props.Image})`,
           image: `url(${props.Image})`
-        })}></div>
+        })}
+        ></div>
       <p class={card.Title}>{props.Category}</p>
       <p class={card.price}>{props.Price}</p>
       <div class={card.Btn}>
@@ -65,7 +66,7 @@ const Card = component$<CardProps>((props) => {
   )
 })
 
-/** MARK: Cards */
+/** MARK: Cards wrapper */
 export default component$(() => {
   const wrapperRef = useSignal<HTMLDivElement>()
 
@@ -87,6 +88,7 @@ export default component$(() => {
       return wrapper.scrollLeft + 10 < wrapper.scrollWidth - wrapper.clientWidth
     })
   }
+
 
   /** MARK: FUNCTIONS
    *
@@ -143,8 +145,8 @@ export default component$(() => {
                 Category={`${i} ${wrapper.scrollLeft} ${wrapper.scrollWidth}`}
                 Link="/"
                 Price={wrapper.clientWidth}
-                Image="public/nasa-rTZW4f02zY8-unsplash.jpg"
-                Gif="public/giphy.webp"
+                Image="/images/image-mobile.avif"
+                Gif="/images/giphy.webp"
               />
             )
           })}

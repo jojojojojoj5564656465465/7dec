@@ -1,6 +1,11 @@
 
 import { media, theme,hover } from '@/styles/ThemeContract.css'
 import { assignVars, createThemeContract, style } from '@vanilla-extract/css'
+
+/* =====================================
+=               theme contract         =
+===================================== */
+
 export const vars = createThemeContract({
   space: {
     items: null,
@@ -134,6 +139,15 @@ export const Btn = style({
     gap: '10px',
     padding: '0',
   },
+  selectors: {
+    [`${wapperCard}:hover > &`]: {
+      opacity: '1',
+      fontSize: '15px',
+      width: '100%',
+      height: '30px',
+      gap: '10px',
+    },
+  },
 })
 
 export const price = style([{
@@ -187,6 +201,11 @@ export const BtnText = style({
       opacity: '1',
       fontSize: '15px',
     },
+
+    [`${wapperCard}:hover > &`]: {
+      opacity: '1',
+      fontSize: '15px',
+    },
   },
 })
 
@@ -207,15 +226,20 @@ export const ImageContainer = style([
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundSize:'cover',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat',
+    //aspectRatio: '16 / 9',
   },
-
 ])
-    export const hoverImg = style([ImageContainer,
+    export const hoverImg = style([
+      ImageContainer,
       {
         backgroundImage: imageHoverContract.image,
-        ':hover': {
-          backgroundImage: imageHoverContract.gif,
+
+        selectors: {
+          [`${wapperCard}:hover > &`]: {
+            backgroundImage: imageHoverContract.gif,
+          },
         },
       },
     ])

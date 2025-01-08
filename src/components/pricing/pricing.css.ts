@@ -35,7 +35,7 @@ export const image = style({
   display: 'none',
   '@media': {
     'screen and (hover: hover) and (min-width: 37em)': {
-      backgroundImage: 'url(public/nasa-rTZW4f02zY8-unsplash.jpg)',
+      backgroundImage: 'url(/images/nasa-rTZW4f02zY8-unsplash.jpg)',
       display: 'inline-block',
       maxInlineSize: '100%',
       backgroundSize: 'cover',
