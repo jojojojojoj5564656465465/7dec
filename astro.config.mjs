@@ -16,12 +16,12 @@ export default defineConfig({
     plugins: [
       vanillaExtractPlugin({
         enabled: true,
-        identifiers: 'short'
+       identifiers: 'short'
       })
     ],
     optimizeDeps: {
-      noDiscovery: true,
-      include: [] // Empty array instead of undefined
+     // noDiscovery: true,
+      //include: [] // Empty array instead of undefined
     }
   },
   integrations: [
@@ -30,6 +30,6 @@ export default defineConfig({
     }),
     qwikdev(),
     icon({ iconDir: 'src/assets/icons' }),
-  robotsTxt()
+  //robotsTxt()
   ]
 })

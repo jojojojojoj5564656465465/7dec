@@ -1,5 +1,5 @@
-
-import { media, theme,hover } from '@/styles/ThemeContract.css'
+import { media, theme, hover } from '@/styles/ThemeContract.css'
+import { fluid } from '@/styles/utils'
 import { assignVars, createThemeContract, style } from '@vanilla-extract/css'
 
 /* =====================================
@@ -12,8 +12,6 @@ export const vars = createThemeContract({
     gap: null,
   },
 })
-
-
 
 export const responsiveTheme = style({
   vars: assignVars(vars, {
@@ -55,9 +53,9 @@ export const varsColor = createThemeContract({
     title: null,
     description: null,
     backgroundColor: null,
-    btnColor:null,
-  }
-});
+    btnColor: null,
+  },
+})
 
 export const ColorTheme = style({
   vars: assignVars(varsColor, {
@@ -108,7 +106,6 @@ export const wapperCard = style([
     },
   },
   ColorTheme,
-
 ])
 
 export const Btn = style({
@@ -150,27 +147,27 @@ export const Btn = style({
   },
 })
 
-export const price = style([{
-  WebkitBoxOrient: 'vertical',
-  overflow: 'hidden',
-  display: 'block',
-  WebkitLineClamp: '1',
-  lineClamp: '1',
-  margin: '0',
-  fontSize: '13px',
-  fontFamily:
-    'Lucida Sans , Lucida Sans Regular , Lucida Grande , Lucida Sans Unicode , Geneva , Verdana , sans-serif',
-  color: varsColor.colorCard.description,
-  cursor: 'default',
-  '::before': {
-    content: 'A partir de ',
+export const price = style([
+  {
+    WebkitBoxOrient: 'vertical',
+    overflow: 'hidden',
+    display: 'block',
+    WebkitLineClamp: '1',
+    lineClamp: '1',
+    margin: '0',
+    fontSize: '13px',
+    fontFamily:
+      'Lucida Sans , Lucida Sans Regular , Lucida Grande , Lucida Sans Unicode , Geneva , Verdana , sans-serif',
+    color: varsColor.colorCard.description,
+    cursor: 'default',
+    '::before': {
+      content: 'A partir de ',
+    },
+    '::after': {
+      content: '€',
+    },
   },
-  '::after': {
-    content: '€',
-  },
-}])
-
-
+])
 
 export const Title = style({
   margin: '0',
@@ -188,7 +185,7 @@ export const Title = style({
 })
 
 export const videoIcon = style({
-  fontSize: '40px',
+  fontSize: fluid(40,60),
 })
 
 export const BtnText = style({
@@ -209,14 +206,11 @@ export const BtnText = style({
   },
 })
 
-
-
-
 export const imageHoverContract = createThemeContract({
-  image:null,
-  gif:null,
+  image: null,
+  gif: null,
 })
-export const ImageContainer = style([
+ const ImageContainer = style([
   {
     width: '100%',
     height: '64%',
@@ -231,15 +225,14 @@ export const ImageContainer = style([
     //aspectRatio: '16 / 9',
   },
 ])
-    export const hoverImg = style([
-      ImageContainer,
-      {
-        backgroundImage: imageHoverContract.image,
-
-        selectors: {
-          [`${wapperCard}:hover > &`]: {
-            backgroundImage: imageHoverContract.gif,
-          },
-        },
+export const hoverImg = style([
+  ImageContainer,
+  {
+    backgroundImage: imageHoverContract.image,
+    selectors: {
+      [`${wapperCard}:hover > &`]: {
+        backgroundImage: imageHoverContract.gif,
       },
-    ])
+    },
+  },
+])

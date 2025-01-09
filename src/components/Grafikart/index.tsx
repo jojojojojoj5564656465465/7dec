@@ -11,7 +11,12 @@ import {
   type QRL,
   useStylesScoped$
 } from '@builder.io/qwik'
-import { CardsStyle, button, sectionWrapperCardButtons } from './index.css.ts'
+import {
+  carrouselContainer,
+  button,
+  sectionWrapperCardButtons,
+  buttonPosition
+} from './index.css.ts'
 import { assignInlineVars } from '@vanilla-extract/dynamic'
 import * as card from './card.css.ts'
 
@@ -137,7 +142,7 @@ export default component$(() => {
           onClick$={$(() => move('LEFT'))}>
           ← Prev
         </button>
-        <div class={CardsStyle} ref={wrapperRef}>
+        <div class={carrouselContainer} ref={wrapperRef}>
           {Array.from({ length: 20 }, (_, i) => {
             return (
               <Card
@@ -153,7 +158,10 @@ export default component$(() => {
         </div>
         <button
           type="button"
-          class={buttonState.next.value ? button.available : button.disable}
+          class={[
+            buttonState.next.value ? button.available : button.disable,
+            buttonPosition.previous,
+          ]}
           onClick$={$(() => move('RIGHT'))}>
           Next →
         </button>

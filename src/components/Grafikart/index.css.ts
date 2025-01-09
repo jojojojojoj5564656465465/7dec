@@ -64,14 +64,14 @@ export const sectionWrapperCardButtons = style([
     '@supports': {
       '(display: grid)': {
         display: 'grid',
-        gridTemplateColumns: 'max-content 1fr max-content',
+        gridTemplateColumns: 'max-content min-content 1fr',
         justifyContent: 'center',
       },
     },
   },
 ])
 
-export const CardsStyle = style([
+export const carrouselContainer = style([
   {
     overflowBlock: 'hidden',
     display: 'block flex',
@@ -86,7 +86,7 @@ export const CardsStyle = style([
     scrollPaddingInline: 0,
     '@media': {
       [media.lg]: {
-        //overflow: 'hidden',
+        //overflowX: 'hidden',
         scrollPaddingInline: `calc(${vars.space.gap} * 0.5)`,
         scrollSnapAlign: 'start',
         padding: '1rem',
@@ -155,4 +155,16 @@ export const button = styleVariants({
       boxShadow: '0 1.51px 0 0 oklch(82.35% 0.1191 348.14 / 52.89%)',
     },
   ],
+})
+export const buttonPosition = styleVariants({
+  previous: {
+    justifySelf: 'end',
+    alignSelf: 'end',
+    placeSelf: 'end',
+  },
+  next: {
+    //justifySelf: 'start',
+   // alignSelf: 'start',
+    placeSelf: 'end',
+  },
 })
