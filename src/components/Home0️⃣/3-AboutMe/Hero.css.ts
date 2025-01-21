@@ -30,9 +30,7 @@ globalStyle(`${aboutMeList} li:before`, {
   color: T.color.green,
 })
 
-globalStyleTag(contentHeroSpace,{
-  p:{
-    color:"red",
-    textAlign:"center",
-  }
-})
+
+
+
+

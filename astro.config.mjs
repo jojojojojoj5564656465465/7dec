@@ -12,6 +12,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   //output:'static',
+  server:{
+    watch:{
+      usePolling:true
+    }
+  },
   vite: {
     resolve: {
       alias: {
@@ -22,7 +27,7 @@ export default defineConfig({
       }
     },
     css: {
-      transformer: 'lightningcss'
+     // transformer: 'lightningcss'
     },
     plugins: [
       vanillaExtractPlugin({
@@ -36,9 +41,9 @@ export default defineConfig({
     }
   },
   integrations: [
-    UnoCSS({
-      injectReset: false
-    }),
+    // UnoCSS({
+    //   injectReset: false
+    // }),
     qwikdev(),
     icon({ iconDir: 'src/assets/icons' })
     //robotsTxt()

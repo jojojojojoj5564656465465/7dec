@@ -1,10 +1,22 @@
+import { globalStyle, style, type GlobalStyleRule } from '@vanilla-extract/css'
+
 import {
-  fallbackVar,
-  globalStyle,
-  style,
-  type GlobalStyleRule,
-} from '@vanilla-extract/css'
-import * as v from 'valibot'
+  parser,
+  record,
+  safeParser,
+  string,
+  union,
+  number,
+  transform,
+  partialCheck,
+  object,
+  pipe,
+  description,
+  minValue,
+  maxValue,
+  optional,
+  type InferInput,
+} from 'valibot'
 
 type hoverProps = {
   backgroundColor: string
@@ -17,26 +29,37 @@ type hoverProps = {
  * @param {hoverProps} props
  * @returns {*}
  */
-export const hover = ({ backgroundColor, color }: hoverProps) => {
-  return style({
-    ':active': {
-      backgroundColor,
-      color: 'inherit',
-    },
-    ':focus': {
-      outline: `min(4px, 3px + 0.1vw) solid ${backgroundColor}`,
-      outlineOffset: '1px',
-      color: 'inherit',
-    },
-    '@media': {
-      'screen and (hover: hover) and (min-width: 51em)': {
-        ':hover': {
-          backgroundColor,
-          color: color ?? 'inherit',
+export const hover = (obj: hoverProps) => {
+  const vObjValidatorKeyValues = object({
+    backgroundColor: string(),
+    color: optional(string()),
+  })
+  const parserHover = safeParser(vObjValidatorKeyValues)
+
+  const result = parserHover(obj)
+  if (result.success) {
+    const { backgroundColor, color } = result.output
+
+    return style({
+      ':active': {
+        backgroundColor,
+        color: 'inherit',
+      },
+      ':focus': {
+        outline: `min(4px, 3px + 0.1vw) solid ${backgroundColor}`,
+        outlineOffset: '1px',
+        color: 'inherit',
+      },
+      '@media': {
+        'screen and (hover: hover) and (min-width: 51em)': {
+          ':hover': {
+            backgroundColor,
+            color: color ?? 'inherit',
+          },
         },
       },
-    },
-  })
+    })
+  }
 }
 
 /**
@@ -85,31 +108,31 @@ export function flex(
  * @todo Implement this function.
  */
 export const fluid = (minSize: number, maxSize: number) => {
-  const numberConvertToRem = v.pipe(
-    v.number(),
-    v.maxValue(190),
-    v.minValue(1),
-    v.transform(e => e / 16),
-    v.description('convert to rem px'),
+  const numberConvertToRem = pipe(
+    number(),
+    maxValue(190),
+    minValue(1),
+    transform(e => e / 16),
+    description('convert to rem px'),
   )
-  const fluid = v.pipe(
-    v.object({
+  const fluid = pipe(
+    object({
       minSize: numberConvertToRem,
       maxSize: numberConvertToRem,
     }),
-    v.partialCheck(
+    partialCheck(
       [['minSize'], ['maxSize']],
       input => input.minSize < input.maxSize,
       'maxVwRem is less than minScreenW invert data',
     ),
-    v.transform(obj => {
+    transform(obj => {
       const slope = (obj.maxSize - obj.minSize) / (75 - 20)
       const yAxisIntersection = -20 * slope + obj.minSize
       return `clamp(${obj.minSize}rem, ${yAxisIntersection}rem + ${slope * 100}vw, ${obj.maxSize}rem)`
     }),
   )
-  const parser = v.parser(fluid)
-  return parser({ minSize, maxSize })
+  const parserFluid = parser(fluid)
+  return parserFluid({ minSize, maxSize })
 }
 /**
  * light-dark css
@@ -143,18 +166,18 @@ type HtmlP = Partial<Record<HTMLElements, GlobalStyleRule>>
  * @param obj - Un objet de styles à appliquer aux éléments HTML.
  */
 export const globalStyleTag = (parent: string, obj: HtmlP): void => {
-  const vObj = v.record(
-    v.string(),
-    v.union([v.string(), v.number()]),
+  const vObjValidatorKeyValues = record(
+    string(),
+    union([string(), number()]),
     'Css Object not valid in globalStyleTag',
   )
-  const parser = v.safeParser(vObj)
+  const checkCss = safeParser(vObjValidatorKeyValues)
   for (const [key, value] of Object.entries(obj)) {
-    const result = parser(value)
+    const result = checkCss(value)
     if (result.success) {
       globalStyle(`${parent} ${key}`, {
         '@layer': {
-          base: result.output,
+          custom: result.output,
         },
       })
     }
