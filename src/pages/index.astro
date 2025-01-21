@@ -1,11 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import Hero from '../components/hero/index.astro'
-import Avantages from '../components/hero/Avantages.astro'
-import Pricing from 'src/components/pricing/index.astro'
-import ListBusiness from 'src/components/hero/Exemples/index.astro'
-
-import Carrousel from 'src/components/carrousel/index.tsx'
+import Hero from '../components/Home🇦🇽/1-Hero/index.astro'
+import Engagement from '../components/Home🇦🇽/2-Engagement/Engagement.astro'
+import AboutMe from '../components/Home🇦🇽/3-AboutMe/AboutMe.astro'
+import Avantages from '../components/Home🇦🇽/4- Avantages/Avantages.astro'
+import Pricing from '@/components/Home🇦🇽/5-Pricing/index.astro'
+import Carrousel from '@/components/Home🇦🇽/6-Carrousel/carrousel'
 ---
 
 <Layout>
@@ -13,9 +13,9 @@ import Carrousel from 'src/components/carrousel/index.tsx'
     <button class="text-amber text-3xl border-red border-3">Carrousel</button>
   </a>
   <Hero />
-  <ListBusiness />
+  <Engagement />
+  <AboutMe />
   <Avantages />
   <Pricing />
-
   <Carrousel />
 </Layout>

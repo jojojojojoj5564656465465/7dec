@@ -143,7 +143,11 @@ type HtmlP = Partial<Record<HTMLElements, GlobalStyleRule>>
  * @param obj - Un objet de styles à appliquer aux éléments HTML.
  */
 export const globalStyleTag = (parent: string, obj: HtmlP): void => {
-  const vObj = v.record(v.string(), v.string(), 'An object is required.')
+  const vObj = v.record(
+    v.string(),
+    v.union([v.string(), v.number()]),
+    'Css Object not valid in globalStyleTag',
+  )
   const parser = v.safeParser(vObj)
   for (const [key, value] of Object.entries(obj)) {
     const result = parser(value)
