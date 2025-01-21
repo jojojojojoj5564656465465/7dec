@@ -18,7 +18,7 @@
       "@home/*": ["src/components/home🏠/*"],
       "@styles/*": ["src/styles/*"],
       "@img/*": ["src/assets/img/*"],
-      "@theme": ["src/styles/ThemeContract.css.ts"]
+      "@theme": ["src/styles/utils"]
     }
   }
 }

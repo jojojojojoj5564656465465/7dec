@@ -1,0 +1,1 @@
+import{m as a}from"./q-j6Poc_Mn.js";import{n as o}from"./q-j6Poc_Mn.js";const d=()=>{const[e,i,u,t]=a();t.value&&(i.value===0?t.value.setAttribute("hidden","hidden"):t.value.removeAttribute("hidden")),e.value&&(i.value===u.value-1?e.value.setAttribute("hidden","hidden"):e.value.removeAttribute("hidden"))};export{o as _hW,d as s_1vF5ERhIGqA};

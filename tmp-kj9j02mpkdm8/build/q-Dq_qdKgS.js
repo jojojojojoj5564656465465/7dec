@@ -1,0 +1,1 @@
+import{m as a}from"./q-j6Poc_Mn.js";import{n as f}from"./q-j6Poc_Mn.js";const l=()=>{const[o,e]=a();e.value&&(o.value=Math.ceil(e.value.scrollLeft/e.value.offsetWidth))};export{f as _hW,l as s_AiboZ7tR0BI};

@@ -1,13 +1,12 @@
 import { createContainer, globalStyle, style } from '@vanilla-extract/css'
-import { theme, media } from '@theme'
-import { container } from 'src/styles/global/main.css.ts'
-import 'src/styles/global/globalStyle.css'
+import { container, media } from '@theme'
+import * as T from '@theme'
 import { fluid } from '@/styles/utils'
 
 export const section = style([
   container.small,
   {
-    backgroundColor: theme.color.azure,
+    backgroundColor: T.color.azure,
     display: 'grid',
     minBlockSize: 250,
     gridTemplateColumns: '1fr',
@@ -25,10 +24,10 @@ export const section = style([
 ])
 
 export const textBox = style({
-   backgroundColor: theme.color.white,
+   backgroundColor: T.color.white,
   opacity: 0.9,
-  fontFamily: theme.fontFamily.nunito,  
-  color: theme.color.black,
+  fontFamily: T.fontFamily.exo,  
+  color: T.color.black,
 })
 
 export const image = style({
@@ -50,8 +49,8 @@ export const image = style({
 
 export const ul = style({
   listStyle: 'none',
-  fontFamily: theme.fontFamily.exo,
-  fontSize: theme.fontSize.sm,
+  fontFamily: T.fontFamily.exo,
+  fontSize: T.fontSize.sm,
   fontWeight: 500,
   display: 'flex',
   flexDirection: 'column',
@@ -77,9 +76,16 @@ globalStyle(`${ul} li:before`, {
   },
 })
   export const prixApartir = style({
-    color: theme.color.red,
-    fontSize: theme.fontSize.xl,
+    color: T.color.red,
+    fontSize: T.fontSize.xl,
     fontWeight: 800,
-    fontFamily: theme.fontFamily.dancingScript,
-    marginInlineStart: theme.space.xxxs,
+    fontFamily: T.fontFamily.dancingScript,
+    marginInlineStart: T.space.xxxs,
   })
+
+  export const button = style({
+    backgroundColor: "green",
+    color: T.color.white,
+    fontSize: T.fontSize.md,
+
+  });

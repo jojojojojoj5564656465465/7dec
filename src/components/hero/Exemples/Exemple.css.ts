@@ -1,10 +1,10 @@
 import { styleVariants, style } from '@vanilla-extract/css'
-import { theme, media } from '@theme'
-import 'src/styles/global/globalStyle.css'
-import { container } from '@/styles/global/main.css'
+import {  media } from '@theme'
+
+
 
 export const containerExemple = style([
-  container.medium,
+  //container.medium,
   {
     backgroundColor: 'orange',
     marginInline: 'auto',
@@ -72,7 +72,7 @@ export const BusinessCategoryStyle = style({
   backgroundColor: 'white',
   color: 'black',
   border: '1px solid red',
-  fontFamily: theme.fontFamily.nunito,
+  //fontFamily: theme.fontFamily.nunito,
   fontWeight: 700,
   padding: '10px 25px',
   marginTop: '-460px', // Ajustez cette valeur selon vos besoins
@@ -83,7 +83,7 @@ export const BusinessCategoryStyle = style({
   selectors: {
     '&:hover': {
       cursor: 'pointer',
-      backgroundColor: theme.color.azure,
+      //backgroundColor: theme.color.azure,
       color: 'white',
       fill: 'yellow',
     },

@@ -1,10 +1,8 @@
 import { createContainer, globalStyle, style } from '@vanilla-extract/css'
-import { theme, media } from '@theme'
-import { container } from 'src/styles/global/main.css.ts'
-import 'src/styles/global/globalStyle.css'
-import { optimalFontSizePerTag } from '@/styles/tokens/font'
+import { media, container } from '@theme'
+import * as T from '@theme'
 
-import FontSizeGenerator from '@styles/tokens/font/FontSizeGenerator'
+
 import { fluid } from '@/styles/utils'
 
 //const font = new FontSizeGenerator(380, 2100, 16)
@@ -14,16 +12,16 @@ export const contentHeroSpace = style([
   {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-    gap: theme.space.md,
+    gap: T.space.md,
     marginInline: 'auto',
   },
 ])
 
 export const firstName = style({
-  color: theme.color.green,
+  color: T.color.green,
   letterSpacing: 1.19,
   fontSize: fluid(42, 60),
-  fontFamily: theme.fontFamily.nunito,
+  fontFamily: T.fontFamily.exo,
 })
 
 export const lastName = style({
@@ -31,14 +29,14 @@ export const lastName = style({
 })
 export const subTitle = style({
   fontSize: fluid(20, 42),
-  fontFamily: theme.fontFamily.exo,
+  fontFamily: T.fontFamily.exo,
   textDecoration: 'underline',
-  textDecorationColor: theme.color.green,
+  textDecorationColor: T.color.green,
 })
 export const text = style({
   lineHeight: 1.7,
   color: 'black',
-  marginBlock: theme.space.sm,
+  marginBlock: T.space.sm,
   fontSize: fluid(16.6, 22),
   '@media': {
     [media.lg]: {
@@ -73,7 +71,7 @@ export const aboutMeList = style([
 ])
 globalStyle(`${aboutMeList} li:before`, {
   content: '✓',
-  color: theme.color.green,
+  color: T.color.green,
 })
 
 /** MARK: AVANTAGE */
@@ -83,12 +81,12 @@ export const Avantages = style([
     
     zIndex: 10,
     marginInline: 'auto',
-    paddingBlock: theme.space.md,
-    paddingInline: theme.space.sm,
-    backgroundColor: theme.color.background,
+    paddingBlock: T.space.md,
+    paddingInline: T.space.sm,
+    backgroundColor: T.color.background,
     position: 'relative',
     display: 'grid',
-    gap: theme.space.sm,
+    gap: T.space.sm,
     gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
     '@media': {
       [media.md]: {
@@ -112,13 +110,13 @@ export const boxContainerQuery = createContainer()
 export const box = {
   container: style({
     //aspectRatio: '1/1',
-    border: `2px solid ${theme.color.green}`,
+    border: `2px solid ${T.color.green}`,
     display: 'flex',
     marginInline: 'auto',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'start',
-    borderRadius: theme.radius[200],
+    borderRadius: 60,
     padding: 10,
     backgroundColor: 'white',
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
@@ -132,7 +130,7 @@ export const box = {
     aspectRatio: 1,
     marginTop: -30,
     borderRadius: '50%',
-    backgroundColor: theme.color.azure,
+    backgroundColor: T.color.azure,
     boxShadow: '0 0 10px rgba(0,0,0,.1)',
     minInlineSize: 70,
     minBlockSize: 70,
@@ -142,10 +140,10 @@ export const box = {
   }),
   titre: style({
     fontSize: fluid(19, 32),
-    fontFamily: theme.fontFamily.exo,
+    fontFamily: T.fontFamily.exo,
     textDecoration: 'underline',
-    textDecorationColor: theme.color.green,
-    marginBlock: theme.space.xs,
+    textDecorationColor: T.color.green,
+    marginBlock: T.space.xs,
     '@container': {
       [`${boxContainerQuery} (250px<width)`]: {
         fontSize: 32,
