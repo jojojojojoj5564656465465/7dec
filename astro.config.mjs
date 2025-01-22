@@ -11,23 +11,23 @@ import robotsTxt from 'astro-robots-txt'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
-  //output:'static',
-  server:{
-    watch:{
-      usePolling:true
+  output:'static',
+  server: {
+    watch: {
+      usePolling: true
     }
   },
   vite: {
     resolve: {
       alias: {
         '@': path.resolve(__dirname, 'src'),
-        '@styles': path.resolve(__dirname, './src/styles'),
-        '@fonts': path.resolve(__dirname, './public/fonts'),
-        '@images': path.resolve(__dirname, './images')
+        '@styles': path.resolve(__dirname, 'src/styles'),
+        '@fonts': path.resolve(__dirname, 'public/fonts'),
+        '@images': path.resolve(__dirname, 'public/images')
       }
     },
     css: {
-     // transformer: 'lightningcss'
+     transformer: 'lightningcss'
     },
     plugins: [
       vanillaExtractPlugin({
@@ -36,7 +36,7 @@ export default defineConfig({
       })
     ],
     optimizeDeps: {
-      // noDiscovery: true,
+      noDiscovery: true
       //include: [] // Empty array instead of undefined
     }
   },
@@ -44,8 +44,8 @@ export default defineConfig({
     // UnoCSS({
     //   injectReset: false
     // }),
-    qwikdev(),
-    icon({ iconDir: 'src/assets/icons' })
+    qwikdev()
+    // icon({ iconDir: 'src/assets/icons' })
     //robotsTxt()
   ]
 })

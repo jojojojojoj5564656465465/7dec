@@ -15,10 +15,12 @@
     "jsxImportSource": "@builder.io/qwik",
     "paths": {
       "@/*": ["src/*"],
-      "@home/*": ["src/components/home🏠/*"],
+      "@home/*": ["src/components/Home0️⃣/*"],
       "@styles/*": ["src/styles/*"],
       "@img/*": ["src/assets/img/*"],
-      "@theme": ["src/styles/utils"]
+      "@theme": ["src/styles/utils"],
+      "@fonts": ["public/fonts/*"],
+      "@images": ["public/images/*"]
     }
   }
 }

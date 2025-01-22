@@ -54,7 +54,7 @@ globalStyle('input, button, textarea, select', {
     },
   },
 })
-globalStyle('img, picture, video, canvas, svg', {
+globalStyle(':where(img, picture, video, canvas, svg)', {
   '@layer': {
     reset: {
       scrollBehavior: 'smooth',
@@ -131,19 +131,19 @@ const ValidObj = v.object({
 const responsiveFontSize: Record<string, v.InferInput<typeof ValidObj>> = {
   h1: {
     fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-    color: 'oklch(80.88% 0.2319 170.47)',
+    color: T.color.azure,
   },
   h2: {
     fontSize: 'clamp(2rem, 4vw, 3rem)',
-    color: 'oklch(79.11% 0.1723 123.88)',
+    color: T.color.green,
   },
   h3: {
     fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)',
-    color: 'oklch(79.11% 0.094 61.41)',
+    color: T.color.green,
   },
   h4: {
     fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-    color: 'red',
+    color: T.color.black,
   },
   h5: {
     fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
@@ -155,7 +155,15 @@ const responsiveFontSize: Record<string, v.InferInput<typeof ValidObj>> = {
   },
   p: {
     fontSize: 'clamp(1rem, 1.5vw, 1.25rem)',
-    color: T.color.black
+    color: T.color.black,
+  },
+  span: {
+    fontSize: 'clamp(1rem, 1.5vw, 1.25rem)',
+    color: T.color.black,
+  },
+  li: {
+    fontSize: 'clamp(1rem, 1.5vw, 1.25rem)',
+    color: T.color.black,
   },
 } as const
 

@@ -13,8 +13,8 @@ export const contentHeroSpace = style([
 ])
 
 export const image = style({
-  aspectRatio: '1/1',
-  backgroundColor: 'oklch(70% 0.1 346)',
+  aspectRatio: '1',
+  backgroundColor: 'light-dark(oklch(70% 0.1 346),oklch(30% 0.1 346))',
   minInlineSize: 'min(100%,250px)',
   minBlockSize: 'min(100%,250px)',
 })

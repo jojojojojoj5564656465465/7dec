@@ -53,24 +53,23 @@ const Card = component$<CardProps>((props) => {
   );
 
   return (
-    <section class={card.wrapperCard}>
-      {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
-      <div
-        class={card.hoverImg}
-        style={assignInlineVars(card.imageHoverContract, {
-          gif: `url(${props.Gif})` || `url(${props.Image})`,
-          image: `url(${props.Image})` || `url(${props.Gif})`,
-        })}
-      ></div>
-      <p class={card.Title}>{props.Category}</p>
-      <p class={card.price}>{props.Price}</p>
-      <a href={props.Link}>
-        <div class={card.buttonBlue}>
-          <span class={card.buttonBlue_Text}>Voir la Visite</span>
-        </div>
-      </a>
-    </section>
-  );
+      <section class={card.wrapperCard}>
+          {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
+          <div
+              class={card.hoverImg}
+              style={assignInlineVars(card.imageHoverContract, {
+                  gif: `url(/images/carrousel/gif/${props.Gif})`,
+                  image: `url(/images/carrousel/images/${props.Image})`
+              })}></div>
+          <p class={card.Title}>{props.Category}</p>
+          <p class={card.price}>{props.Price}</p>
+          <a href={props.Link}>
+              <div class={card.buttonBlue}>
+                  <span class={card.buttonBlue_Text}>Voir la Visite</span>
+              </div>
+          </a>
+      </section>
+  )
 });
 
 /** MARK: Cards wrapper */

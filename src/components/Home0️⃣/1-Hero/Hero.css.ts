@@ -34,9 +34,9 @@ export const subTitle = style({
 })
 export const text = style({
   lineHeight: 1.7,
-  color: 'black',
+  color: T.color.black,
   marginBlock: T.space.sm,
-  fontSize: fluid(16.6, 22),
+
   '@media': {
     [media.lg]: {
       lineHeight: 2,
@@ -45,7 +45,7 @@ export const text = style({
 })
 
 export const slogan = style({
-  color: 'red',
+  color: T.color.red,
   fontSize: fluid(19, 25),
   textAlign: 'center',
   '@media': {

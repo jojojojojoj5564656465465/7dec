@@ -9,11 +9,12 @@ export const section = style([
     backgroundColor: T.color.azure,
     display: 'grid',
     minBlockSize: 250,
+
     gridTemplateColumns: '1fr',
     '@media': {
       'screen and (hover: hover) and (min-width: 37em)': {
         minBlockSize: 500,
-        gridTemplateColumns: "1fr 15rem",
+        gridTemplateColumns: '1fr 15rem',
       },
       [media.md]: {
         minBlockSize: 500,
@@ -24,10 +25,15 @@ export const section = style([
 ])
 
 export const textBox = style({
-   backgroundColor: T.color.white,
+  //paddingBlock: fluid(20, 40),
+  backgroundColor: T.color.white,
   opacity: 0.9,
-  fontFamily: T.fontFamily.exo,  
+  fontFamily: T.fontFamily.exo,
   color: T.color.black,
+  display: 'flex', // Ajoutez cette ligne
+  flexDirection: 'column', // Ajoutez cette ligne
+  alignItems: 'center', // Ajoutez cette ligne
+  justifyContent: 'center',
 })
 
 export const image = style({
@@ -54,13 +60,13 @@ export const ul = style({
   fontWeight: 500,
   display: 'flex',
   flexDirection: 'column',
-  marginBlock: fluid(20,40)
+  justifyContent: 'start',
+  marginInline:10
 })
 
 globalStyle(`${ul} li`, {
-  alignItems: 'center',
+  alignItems: 'start',
   display: 'flex',
-  
 })
 
 globalStyle(`${ul} li:before`, {
@@ -71,21 +77,39 @@ globalStyle(`${ul} li:before`, {
   '@media': {
     'screen and (min-width: 668px)': {
       marginInline: '0.7em',
-      
     },
   },
 })
-  export const prixApartir = style({
-    color: T.color.red,
-    fontSize: T.fontSize.xl,
-    fontWeight: 800,
-    fontFamily: T.fontFamily.dancingScript,
-    marginInlineStart: T.space.xxxs,
-  })
+export const prixApartir = style({
+  color: T.color.red,
+  fontSize: T.fontSize.xl,
+  fontWeight: 800,
+  fontFamily: T.fontFamily.dancingScript,
+  marginInlineStart: T.space.xxxs,
+  alignSelf:'start',
+  "::before": {
+    content:"À partir de : ",
+    //maxInlineSize:20,
+    color:T.color.black,
+    fontSize:T.fontSize.sm,
+    display:'block'
+  }
+})
 
-  export const button = style({
-    backgroundColor: "green",
-    color: T.color.white,
-    fontSize: T.fontSize.md,
+export const button = style({
+  backgroundColor: T.color.black,
+  color: T.color.white,
+  fontSize: T.fontSize.md,
+  maxInlineSize: 300,
+  borderRadius: 10,
+  padding: `${T.space.xs} ${T.space.md}`,
+  //marginInline: 'auto',
+ // justifySelf: 'start',
+  //display:"block",
+  ':hover': {
+    backgroundColor: T.color.green,
+    color: T.color.black,
+  },
+})
 
-  });
+

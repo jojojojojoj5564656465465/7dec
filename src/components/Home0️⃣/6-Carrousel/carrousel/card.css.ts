@@ -2,7 +2,7 @@ import * as T from "@theme";
 import {
 	assignVars,
 	createThemeContract,
-	globalStyle,
+
 	style,
 } from "@vanilla-extract/css";
 const ld = (light: string, dark: string) => `light-dark(${light},${dark})`;
