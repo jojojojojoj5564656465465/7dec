@@ -143,23 +143,12 @@ export const fluid = (minSize: number, maxSize: number) => {
  */
 export const ld = (light: string, dark: string) =>
   `light-dark(${light},${dark})`
-type HTMLElements =
-  | 'p'
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6'
-  | 'li'
-  | 'ul'
-  | 'ol'
-  | 'span'
+
 
 /**
  * ! ajouter un layer en plus
  */
-type HtmlP = Partial<Record<HTMLElements, GlobalStyleRule>>
+type HtmlP = Partial<Record<string, GlobalStyleRule>>
 /**
  * Applique des styles globaux à des éléments HTML donnés sous un parent spécifié.
  * @param parent - Le sélecteur parent pour les styles.
@@ -175,7 +164,7 @@ export const globalStyleTag = (parent: string, obj: HtmlP): void => {
   for (const [key, value] of Object.entries(obj)) {
     const result = checkCss(value)
     if (result.success) {
-      globalStyle(`${parent} ${key}`, {
+      globalStyle(`${parent} :is(${key})`, {
         '@layer': {
           custom: result.output,
         },

@@ -1,4 +1,4 @@
-import { createContainer, globalStyle, style } from '@vanilla-extract/css'
+import { createContainer, globalStyle, style, styleVariants } from '@vanilla-extract/css'
 import { container, media } from '@theme'
 import * as T from '@theme'
 import { fluid } from '@/styles/utils'
@@ -24,8 +24,8 @@ export const section = style([
   },
 ])
 
-export const textBox = style({
-  //paddingBlock: fluid(20, 40),
+export const Box1Wrapper = style({
+ paddingBlock: fluid(20, 40),
   backgroundColor: T.color.white,
   opacity: 0.9,
   fontFamily: T.fontFamily.exo,
@@ -35,81 +35,107 @@ export const textBox = style({
   alignItems: 'center', // Ajoutez cette ligne
   justifyContent: 'center',
 })
-
-export const image = style({
-  display: 'none',
-  '@media': {
-    'screen and (hover: hover) and (min-width: 37em)': {
-      backgroundImage: 'url(/images/nasa-rTZW4f02zY8-unsplash.jpg)',
-      display: 'inline-block',
-      maxInlineSize: '100%',
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: '60% center',
+export const Box1 = styleVariants({
+  prixApartir: {
+    color: T.color.red,
+    fontSize: T.fontSize.xl,
+    fontWeight: 800,
+    fontFamily: T.fontFamily.dancingScript,
+    marginInlineStart: T.space.xxxs,
+    alignSelf: 'start',
+    '::before': {
+      content: '**À partir de : ',
+      //maxInlineSize:20,
+      color: T.color.black,
+      fontSize: T.fontSize.sm,
+      display: 'block',
     },
-    [media.md]: {
-      backgroundPosition: 'center',
+    '::selection': {
+      color: 'green',
+      backgroundColor: 'yellow',
+      padding: 5,
+    },
+  },
+  ul: {
+    listStyle: 'none',
+    fontFamily: T.fontFamily.exo,
+    fontSize: T.fontSize.sm,
+    fontWeight: 500,
+    display: 'block',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    justifyItems: 'center',
+    marginInline: 10,
+  },
+  button: {
+    backgroundColor: T.color.black,
+    color: T.color.white,
+    fontSize: T.fontSize.md,
+    maxInlineSize: 300,
+    borderRadius: 10,
+    padding: `${T.space.xs} ${T.space.md}`,
+    //marginInline: 'auto',
+    // justifySelf: 'start',
+    //display:"block",
+    ':hover': {
+      backgroundColor: T.color.green,
+      color: T.color.black,
     },
   },
 })
 
-export const ul = style({
-  listStyle: 'none',
-  fontFamily: T.fontFamily.exo,
-  fontSize: T.fontSize.sm,
-  fontWeight: 500,
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'start',
-  marginInline:10
+
+export const customBullet = style({
+  listStyleType: 'none',
+  padding: '0',
+  color:"green",  
+ 
 })
 
-globalStyle(`${ul} li`, {
-  alignItems: 'start',
-  display: 'flex',
+
+
+T.globalStyleTag(Box1.ul, {
+  li: {
+     alignItems: 'center',
+     placeItems:'center',
+    position: 'relative',
+   display: 'flex',
+ 
+  },
 })
 
-globalStyle(`${ul} li:before`, {
-  content: '•',
-  color: 'orange',
-  fontSize: '2.5em',
-  marginInline: '0.2em',
-  '@media': {
-    'screen and (min-width: 668px)': {
-      marginInline: '0.7em',
+  globalStyle(`${Box1.ul} > li:before`, {
+    content: '🔸',
+    marginInline: '0.2em',
+    justifySelf: 'start',
+    '@media': {
+      'screen and (min-width: 668px)': {
+        marginInline: '0.7em',
+        //marginBlock: '0.5rem',
+        top: 0,
+        left: 0,
+      },
     },
-  },
-})
-export const prixApartir = style({
-  color: T.color.red,
-  fontSize: T.fontSize.xl,
-  fontWeight: 800,
-  fontFamily: T.fontFamily.dancingScript,
-  marginInlineStart: T.space.xxxs,
-  alignSelf:'start',
-  "::before": {
-    content:"À partir de : ",
-    //maxInlineSize:20,
-    color:T.color.black,
-    fontSize:T.fontSize.sm,
-    display:'block'
-  }
-})
-
-export const button = style({
-  backgroundColor: T.color.black,
-  color: T.color.white,
-  fontSize: T.fontSize.md,
-  maxInlineSize: 300,
-  borderRadius: 10,
-  padding: `${T.space.xs} ${T.space.md}`,
-  //marginInline: 'auto',
- // justifySelf: 'start',
-  //display:"block",
-  ':hover': {
-    backgroundColor: T.color.green,
-    color: T.color.black,
-  },
-})
-
-
+  })
+  
+  /**
+   * MARK: SECOND DIV
+   */
+  
+  
+  export const image = style({
+    display: 'none',
+    '@media': {
+      'screen and (hover: hover) and (min-width: 37em)': {
+        backgroundImage: 'url(/images/nasa-rTZW4f02zY8-unsplash.jpg)',
+        display: 'inline-block',
+        maxInlineSize: '100%',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: '60% center',
+      },
+      [media.md]: {
+        backgroundPosition: 'center',
+      },
+    },
+  })
