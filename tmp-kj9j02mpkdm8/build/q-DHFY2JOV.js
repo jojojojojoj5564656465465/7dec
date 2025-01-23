@@ -1,1 +1,0 @@
-import{m as r}from"./q-j6Poc_Mn.js";import{n as a}from"./q-j6Poc_Mn.js";const o=()=>{const[l,e]=r();e.value&&(l.clientWidth=e.value.clientWidth,l.scrollWidth=e.value.scrollWidth,l.scrollLeft=e.value.scrollLeft)};export{a as _hW,o as s_MeGfL0AIZWQ};

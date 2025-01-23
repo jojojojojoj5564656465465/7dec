@@ -1,1 +1,0 @@
-import{m as l}from"./q-j6Poc_Mn.js";import{n as a}from"./q-j6Poc_Mn.js";const c=o=>{const[r,e,t]=l();if(!t.value)return;r();const i=o==="RIGHT"?e.clientWidth:-e.clientWidth;t.value.scrollBy({left:i,behavior:"smooth"})};export{a as _hW,c as s_tpORuL0b5UA};

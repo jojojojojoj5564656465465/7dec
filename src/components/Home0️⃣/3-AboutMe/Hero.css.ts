@@ -5,6 +5,7 @@ import * as T from '@theme'
 export const contentHeroSpace = style([
   container.small,
   {
+    marginBlockEnd:T.space.xl,
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
     gap: T.space.md,
@@ -31,6 +32,13 @@ globalStyle(`${aboutMeList} li:before`, {
 })
 
 
-
+globalStyleTag(contentHeroSpace, {
+  h2: {
+    marginInlineEnd:20,
+  },
+  h5: {
+    textAlign: 'center',
+  },
+})
 
 

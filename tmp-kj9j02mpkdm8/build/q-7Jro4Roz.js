@@ -1,1 +1,0 @@
-import{m as s,q as t,_ as n}from"./q-j6Poc_Mn.js";import{n as d}from"./q-j6Poc_Mn.js";const _=({track:o,cleanup:a})=>{const[l,e]=s();o(()=>e.value);const r=t(()=>n(()=>import("./q-Dq_qdKgS.js"),[]),"s_AiboZ7tR0BI",[l,e]);e.value&&e.value.addEventListener("scrollend",r),a(()=>{e.value&&e.value.removeEventListener("scrollend",r)})};export{d as _hW,_ as s_X8P4EYvJr0s};

@@ -1,1 +1,0 @@
-import{m as f}from"./q-j6Poc_Mn.js";import{n as p}from"./q-j6Poc_Mn.js";const i=t=>{const[c,o,a,l]=f();let e=o.value+t;if(e<0&&(e=0),e>=a.value&&(e=a.value-1),o.value=e,l.value){const s=l.value.children[e*c.value];s&&l.value.scrollTo({left:s.offsetLeft,behavior:"smooth"})}};export{p as _hW,i as s_gEnBlgc3cl4};

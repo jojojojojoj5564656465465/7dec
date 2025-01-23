@@ -172,3 +172,10 @@ export const globalStyleTag = (parent: string, obj: HtmlP): void => {
     }
   }
 }
+export function boxShadowGenerator(colors: string[], spread: number): string {
+  return colors
+    .map((color, index) => {
+      return `inset 0 0 0 ${spread * (index + 1)}px ${color}`
+    })
+    .join(', ')
+}

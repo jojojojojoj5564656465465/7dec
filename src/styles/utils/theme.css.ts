@@ -12,7 +12,7 @@ import { ld } from "./utils";
 const fontFamily = createGlobalTheme(":root", {
 	dancingScript: `${f.dancingScript}, Times, serif`,
 	exo: `${f.exo}, Times, serif`,
-	libreFranklin: `${f.libreFranklin}, Times, serif`,
+	numito: `${f.nunito}, Arial, sans-serif`,
 });
 
 const color = createGlobalTheme(":root", {

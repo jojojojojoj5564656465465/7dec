@@ -1,1 +1,0 @@
-import{k as l}from"./q-C1HzECTr.js";import{l as p}from"./q-C1HzECTr.js";const c=o=>{const[r,e,t]=l();if(!t.value)return;r();const i=o==="RIGHT"?e.clientWidth:-e.clientWidth;t.value.scrollBy({left:i,behavior:"smooth"})};export{p as _hW,c as s_FVLITe0Df1g};

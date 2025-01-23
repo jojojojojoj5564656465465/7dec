@@ -9,7 +9,7 @@ export const section = style([
     backgroundColor: T.color.azure,
     display: 'grid',
     minBlockSize: 250,
-
+marginBlockEnd:T.space.xl,
     gridTemplateColumns: '1fr',
     '@media': {
       'screen and (hover: hover) and (min-width: 37em)': {

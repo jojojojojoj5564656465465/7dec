@@ -9,6 +9,7 @@ import { fluid } from '@/styles/utils'
 export const contentHeroSpace = style([
   container.small,
   {
+    marginBlockEnd:T.space.xl,
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
     gap: T.space.md,

@@ -290,7 +290,7 @@ export const spanAbsolutePriceHover = style({
 		content: "*À partir de",
 		fontSize: T.fontSize.xs,
 		fontStyle: "oblique",
-		fontFamily: T.fontFamily.libreFranklin,
+		fontFamily: T.fontFamily.exo,
 		fontWeight: 300,
 		letterSpacing: "-0.5px",
 	},

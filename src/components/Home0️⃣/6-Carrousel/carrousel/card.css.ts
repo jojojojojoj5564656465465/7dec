@@ -145,8 +145,8 @@ export const price = style([
 export const Title = style({
 	margin: "0",
 	fontSize: "17px",
-	fontFamily: T.fontFamily.libreFranklin,
-	fontWeight: "600",
+	fontFamily: T.fontFamily.exo,
+	fontWeight: "800",
 	color: varsColor.title,
 	cursor: "default",
 	WebkitBoxOrient: "vertical",

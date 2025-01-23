@@ -1,17 +1,19 @@
-import { createContainer, globalStyle, style } from '@vanilla-extract/css'
+import {
+  createContainer,
+  globalStyle,
+  style,
+  styleVariants,
+} from '@vanilla-extract/css'
 import { media, container } from '@theme'
 import * as T from '@theme'
 
-
 import { fluid } from '@/styles/utils'
 
-
-
 /** MARK: AVANTAGE */
-export const Avantages = style([
+export const WrapperAvantage = style([
   container.large,
   {
-    
+    marginBlockEnd: T.space.xl,
     zIndex: 10,
     marginInline: 'auto',
     paddingBlock: T.space.md,
@@ -21,6 +23,7 @@ export const Avantages = style([
     display: 'grid',
     gap: T.space.sm,
     gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+
     '@media': {
       [media.md]: {
         gridTemplateColumns: 'repeat(auto-fit, 1fr)',
@@ -40,9 +43,8 @@ export const ribbonSvg = style({
 
 export const boxContainerQuery = createContainer()
 
-export const box = {
-  container: style({
-    //aspectRatio: '1/1',
+export const box = styleVariants({
+  boxContainer: {
     border: `2px solid ${T.color.green}`,
     display: 'flex',
     marginInline: 'auto',
@@ -58,38 +60,53 @@ export const box = {
     containerName: boxContainerQuery,
     containerType: 'inline-size',
     minInlineSize: '100%',
-  }),
-  icon: style({
+    ':hover': {
+      boxShadow: '0px 9px 30px 0px rgba(255,149,5,0.3)',
+    },
+  },
+  icon: {
     aspectRatio: 1,
     marginTop: -30,
     borderRadius: '50%',
-    backgroundColor: T.color.azure,
+    backgroundColor: 'oklch(86.47% 0.1202 166.11 / 92.68%)',
     boxShadow: '0 0 10px rgba(0,0,0,.1)',
     minInlineSize: 70,
     minBlockSize: 70,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-  }),
-  titre: style({
-    fontSize: fluid(19, 32),
+  },
+  titre: {
+    fontSize: T.fontSize.base,
     fontFamily: T.fontFamily.exo,
+    fontWeight: 600,
     textDecoration: 'underline',
     textDecorationColor: T.color.green,
-    marginBlock: T.space.xs,
+    marginBlock: T.space.xxxs,
+    '::selection': {
+      color: 'orange',
+      backgroundColor: 'greenyellow',
+    },
     '@container': {
       [`${boxContainerQuery} (250px<width)`]: {
         fontSize: 32,
         letterSpacing: 1.7,
       },
     },
-  }),
-  text: style({
+  },
+  text: {
     textAlign: 'center',
-    color: 'light-dark(#666666, red)',
+    color: 'black',
     marginBlock: '1px 4px',
-    fontSize: fluid(16.6, 18),
+    fontSize: T.fontSize.base,
+    fontFamily: T.fontFamily.numito,
     minInlineSize: '100%',
+    '::selection': {
+      color: 'green',
+      backgroundColor: 'yellow',
+      fontWeight: 800,
+    },
+
     '@media': {
       [media.lg]: {
         lineHeight: 1.2,
@@ -97,9 +114,19 @@ export const box = {
     },
     '@container': {
       [`${boxContainerQuery} (250px<width)`]: {
-        fontSize: fluid(17, 19),
+        fontSize: T.fontSize.sm,
       },
     },
-  }),
-}
+  },
+})
 
+globalStyle(`${box.boxContainer}:hover > ${box.icon}`, {
+  backgroundColor: 'oklch(86.47% 0.1202 77.29 / 92.68%)',
+  border: '3px solid white',
+  outline: '3px solid orange' 
+})
+
+globalStyle(`${box.boxContainer}:hover > ${box.titre}`, {
+  color: 'oklch(86.47% 0.1402 77.29)',
+  fontWeight: 800,
+})

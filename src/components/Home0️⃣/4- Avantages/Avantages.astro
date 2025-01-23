@@ -1,40 +1,16 @@
 ---
+import Card from './Card.astro'
 import * as s from './index.css'
+import props from './data'
 ---
 
-<section class={s.Avantages}>
-  <div class={s.box.container}>
-    <span class={s.box.icon}>icons</span>
-    <h3 class={s.box.titre}>Qualité</h3>
-    <p class={s.box.text}>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil,
-      laudantium?
-    </p>
-  </div>
-  <div class={s.box.container}>
-    <span class={s.box.icon}>icons</span>
-    <h3 class={s.box.titre}>Coût</h3>
-    <p class={s.box.text}>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil,
-      laudantium?
-    </p>
-  </div>
-  <div class={s.box.container}>
-    <span class={s.box.icon}>icons</span>
-    <h3 class={s.box.titre}>Référencement</h3>
-    <p class={s.box.text}>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil,
-      laudantium?
-    </p>
-  </div>
-  <div class={s.box.container}>
-    <span class={s.box.icon}>icons</span>
-    <h3 class={s.box.titre}>Rapidité</h3>
-    <p class={s.box.text}>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil,
-      laudantium?
-    </p>
-  </div>
+<section class={s.WrapperAvantage}>
+  {
+    props.map((item) => (
+      <Card icon={item.icon} qualité={item.qualité} text={item.text} />
+    ))
+  }
+
   <span class={s.ribbonSvg}>
     <svg
       width="1440"

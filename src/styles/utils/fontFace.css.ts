@@ -95,107 +95,6 @@ const nunito = fontFace([
   },
 ]);
 
-const libreFranklin = fontFace([
-  {
-    src: "url(@fonts/libre-franklin/LibreFranklin-Black.woff2) format('woff2')",
-    fontDisplay: "swap",
-    fontWeight: "900",
-  },
-  {
-    src: "url(@fonts/libre-franklin/LibreFranklin-BlackItalic.woff2) format('woff2')",
-    fontWeight: "900",
-    fontStyle: "italic",
-    fontDisplay: "swap",
-  },
-  {
-    src: "url(@fonts/libre-franklin/LibreFranklin-Bold.woff2) format('woff2')",
-    fontDisplay: "swap",
-    fontWeight: "700",
-  },
-  {
-    src: "url(@fonts/libre-franklin/LibreFranklin-BoldItalic.woff2) format('woff2')",
-    fontWeight: "700",
-    fontDisplay: "swap",
-    fontStyle: "italic",
-  },
-  {
-    src: "url(@fonts/libre-franklin/LibreFranklin-ExtraBold.woff2) format('woff2')",
-    fontDisplay: "swap",
-    fontWeight: "800",
-  },
-  {
-    src: "url(@fonts/libre-franklin/LibreFranklin-ExtraBoldItalic.woff2) format('woff2')",
-    fontWeight: "800",
-    fontDisplay: "swap",
-    fontStyle: "italic",
-  },
-  {
-    src: "url(@fonts/libre-franklin/LibreFranklin-ExtraLight.woff2) format('woff2')",
-    fontDisplay: "swap",
-    fontWeight: "200",
-  },
-  {
-    src: "url(@fonts/libre-franklin/LibreFranklin-ExtraLightItalic.woff2) format('woff2')",
-    fontWeight: "200",
-    fontDisplay: "swap",
-    fontStyle: "italic",
-  },
-  {
-    src: "url(@fonts/libre-franklin/LibreFranklin-Italic.woff2) format('woff2')",
-    fontDisplay: "swap",
-    fontWeight: "normal",
-    fontStyle: "italic",
-  },
-  {
-    src: "url(@fonts/libre-franklin/LibreFranklin-Light.woff2) format('woff2')",
-    fontDisplay: "swap",
-    fontWeight: "300",
-  },
-  {
-    src: "url(@fonts/libre-franklin/LibreFranklin-LightItalic.woff2) format('woff2')",
-    fontWeight: "300",
-    fontDisplay: "swap",
-    fontStyle: "italic",
-  },
-  {
-    src: "url(@fonts/libre-franklin/LibreFranklin-Medium.woff2) format('woff2')",
-    fontDisplay: "swap",
-    fontWeight: "500",
-  },
-  {
-    src: "url(@fonts/libre-franklin/LibreFranklin-MediumItalic.woff2) format('woff2')",
-    fontDisplay: "swap",
-    fontWeight: "500",
-    fontStyle: "italic",
-  },
-  {
-    src: "url(@fonts/libre-franklin/LibreFranklin-Regular.woff2) format('woff2')",
-    fontDisplay: "swap",
-    fontWeight: "normal",
-  },
-  {
-    src: "url(@fonts/libre-franklin/LibreFranklin-SemiBold.woff2) format('woff2')",
-    fontDisplay: "swap",
-    fontWeight: "600",
-  },
-  {
-    src: "url(@fonts/libre-franklin/LibreFranklin-SemiBoldItalic.woff2) format('woff2')",
-    fontWeight: "600",
-    fontDisplay: "swap",
-    fontStyle: "italic",
-  },
-  {
-    src: "url(@fonts/libre-franklin/LibreFranklin-Thin.woff2) format('woff2')",
-    fontDisplay: "swap",
-    fontWeight: "100",
-  },
-  {
-    src: "url(@fonts/libre-franklin/LibreFranklin-ThinItalic.woff2) format('woff2')",
-    fontWeight: "100",
-    fontStyle: "italic",
-    fontDisplay: "swap",
-  },
-]);
 
 const exo = fontFace([
   {
@@ -290,7 +189,6 @@ const exo = fontFace([
 
 export default {
   exo,
-  libreFranklin,
   nunito,
   dancingScript,
 };
