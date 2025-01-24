@@ -72,4 +72,5 @@ export const aboutMeList = style([
 globalStyle(`${aboutMeList} li:before`, {
   content: '✓',
   color: T.color.green,
+  
 })

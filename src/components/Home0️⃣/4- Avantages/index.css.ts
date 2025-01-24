@@ -11,7 +11,7 @@ import { fluid } from '@/styles/utils'
 
 /** MARK: AVANTAGE */
 export const WrapperAvantage = style([
-  container.large,
+  container.full,
   {
     marginBlockEnd: T.space.xl,
     zIndex: 10,
@@ -22,24 +22,18 @@ export const WrapperAvantage = style([
     position: 'relative',
     display: 'grid',
     gap: T.space.sm,
-    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+    gridTemplateRows: 'max-content 1fr',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
 
-    '@media': {
-      [media.md]: {
-        gridTemplateColumns: 'repeat(auto-fit, 1fr)',
-      },
-    },
+    // '@media': {
+    //   [media.md]: {
+    //     gridTemplateRows: 'repeat(2,1fr)',
+    //     gridTemplateColumns: 'repeat(auto-fit, 1fr)',
+    //   },
+    // },
   },
 ])
-export const ribbonSvg = style({
-  position: 'absolute',
-  top: -160,
-  left: 0,
-  width: '100%',
-  height: '100%',
-  zIndex: -1,
-  opacity: 0.3,
-})
+
 
 export const boxContainerQuery = createContainer()
 
@@ -52,7 +46,7 @@ export const box = styleVariants({
     alignItems: 'center',
     justifyContent: 'start',
     borderRadius: 60,
-    padding: 10,
+    //padding: 10,
     backgroundColor: 'white',
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
     //maxInlineSize: 'max( 250px, 20vw )',
@@ -75,20 +69,22 @@ export const box = styleVariants({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    fontSize:40
   },
   titre: {
-    fontSize: T.fontSize.base,
+    fontSize: T.fontSize.md,
     fontFamily: T.fontFamily.exo,
-    fontWeight: 600,
+    fontWeight: 800,
+    color:"black",
     textDecoration: 'underline',
     textDecorationColor: T.color.green,
     marginBlock: T.space.xxxs,
     '::selection': {
-      color: 'orange',
+      color: T.color.green,
       backgroundColor: 'greenyellow',
     },
     '@container': {
-      [`${boxContainerQuery} (250px<width)`]: {
+      [`${boxContainerQuery} (250px < width)`]: {
         fontSize: 32,
         letterSpacing: 1.7,
       },
@@ -129,4 +125,16 @@ globalStyle(`${box.boxContainer}:hover > ${box.icon}`, {
 globalStyle(`${box.boxContainer}:hover > ${box.titre}`, {
   color: 'oklch(86.47% 0.1402 77.29)',
   fontWeight: 800,
+})
+
+
+
+export const ribbonSvg = style({
+  position: 'absolute',
+  top: -160,
+  left: 0,
+  width: '100%',
+  height: '100%',
+  zIndex: -1,
+  opacity: 0.3,
 })

@@ -77,7 +77,7 @@ export const ColorTheme = style({
 			),
 			backgroundColor: "oklch(83.23% 0.0564 243.53)",
 			btnBgColor: ld(
-				"oklch(39.33% 0.188 263.65)",
+				T.color.azure,
 				"oklch(25.29% 0.0595 155.65)",
 			),
 			btnTextColor: "white",
@@ -134,7 +134,7 @@ export const price = style([
 		color: varsColor.description,
 		cursor: "default",
 		"::before": {
-			content: "A partir de ",
+			content: "À partir de ",
 		},
 		"::after": {
 			content: "€",

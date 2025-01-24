@@ -9,9 +9,9 @@ const { icon, qualité, text } = Astro.props
 ---
 
 <div class={s.box.boxContainer}>
-  <span class={s.box.icon}>{icon}</span>
-  <h3 class={s.box.titre}>{qualité}</h3>
-  <p class={s.box.text}>
+  <i class={s.box.icon}>{icon}</i>
+  <dt class={s.box.titre}>{qualité}</dt>
+  <dd class={s.box.text}>
     {text}
-  </p>
+  </dd>
 </div>

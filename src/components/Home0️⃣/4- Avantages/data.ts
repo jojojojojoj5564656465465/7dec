@@ -10,19 +10,19 @@ const Avantage: Props[] = [
     text: 'Reflex Canon et objectif 8mm f/1.8 pour une Qualité la plus nette possible',
   },
   {
-    icon: '🚀',
-    qualité: 'Rapidité',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec odio eget urna. Nam vitae libero',
+    icon: '📷',
+    qualité: 'Google Maps',
+    text: 'Intégration sur le premier moteur de recherche pour les commerces.',
   },
   {
-    icon: '🚀',
-    qualité: 'Référencement',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec odio eget urna. Nam vitae libero',
+    icon: '📱',
+    qualité: 'Mobiles',
+    text: 'Smartphones, Tablettes et PC',
   },
   {
-    icon: '🚀',
-    qualité: 'Coût',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec odio eget urna. Nam vitae libero',
+    icon: '🌍',
+    qualité: 'Site Internet',
+    text: 'Intégration facile sur votre site Internet',
   },
 ]
 

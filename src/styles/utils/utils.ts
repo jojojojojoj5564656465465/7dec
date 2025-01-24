@@ -16,6 +16,9 @@ import {
   maxValue,
   optional,
   type InferInput,
+  array,
+  minLength,
+  maxLength,
 } from 'valibot'
 
 type hoverProps = {
@@ -172,10 +175,20 @@ export const globalStyleTag = (parent: string, obj: HtmlP): void => {
     }
   }
 }
-export function boxShadowGenerator(colors: string[], spread: number): string {
-  return colors
-    .map((color, index) => {
-      return `inset 0 0 0 ${spread * (index + 1)}px ${color}`
-    })
-    .join(', ')
+
+export function boxShadowGenerator(
+  colors: string[],
+  spread = 1,
+): string | undefined {
+
+  const ArrayLengthSchema = pipe(array(string()), minLength(2), maxLength(7))
+  const parserArrayLength = safeParser(ArrayLengthSchema)
+  const {success,output} = parserArrayLength(colors)
+  return success
+    ? output
+        .map((color, index) => {
+          return `0 0 0 ${spread * (index + 1)}px ${color}`
+        })
+        .join(', ')
+    : ''
 }
