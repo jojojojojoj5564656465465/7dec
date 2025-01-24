@@ -1,11 +1,11 @@
 import { defineConfig } from 'astro/config'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url' // Import fileURLToPath from the url module
-import UnoCSS from 'unocss/astro'
+//import UnoCSS from 'unocss/astro'
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import qwikdev from '@qwikdev/astro'
-import icon from 'astro-icon'
-import robotsTxt from 'astro-robots-txt'
+//import icon from 'astro-icon'
+//import robotsTxt from 'astro-robots-txt'
 
 // Get the directory name of the current module
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
