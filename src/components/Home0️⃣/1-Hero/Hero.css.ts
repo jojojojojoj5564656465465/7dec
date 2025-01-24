@@ -1,8 +1,9 @@
-import { createContainer, globalStyle, style } from '@vanilla-extract/css'
+import { createContainer, globalStyle, style, styleVariants } from '@vanilla-extract/css'
 import { media, container } from '@theme'
 import * as T from '@theme'
 
 import { fluid } from '@/styles/utils'
+import type { color } from 'bun'
 
 //const font = new FontSizeGenerator(380, 2100, 16)
 
@@ -17,21 +18,33 @@ export const contentHeroSpace = style([
   },
 ])
 
-export const firstName = style({
-  color: T.color.green,
+const _name = style({
   letterSpacing: 1.19,
-  fontSize: fluid(42, 60),
+  fontSize: fluid(42, 55),
   fontFamily: T.fontFamily.exo,
+  '::selection': {
+    color: T.color.green,
+    backgroundColor: T.color.black,
+  }
+
 })
 
-export const lastName = style({
-  color: '#FFC44B',
-})
+const nameColors = {
+  firstName: T.color.green,
+  lastName: 'orange',
+}
+export const name = styleVariants(nameColors, Color => [
+  _name,
+  { color: Color },
+])
+
+
 export const subTitle = style({
-  fontSize: fluid(20, 42),
+  fontSize: fluid(18, 38),
   fontFamily: T.fontFamily.exo,
   textDecoration: 'underline',
   textDecorationColor: T.color.green,
+  
 })
 export const text = style({
   lineHeight: 1.7,
@@ -61,6 +74,17 @@ export const image = style({
   backgroundColor: 'oklch(70% 0.1 346)',
   minInlineSize: 'min(100%,250px)',
   minBlockSize: 'min(100%,250px)',
+  boxShadow: T.boxShadowGenerator(
+    [
+      T.color.green,
+      T.color.azure,
+      T.color.red,
+      T.color.green,
+      T.color.azure,
+      T.color.red,
+    ],
+    3.5,
+  ),
 })
 export const aboutMeList = style([
   container.small,
