@@ -1,4 +1,10 @@
-import { createContainer, globalStyle, style, styleVariants } from '@vanilla-extract/css'
+import {
+  createContainer,
+  globalStyle,
+  keyframes,
+  style,
+  styleVariants,
+} from '@vanilla-extract/css'
 import { media, container } from '@theme'
 import * as T from '@theme'
 
@@ -31,26 +37,40 @@ const _name = style({
 
 const nameColors = {
   firstName: T.color.green,
-  lastName: 'orange',
+  lastName: 'light-dark(oklch(75.58% 0.1513 41.61),oklch(75.58% 0.0887 41.61))',
 }
-export const name = styleVariants(nameColors, Color => [
-  _name,
-  { color: Color },
-])
+export const name = styleVariants(nameColors, color => [_name, { color }])
 
+const moveUnderlineOffset = keyframes({
+  '0%': {
+    textUnderlineOffset: '.6em',
+    textDecorationColor: 'whitesmoke',
+  },
+  '100%': {
+    textUnderlineOffset: '.1em',
+    textDecorationColor: 'green',
+  },
+})
 
 export const subTitle = style({
   fontSize: fluid(18, 38),
   fontFamily: T.fontFamily.exo,
+  animation: `4s linear 1s ${moveUnderlineOffset}`,
+
   textDecoration: 'underline',
-  textDecorationColor: T.color.green,
-  
+  textDecorationColor: 'green',
+  animationIterationCount: 1,
+  textDecorationThickness: fluid(5, 9),
+  textDecorationLine: 'underline',
+  textAlign: 'center',
 })
 export const text = style({
   lineHeight: 1.7,
   color: T.color.black,
   marginBlock: T.space.sm,
-
+  ':first-letter': {
+    fontSize: 20,
+  },
   '@media': {
     [media.lg]: {
       lineHeight: 2,
@@ -59,18 +79,24 @@ export const text = style({
 })
 
 export const slogan = style({
-  color: T.color.red,
+  color: 'orangered',
   fontSize: fluid(19, 25),
   textAlign: 'center',
+  transition: 'color 2s',
   '@media': {
     [media.md]: {
       textAlign: 'left',
     },
   },
+  selectors: {
+    'p:hover + &': {
+      color: 'red',
+    },
+  },
 })
 
 export const image = style({
-  aspectRatio: '1/1',
+  aspectRatio: '1',
   backgroundColor: 'oklch(70% 0.1 346)',
   minInlineSize: 'min(100%,250px)',
   minBlockSize: 'min(100%,250px)',

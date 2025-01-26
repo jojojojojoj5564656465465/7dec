@@ -2,13 +2,12 @@ import {
   createGlobalTheme,
   globalLayer,
   globalStyle,
-  layer,
+
   style,
   styleVariants,
 } from '@vanilla-extract/css'
 import f from './fontFace.css'
 import { ld } from './utils'
-import { custom } from 'astro:schema'
 
 globalLayer('reset')
 globalLayer('base')

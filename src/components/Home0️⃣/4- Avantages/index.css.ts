@@ -4,14 +4,14 @@ import {
   style,
   styleVariants,
 } from '@vanilla-extract/css'
-import { media, container } from '@theme'
+import { media, container, globalStyleTag } from '@theme'
 import * as T from '@theme'
 
 import { fluid } from '@/styles/utils'
 
 /** MARK: AVANTAGE */
 export const WrapperAvantage = style([
-  container.full,
+  container.medium,
   {
     marginBlockEnd: T.space.xl,
     zIndex: 10,
@@ -20,10 +20,10 @@ export const WrapperAvantage = style([
     paddingInline: T.space.sm,
     backgroundColor: T.color.background,
     position: 'relative',
-    display: 'grid',
+    display: ['flex', 'grid'],
     gap: T.space.sm,
-    gridTemplateRows: 'max-content 1fr',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+    gridTemplateRows: '120px 1fr auto',
+    gridTemplateColumns: 'repeat(4,1fr)',
 
     // '@media': {
     //   [media.md]: {
@@ -33,7 +33,13 @@ export const WrapperAvantage = style([
     // },
   },
 ])
-
+globalStyleTag(WrapperAvantage,{
+  h2:{
+    //background:"white",
+    gridColumn:"1 / span 4",
+    textAlign:'center'
+  }
+})
 
 export const boxContainerQuery = createContainer()
 
