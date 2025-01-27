@@ -8,10 +8,10 @@ interface Props {
 const { icon, qualité, text } = Astro.props
 ---
 
-<div class={s.box.boxContainer}>
-  <i class={s.box.icon}>{icon}</i>
-  <dt class={s.box.titre}>{qualité}</dt>
-  <dd class={s.box.text}>
+<div class={s.card.wrapper}>
+  <i class={s.card.icon}>{icon}</i>
+  <dt class={s.card.titre}>{qualité}</dt>
+  <dd class={s.card.text}>
     {text}
   </dd>
 </div>

@@ -1,5 +1,6 @@
 import {
   createContainer,
+  createVar,
   globalStyle,
   keyframes,
   style,
@@ -24,22 +25,29 @@ export const contentHeroSpace = style([
   },
 ])
 
-const _name = style({
+
+
+
+
+const baseName = style({
   letterSpacing: 1.19,
   fontSize: fluid(42, 55),
   fontFamily: T.fontFamily.exo,
   '::selection': {
     color: T.color.green,
     backgroundColor: T.color.black,
-  }
-
+  },
 })
 
-const nameColors = {
-  firstName: T.color.green,
-  lastName: 'light-dark(oklch(75.58% 0.1513 41.61),oklch(75.58% 0.0887 41.61))',
-}
-export const name = styleVariants(nameColors, color => [_name, { color }])
+
+export const name = styleVariants(
+  {
+    firstName: T.color.green,
+    lastName:
+      'light-dark(oklch(75.58% 0.1513 41.61),oklch(75.58% 0.0887 41.61))',
+  },
+  color => [baseName, { color }],
+)
 
 const moveUnderlineOffset = keyframes({
   '0%': {
@@ -68,12 +76,13 @@ export const text = style({
   lineHeight: 1.7,
   color: T.color.black,
   marginBlock: T.space.sm,
-  ':first-letter': {
-    fontSize: 20,
-  },
+
   '@media': {
     [media.lg]: {
       lineHeight: 2,
+      ':first-letter': {
+        fontSize: 26,
+      },
     },
   },
 })
@@ -82,7 +91,7 @@ export const slogan = style({
   color: 'orangered',
   fontSize: fluid(19, 25),
   textAlign: 'center',
-  transition: 'color 2s',
+  transition: 'color 1s, font-size 3s',
   '@media': {
     [media.md]: {
       textAlign: 'left',
@@ -91,6 +100,7 @@ export const slogan = style({
   selectors: {
     'p:hover + &': {
       color: 'red',
+      fontSize: fluid(22, 27),
     },
   },
 })

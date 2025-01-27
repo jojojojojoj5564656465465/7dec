@@ -42,16 +42,21 @@ globalStyleTag(WrapperAvantage,{
 })
 
 export const boxContainerQuery = createContainer()
-
-export const box = styleVariants({
-  boxContainer: {
+/**
+ * MARK: CARD
+ */
+export const card = styleVariants({
+  wrapper: {
     border: `2px solid ${T.color.green}`,
     display: 'flex',
+    rowGap:10,
     marginInline: 'auto',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'start',
-    borderRadius: 60,
+    borderRadius: 50,
+    aspectRatio:'1',
+
     //padding: 10,
     backgroundColor: 'white',
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
@@ -103,6 +108,7 @@ export const box = styleVariants({
     fontSize: T.fontSize.base,
     fontFamily: T.fontFamily.numito,
     minInlineSize: '100%',
+    paddingInline:"10px",
     '::selection': {
       color: 'green',
       backgroundColor: 'yellow',
@@ -122,13 +128,13 @@ export const box = styleVariants({
   },
 })
 
-globalStyle(`${box.boxContainer}:hover > ${box.icon}`, {
+globalStyle(`${card.wrapper}:hover > ${card.icon}`, {
   backgroundColor: 'oklch(86.47% 0.1202 77.29 / 92.68%)',
   border: '3px solid white',
-  outline: '3px solid orange' 
+  outline: '3px solid orange',
 })
 
-globalStyle(`${box.boxContainer}:hover > ${box.titre}`, {
+globalStyle(`${card.wrapper}:hover > ${card.titre}`, {
   color: 'oklch(86.47% 0.1402 77.29)',
   fontWeight: 800,
 })

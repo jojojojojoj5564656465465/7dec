@@ -17,7 +17,7 @@ const Avantage: Props[] = [
   {
     icon: '📱',
     qualité: 'Mobiles',
-    text: 'Smartphones, Tablettes et PC',
+    text: "Disponible sur l'application Google maps Smartphones, Tablettes et PC",
   },
   {
     icon: '🌍',
