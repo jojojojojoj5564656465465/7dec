@@ -1,0 +1,26 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+
+import Layout from "../layouts/Layout.astro";
+import { render } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("business");
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: post,
+  }));
+}
+type Props = CollectionEntry<"business">;
+
+const post = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout>
+  <h1>{post.data.title}</h1>
+  <p>{post.data.descriptions}</p>
+  <p>Price: {post.data.price} €</p>
+
+  <Content />
+</Layout>

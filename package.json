@@ -11,6 +11,7 @@
     "deploy": "bun run build ; bunx netlify deploy --prod"
   },
   "dependencies": {
+    "@astrojs/markdoc": "^0.12.7",
     "@astrojs/check": "0.9.4",
     "@builder.io/qwik": "1.9.1",
     "@qwikdev/astro": "0.6.3",
@@ -19,7 +20,7 @@
     "astro": "4.16.18",
     "astro-icon": "^1.1.5",
     "astro-robots-txt": "^1.0.0",
-    "bun-types": "^1.2.0",
+    "bun-types": "^1.2.1",
     "lightningcss": "^1.29.1",
     "typescript": "^5.7.3",
     "valibot": "^0.42.1"
@@ -27,7 +28,7 @@
   "devDependencies": {
     "@unocss/preset-wind": "^0.65.4",
     "@unocss/reset": "^0.65.4",
-    "@vanilla-extract/vite-plugin": "^4.0.19",
+    "@vanilla-extract/vite-plugin": "^4.0.20-integration-module-entrypoint-20250122000327",
     "biome": "^0.3.3",
     "eslint": "^9.19.0",
     "eslint-plugin-astro": "^1.3.1",

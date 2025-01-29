@@ -9,9 +9,13 @@ import qwikdev from '@qwikdev/astro'
 
 // Get the directory name of the current module
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
+import markdoc from '@astrojs/markdoc'
 
 export default defineConfig({
-  output:'static',
+  experimental: {
+    contentLayer: true
+  },
+  output: 'static',
   server: {
     watch: {
       usePolling: true
@@ -27,13 +31,14 @@ export default defineConfig({
       }
     },
     css: {
-     transformer: 'lightningcss'
+      transformer: 'lightningcss'
     },
     plugins: [
       vanillaExtractPlugin({
         enabled: true,
         identifiers: 'short'
-      })
+      }),
+      markdoc()
     ],
     optimizeDeps: {
       noDiscovery: true

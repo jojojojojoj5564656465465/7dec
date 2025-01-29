@@ -1,11 +1,18 @@
 ---
 import * as s from './index.css'
+import { string, parser } from 'valibot'
+
+const MyParser = parser(string())
 interface Props {
   icon: string
   qualité: string
   text: string
+
 }
 const { icon, qualité, text } = Astro.props
+MyParser(icon)
+MyParser(qualité)
+MyParser(text)
 ---
 
 <div class={s.card.wrapper}>

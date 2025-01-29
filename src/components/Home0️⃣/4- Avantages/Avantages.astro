@@ -4,14 +4,15 @@ import * as s from './index.css'
 import props from './data'
 ---
 
-<section class={s.WrapperAvantage}>
+ <section class={s.WrapperAdvantage}>
   <h2>Les avantages des la visite virtuelle Google</h2>
-  {
-    props.map((item) => (
-      <Card icon={item.icon} qualité={item.qualité} text={item.text} />
-    ))
-  }
-
+  <div class={s.WrapperAdvantage_cards}>
+    {
+      props.map((item) => (
+        <Card icon={item.icon} qualité={item.qualité} text={item.text} />
+      ))
+    }
+  </div>
   <span class={s.ribbonSvg}>
     <svg
       width="1440"
@@ -25,4 +26,5 @@ import props from './data'
       </path>
     </svg>
   </span>
-</section>
+</section> 
+
