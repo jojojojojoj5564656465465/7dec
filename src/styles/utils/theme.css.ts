@@ -161,3 +161,4 @@ globalStyle(`${container.default} > ${container.full}`, {
   maxInlineSize: maxInlineSizeFn('full'),
 })
 export { fontFamily, color, fontSize, space, media, container }
+
