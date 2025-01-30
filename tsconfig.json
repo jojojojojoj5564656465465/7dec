@@ -3,6 +3,7 @@
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"],
   "compilerOptions": {
+  "verbatimModuleSyntax": true,
     "types": ["bun-types"],
     "noEmit": true,
     "strictNullChecks": true,
@@ -18,7 +19,7 @@
       "@home/*": ["src/components/Home0️⃣/*"],
       "@styles/*": ["src/styles/*"],
       "@img/*": ["src/assets/img/*"],
-      "@theme": ["src/styles/utils"],
+      "@theme": ["src/styles/utils/theme.css.ts"],
       "@fonts": ["public/fonts/*"],
       "@images": ["public/images/*"]
     }
