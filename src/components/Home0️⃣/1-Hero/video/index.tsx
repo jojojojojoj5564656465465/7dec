@@ -1,13 +1,16 @@
 import {
   component$,
-  $,
-
   useStyles$,
-  useVisibleTask$
+  useVisibleTask$,
+  useSignal,
+  $,
 } from '@builder.io/qwik'
 import styles from './video.css?inline'
-
+import wrapper from './container.css'
 export default component$(() => {
+
+  const open = useSignal<boolean>(false)
+
   useVisibleTask$(() => {
     if (!document.querySelector('script[src*="wistia.com/player.js"]')) {
       const script = document.createElement('script')
@@ -18,9 +21,16 @@ export default component$(() => {
   })
 
   useStyles$(styles)
+  const toggleOpen = $(() => {
+    open.value = true
+  })
+
   return (
-    <div class="video-container">
-      <wistia-player media-id="ajtj2xpipw" />
+    <div
+      onMouseover$={toggleOpen}
+      onClick$={toggleOpen}
+      class={open.value ? wrapper.open : wrapper.closed}>
+      {open.value && <wistia-player media-id="ajtj2xpipw" />}
     </div>
   )
 })
