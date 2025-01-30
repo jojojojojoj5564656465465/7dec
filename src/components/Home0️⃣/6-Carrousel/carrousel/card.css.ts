@@ -86,39 +86,44 @@ export const ColorTheme = style({
 });
 
 export const wrapperCard = style([
-	{
-		display: "grid",
-		gridColumn: "1fr",
-		gridTemplateRows: "auto min-content 1fr 1fr",
-		//width: "23px",
-		rowGap: 5,
-		maxInlineSize: `calc((100% - (${vars.space.items} - 1) * ${vars.space.gap}) / ${vars.space.items})`,
+  {
+    display: 'grid',
+    gridColumn: '1fr',
+    gridTemplateRows: 'auto min-content 1fr 1fr',
+    //width: "23px",
+    rowGap: 5,
+    maxInlineSize: `calc((100% - (${vars.space.items} - 1) * ${vars.space.gap}) / ${vars.space.items})`,
 
-		minWidth: "200px",
-		height: "220px",
-		maxHeight: "330px",
-		backgroundColor: varsColor.backgroundColor,
-		borderRadius: "20px 5px",
-		boxShadow:
-			"0px 10px 12px rgba(0,0,0,0.08) , -4px -4px 12px rgba(0,0,0,0.08)",
-		overflow: "hidden",
-		transition: "all 0.3s",
-		cursor: "progress",
-		boxSizing: "border-box",
-		padding: "10px",
-		":hover": {
-			transform: "translateY(-10px)",
-			boxShadow:
-				"0px 20px 20px rgba(0,0,0,0.1) , -4px -4px 12px rgba(0,0,0,0.08)",
-		},
-		":active": {
-			transform: "translateY(-10px)",
-			boxShadow:
-				"0px 20px 20px rgba(0,0,0,0.1) , -4px -4px 12px rgba(0,0,0,0.08)",
-		},
-	},
-	ColorTheme,
-]);
+    minWidth: '200px',
+    height: '220px',
+    maxHeight: '330px',
+    backgroundColor: varsColor.backgroundColor,
+    borderRadius: '20px 5px',
+    boxShadow:
+      '0px 10px 12px rgba(0,0,0,0.08) , -4px -4px 12px rgba(0,0,0,0.08)',
+    overflow: 'hidden',
+    transition: 'all 0.5s',
+    cursor: 'progress',
+    boxSizing: 'border-box',
+    padding: '10px',
+    '@media': {
+      [T.media.md]: {
+        transform: 'translateY(-10px)',
+      },
+    },
+    ':hover': {
+      transform: 'translateY(-2px)',
+      boxShadow:
+        '0px 20px 20px rgba(0,0,0,0.1) , -4px -4px 12px rgba(0,0,0,0.08)',
+    },
+    ':active': {
+      transform: 'translateY(-10px)',
+      boxShadow:
+        '0px 20px 20px rgba(0,0,0,0.1) , -4px -4px 12px rgba(0,0,0,0.08)',
+    },
+  },
+  ColorTheme,
+])
 
 export const price = style([
 	{

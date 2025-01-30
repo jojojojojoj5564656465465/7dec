@@ -9,8 +9,8 @@ import {
 import { media, container } from '@theme'
 import * as T from '@theme'
 
-import { fluid } from '@/styles/utils'
-import type { color } from 'bun'
+import { boxShadowGenerator, fluid } from '@/styles/utils'
+
 
 //const font = new FontSizeGenerator(380, 2100, 16)
 
@@ -110,7 +110,7 @@ export const image = style({
   backgroundColor: 'oklch(70% 0.1 346)',
   minInlineSize: 'min(100%,250px)',
   minBlockSize: 'min(100%,250px)',
-  boxShadow: T.boxShadowGenerator(
+  boxShadow: boxShadowGenerator(
     [
       T.color.green,
       T.color.azure,

@@ -4,10 +4,10 @@ import {
   style,
   styleVariants,
 } from '@vanilla-extract/css'
-import { media, container, globalStyleTag } from '@theme'
+import { media, container } from '@theme'
 import * as T from '@theme'
 
-import { fluid } from '@/styles/utils'
+import { fluid, globalStyleTag } from '@/styles/utils'
 
 /** MARK: AVANTAGE */
 export const WrapperAdvantage = style([
@@ -84,21 +84,32 @@ const hoverColor = 'light-dark(oklch(70.18% 0.1548 66.77),oklch(69.29% 0.1 65))'
  */
 export const card = styleVariants({
   wrapper: {
-    border: `2px solid ${T.color.green}`,
+    border: `${fluid(4, 7)} solid ${T.color.green}`,
     display: 'flex',
-    rowGap: 10,
+    gap: 10,
     marginInline: 'auto',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'start',
     borderRadius: 50,
-    aspectRatio: '1',
 
+    '@media': {
+      [media.mobile.portrait]: {
+        aspectRatio: '15/9',
+      },
+      [media.tablet.portrait]: {
+        aspectRatio: '1',
+        height: '100%',
+        maxInlineSize: 100,
+      },
+      [media.md]: {
+        aspectRatio: '1',
+      },
+    },
     //padding: 10,
     backgroundColor: 'white',
     boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
     //maxInlineSize: 'max( 250px, 20vw )',
-    // blockSize: '329px',
     containerName: boxContainerQuery,
     containerType: 'inline-size',
     minInlineSize: '100%',
