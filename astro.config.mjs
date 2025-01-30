@@ -24,7 +24,8 @@ export default defineConfig({
         '@': path.resolve(__dirname, 'src'),
         '@styles': path.resolve(__dirname, 'src/styles'),
         '@fonts': path.resolve(__dirname, 'public/fonts'),
-        '@images': path.resolve(__dirname, 'public/images')
+        '@images': path.resolve(__dirname, 'public/images'),
+        '@theme': path.resolve(__dirname, 'src/styles/utils')
       }
     },
     css: {
