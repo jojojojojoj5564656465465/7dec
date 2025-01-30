@@ -1,7 +1,7 @@
 // styles.css
 import { keyframes, style, styleVariants } from '@vanilla-extract/css'
 import * as T from '@theme'
-import { color } from 'bun'
+
 import { fluid, globalStyleTag } from '@/styles/utils'
 
 export const buttonMobile = styleVariants({

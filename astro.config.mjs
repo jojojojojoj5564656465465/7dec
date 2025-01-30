@@ -12,9 +12,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 import markdoc from '@astrojs/markdoc'
 
 export default defineConfig({
-  experimental: {
-    contentLayer: true
-  },
   output: 'static',
   server: {
     watch: {
