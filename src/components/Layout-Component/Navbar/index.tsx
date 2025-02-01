@@ -3,6 +3,40 @@ import * as s from './Navbar.css'
 import { $, component$, useOnDocument, useSignal } from '@builder.io/qwik'
 import MenuLinks from './menu.data'
 
+
+const SVG = component$(()=>{
+  
+  return (
+    <svg
+      class={s.icon}
+ 
+      viewBox="0 0 540 540"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <title>Company Logo</title>
+      <g clip-path="url(#clip0_104_5)">
+        <rect width="590" height="382" fill="#14975E" />
+        <path
+          d="M270.275 505.914L3.80879 319.879L537.638 321.171L270.275 505.914Z"
+          fill="#14975E"
+        />
+        <path
+          d="M113 229.101L139.205 199.207L283.002 338.515L256.796 368.409L113 229.101Z"
+          fill="#F5F5F5"
+        />
+        <path
+          d="M546.848 -29L579 2.24162L256.54 369L224.388 337.758L546.848 -29Z"
+          fill="#F5F5F5"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_104_5">
+          <rect width="540" height="540" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  )
+})
 export default component$((props) => {
   const isMenuOpen = useSignal<boolean>(false)
   const toggleMenu = $(() => {
@@ -23,7 +57,7 @@ export default component$((props) => {
 
   return (
     <nav id="nav-bar" class={s.one.wrapper} aria-label="Main Navigation">
-      <div class={s.one.logo}>J.H</div>
+      <h2 class={s.one.logo}>J.H <SVG/></h2>
       <button
         class={s.buttonMobile.wrapper}
         type="button"

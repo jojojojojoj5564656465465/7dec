@@ -4,6 +4,14 @@ import * as T from '@theme'
 
 import { fluid, globalStyleTag } from '@/styles/utils'
 
+
+
+export const icon = style({
+  width: 36,
+ display:"inline-block",
+ aspectRatio: '1',
+})
+
 export const buttonMobile = styleVariants({
   wrapper: {
     backgroundColor: T.color.white,
@@ -57,6 +65,9 @@ export const one = styleVariants({
 	fontFamily:T.fontFamily.dancingScript,
     order: 1,
     fontSize: T.fontSize['2xl'],
+    display: 'flex',
+    alignItems: 'center',
+    gap:10,
   },
 })
 

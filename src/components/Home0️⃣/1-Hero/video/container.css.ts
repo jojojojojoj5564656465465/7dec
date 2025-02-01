@@ -16,23 +16,30 @@ const getDownAnimation = keyframes({
 export default styleVariants({
   open: [
     videoBase,
-    { backgroundColor: 'transparent', transition: 'margin-block-start 2s' },
+    { backgroundColor: 'transparent', transition: 'margin-block-start 2s' }
   ],
   closed: [
     {
       backgroundImage:
-        'url("@images/videoImage/Visite virtuelle Google mini.avif")',
+        "image-set(url('@images/videoImage/HeroImageVideoMobileHD.avif') 1x, url('@images/videoImage/HeroImageVideo.avif') 2x)",
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
 
       '@media': {
         [T.media.mobile.portrait]: {
+          backgroundImage:
+            "image-set(url('@images/videoImage/HeroImageVideoMobile.avif') 1x, url('@images/videoImage/HeroImageVideoMobileHD.avif') 2x)",
+
           marginBlockStart: 60,
           ':after': {
             position: 'absolute',
-            top: '-2.5rem',
-          },
+            top: '-2.5rem'
+          }
         },
+        [T.media['2xl']]: {
+          backgroundImage:
+            "image-set(url('@images/videoImage/RetinaJXL.jxl') type('image/jxl'), url('@images/videoImage/RetinaJXL.avif') type('image/avif'))"
+        }
       },
       ':after': {
         content: 'voir la vidéo',
@@ -52,9 +59,9 @@ export default styleVariants({
         animationName: getDownAnimation,
         animationDuration: '1s',
         animationIterationCount: 'infinite',
-        animationTimingFunction: 'ease-in-out',
-      },
+        animationTimingFunction: 'ease-in-out'
+      }
     },
-    videoBase,
-  ],
+    videoBase
+  ]
 })
