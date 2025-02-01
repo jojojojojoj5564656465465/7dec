@@ -3,6 +3,7 @@
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"],
   "compilerOptions": {
+  "verbatimModuleSyntax": true,
     "types": ["bun-types"],
     "noEmit": true,
     "strictNullChecks": true,
@@ -15,10 +16,12 @@
     "jsxImportSource": "@builder.io/qwik",
     "paths": {
       "@/*": ["src/*"],
-      "@home/*": ["src/components/home🏠/*"],
+      "@home/*": ["src/components/Home0️⃣/*"],
       "@styles/*": ["src/styles/*"],
       "@img/*": ["src/assets/img/*"],
-      "@theme": ["src/styles/ThemeContract.css.ts"]
+      "@theme": ["src/styles/utils/theme.css.ts"],
+      "@fonts": ["public/fonts/*"],
+      "@images": ["public/images/*"]
     }
   }
 }
