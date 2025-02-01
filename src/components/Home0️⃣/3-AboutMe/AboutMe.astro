@@ -1,9 +1,14 @@
 ---
 import * as s from './aboutMe.css'
+import MoiPhoto from '@/assets/images/portrait 2.jpg'
+import { Image } from 'astro:assets'
 ---
 
 <section class={s.contentHeroSpace}>
-  <div class={s.image}></div>
+  <div class={s.image2.wrapper}>
+    <Image class={s.image2.image} src={MoiPhoto} alt="Moi" />
+    <span class={s.image2.slogan}>C'est moi !</span>
+  </div>
   <div>
     <h2>About Me</h2>
     <h5>Ce n'est pas un metier mais ma passion</h5>

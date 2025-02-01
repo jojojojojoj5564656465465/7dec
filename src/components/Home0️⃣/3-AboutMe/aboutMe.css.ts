@@ -1,4 +1,9 @@
-import { globalStyle, keyframes, style } from '@vanilla-extract/css'
+import {
+  globalStyle,
+  keyframes,
+  style,
+  styleVariants
+} from '@vanilla-extract/css'
 import { container } from '@theme'
 import { globalStyleTag } from '@styles/utils'
 import * as T from '@theme'
@@ -15,12 +20,12 @@ export const contentHeroSpace = style([
 ])
 const moveLeft = keyframes({
   '0%': {
-    left: '-2vw',
-    opacity: 1
+    left: '-1.5vw',
+    opacity: 0
   },
   '100%': {
     left: '-4vw',
-    opacity: 0
+    opacity: 1
   }
 })
 export const image = style({
@@ -31,13 +36,13 @@ export const image = style({
   minBlockSize: 'min(100%,250px)',
   maxBlockSize: '50svh',
   borderRadius: 30,
-  transition: 'box-shadow 1.5s linear, left 1.5s linear',
+  transition: 'box-shadow 1.5s linear, left 4s linear',
   '@media': {
     [T.media.mobile.landscape]: {
       maxBlockSize: '90svh'
     },
     [T.media.md]: {
-      boxShadow: `-5vw 0  ${T.color.green} `,
+      boxShadow: `-4vw 0  ${T.color.green}`,
       ':hover': {
         boxShadow: '0 0 transparent'
       },
@@ -51,16 +56,64 @@ export const image = style({
         position: 'absolute',
         content: 'Je suis très Sympas !',
         writingMode: 'vertical-lr',
+        animation: `${moveLeft} 4s linear`,
         left: '-4vw',
-        animation: `${moveLeft} 2s linear`,
         rotate: '180deg',
         color: T.color.black,
         marginInline: '50px',
-        fontSize: '2em',
+        fontSize: T.fontSize.lg,
         fontFamily: T.fontFamily.dancingScript
       }
     }
   }
+})
+export const image2 = styleVariants({
+  wrapper: {
+    display: 'flex',
+    justifyContent: 'end',
+    maxInlineSize: 500,
+    maxBlockSize: 500,
+    '@media': {
+      [T.media.mobile.portrait]: {
+        flexDirection: 'column'
+      }
+    }
+  },
+  image: {
+    flexBasis: 280,
+    flexGrow: 1,
+    order: 2,
+    flexShrink: 0,
+    maxBlockSize: '100%',
+    minBlockSize: 50,
+    objectFit: 'cover',
+    '@media': {
+      [T.media.mobile.landscape]: {
+        maxBlockSize: "100svh"
+      }
+    }
+  },
+  slogan: {
+    backgroundColor: T.color.green,
+    order: 1,
+    flexGrow: 0,
+    flexShrink: 0,
+    alignSelf: 'start',
+    paddingInline: 10,
+    writingMode: 'vertical-lr',
+    rotate: '180deg',
+    transition: 'background-color 0.5s linear',
+    '@media': {
+      [T.media.mobile.portrait]: {
+        writingMode: 'horizontal-tb',
+        rotate: 'initial'
+      }
+    }
+  }
+})
+
+globalStyle(`${image2.image}:hover + ${image2.slogan}`, {
+  backgroundColor: T.color.azure
 })
 
 export const aboutMe = style({
