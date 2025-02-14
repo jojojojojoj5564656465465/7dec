@@ -3,7 +3,8 @@
   "include": [".astro/types.d.ts", "**/*"],
   "exclude": ["dist"],
   "compilerOptions": {
-  "verbatimModuleSyntax": true,
+
+    "verbatimModuleSyntax": true,
     "types": ["bun-types"],
     "noEmit": true,
     "strictNullChecks": true,

@@ -1,19 +1,16 @@
-import { z, defineCollection } from "astro:content";
-import { glob } from "astro/loaders"; // Non disponible avec l'API héritée
+import { defineCollection, z } from 'astro:content'
+import { glob } from 'astro/loaders'
 
 const business = defineCollection({
+  loader: glob({ pattern: '**/*.{mdoc,md}', base: './src/content/business' }), // Ensure the pattern and base are correct
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    price: z.number(),
+    Link:z.string().url()
+  })
+})
 
-	loader: glob({ pattern: "**/*.mdoc", base: "./src/content/business" }),
-	schema: () =>
-		z.object({
-			title: z.string(),
-			descriptions: z.string(),
-			price: z.number(),
-		}),
-});
-
-// 3. Export a single `collections` object to register your collection(s)
-//    This key should match your collection directory name in "src/content"
 export const collections = {
-	business,
-};
+  business
+}

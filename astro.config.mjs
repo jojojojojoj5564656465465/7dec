@@ -35,8 +35,7 @@ export default defineConfig({
       vanillaExtractPlugin({
         enabled: true,
         identifiers: 'short'
-      }),
-      markdoc()
+      })
     ],
     optimizeDeps: {
       noDiscovery: true
@@ -47,7 +46,8 @@ export default defineConfig({
     // UnoCSS({
     //   injectReset: false
     // }),
-    qwikdev()
+    qwikdev(),
+    markdoc()
     // icon({ iconDir: 'src/assets/icons' })
     //robotsTxt()
   ]

@@ -2,15 +2,13 @@ import { defineMarkdocConfig } from '@astrojs/markdoc/config';
 import shiki from '@astrojs/markdoc/shiki';
 //import * as nodes from './src/markdoc/config/nodes';
 import * as tags from './src/markdoc/tags';
+import * as nodes from './src/markdoc/nodes';
 
-// const config = defineMarkdocConfig({
-//   nodes,
-//   tags
-// })
-// export default config;
 
+
+/** @type {import('@markdoc/markdoc').Config} */
 export default defineMarkdocConfig({
-  //nodes,
+  nodes,
   tags,
  
 });

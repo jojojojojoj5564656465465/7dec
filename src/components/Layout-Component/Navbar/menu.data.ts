@@ -4,15 +4,15 @@ export type menu ={
 }
 export default [
   {
-    name: 'tarif',
-    link: '/tarif',
+    name: 'home',
+    link: '/',
   },
   {
-    name: 'exemples',
+    name: 'list',
     link: '/list',
   },
   {
-    name: 'contact',
-    link: '/contact',
+    name: 'bars',
+    link: '/business/bars',
   },
 ] as menu[]

@@ -89,6 +89,7 @@ const containerSize = {
   small: '60rem',
   medium: '72rem',
   large: '90rem',
+  xxl: '120rem',
   full: '100svw',
 } as const
 
@@ -129,22 +130,28 @@ const container = styleVariants({
   small: [
     defaultContainer,
     {
-      maxInlineSize: maxInlineSizeFn('small'),
-    },
+      maxInlineSize: maxInlineSizeFn('small')
+    }
   ],
   medium: [
     defaultContainer,
     {
-      maxInlineSize: maxInlineSizeFn('medium'),
-    },
+      maxInlineSize: maxInlineSizeFn('medium')
+    }
   ],
   large: [
     defaultContainer,
     {
-      maxInlineSize: maxInlineSizeFn('large'),
-    },
+      maxInlineSize: maxInlineSizeFn('large')
+    }
   ],
-  full: [defaultContainer, { maxInlineSize: 'none' }],
+  xxl: [
+    defaultContainer,
+    {
+      maxInlineSize: maxInlineSizeFn('xxl')
+    }
+  ],
+  full: [defaultContainer, { maxInlineSize: 'none' }]
 })
 
 globalStyle(`${container.default} > *`, {
@@ -156,6 +163,9 @@ globalStyle(`${container.default} > ${container.medium}`, {
 })
 globalStyle(`${container.default} > ${container.large}`, {
   maxInlineSize: maxInlineSizeFn('large'),
+})
+globalStyle(`${container.default} > ${container.xxl}`, {
+  maxInlineSize: maxInlineSizeFn('xxl')
 })
 globalStyle(`${container.default} > ${container.full}`, {
   maxInlineSize: maxInlineSizeFn('full'),

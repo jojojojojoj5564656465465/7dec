@@ -81,7 +81,7 @@ globalStyle('html, body *', {
   },
 })
 
-globalStyle('ul', {
+globalStyle('ul li', {
   '@layer': {
     reset: {
       listStyleType: 'none',
