@@ -3,20 +3,75 @@ import { getCollection } from 'astro:content'
 import Layout from '../layouts/Layout.astro'
 const posts = await getCollection('business')
 import { ListPage as s } from '@styles/main.css'
+import { caseStudy as c } from '@styles/main.css'
 ---
 
 <Layout>
   <section class={s.section}>
     <h1>Mes articles</h1>
     <ul class={s.ul}>
-      
       {
         posts.map((post) => (
           <li class={s.li}>
-            <a class={s.a} href={`/${post.id}`}>{post.data.title}</a>
+            <a class={s.a} href={`/${post.id}`}>
+              {post.data.title}
+            </a>
           </li>
         ))
       }
     </ul>
+  </section>
+  <section class={c.wrapper}>
+    <h2>Études de cas</h2>
+    <div class={c.gridWrapper}>
+      <div class={c.cardEach}>
+        <h4 class={c.h4}>Just Food For Dogs</h4>
+        <p class={c.p}>
+          <span class={c.span}>Augmentation de 50%</span> du taux de clics sur les
+          pages de recherche Google depuis la publication de sa visite StreetView
+          Trusted
+        </p>
+
+        <a
+          class={c.button}
+          href="https://static.googleusercontent.com/media/www.google.com/fr//maps/about/assets/partners/businessview/casestudies-jffd.pdf">
+          <button>Lire PDF</button>
+        </a>
+      </div>
+
+      <div class={c.gridWrapper}>
+        <div class={c.cardEach}>
+          <h4 class={c.h4}>Leekes</h4>
+          <p class={c.p}>
+            La numérisations avec StreetView Trusted a permis d’augmenter la
+            fréquentation physique en <span class={c.span}>
+              magasin de 20 % sur 1 an
+            </span>
+          </p>
+          <a
+            class={c.button}
+            href="https://static.googleusercontent.com/media/www.google.com/fr//maps/about/assets/partners/businessview/casestudies-leekes.pdf">
+            <button>Lire PDF</button>
+          </a>
+        </div>
+      </div>
+
+      <div class={c.gridWrapper}>
+        <div class={c.cardEach}>
+          <h4 class={c.h4}>NYC & Company</h4>
+          <p class={c.p}>
+            En moyenne, les pages Google Maps qui ont une visite virtuelle,
+            enregistrent <span class={c.span}>
+              un taux de clics et réservations supérieur de 30 %
+            </span>
+          </p>
+          <a
+            class={c.button}
+            href="https://static.googleusercontent.com/media/www.google.com/fr//maps/about/assets/partners/businessview/casestudies-nyc.pdf">
+            <button>Lire PDF</button>
+          </a>
+        </div>
+      </div>
+    </div>
   </section>
 </Layout>
