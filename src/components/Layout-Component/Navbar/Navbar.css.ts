@@ -44,6 +44,7 @@ export const one = styleVariants({
   wrapper: [
     T.container.full,
     {
+      cursor:'pointer',
       backgroundColor: T.color.black,
       height: 'auto',
       minBlockSize: '70px',

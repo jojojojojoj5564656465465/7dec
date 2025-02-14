@@ -57,7 +57,9 @@ export default component$((props) => {
 
   return (
     <nav id="nav-bar" class={s.one.wrapper} aria-label="Main Navigation">
-      <h2 class={s.one.logo}>J.H <SVG/></h2>
+      <a class={s.one.logo} href="/">
+        J.H <SVG />
+      </a>
       <button
         class={s.buttonMobile.wrapper}
         type="button"

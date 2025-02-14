@@ -1,5 +1,6 @@
 import { globalStyle, styleVariants } from '@vanilla-extract/css'
-import { container, globalStyleTag, hover, media } from './utils'
+import { container, media } from './utils'
+import * as T from '@theme'
 
 export const ListPage = styleVariants({
   section: [
@@ -9,7 +10,7 @@ export const ListPage = styleVariants({
       justifyContent: 'center',
 
       paddingInline: 'auto',
-      backgroundColor: '#9acd32'
+      backgroundColor: T.color.green
     }
   ],
   ul: {
@@ -19,8 +20,7 @@ export const ListPage = styleVariants({
     marginBlock: 40,
     gridTemplateColumns: 'repeat(2, minmax(2rem,1fr))',
     maxInlineSize: '90rem',
-    backgroundColor: 'indigo',
-
+    minInlineSize: '90svw',
     justifyContent: 'start',
     justifyItems: 'start',
     marginInline: 'auto',
@@ -40,7 +40,8 @@ export const ListPage = styleVariants({
       },
       [media.lg]: {
         gridTemplateColumns: 'repeat(4, 1fr)',
-        inlineSize: 900
+        inlineSize: 900,
+       
       }
     }
   },
@@ -49,13 +50,26 @@ export const ListPage = styleVariants({
     textTransform: 'capitalize',
     display: 'grid',
     placeItems: 'center',
-    backgroundColor: 'white',
-    color: 'black',
+    backgroundColor: T.color.white,
+
     borderRadius: '0.5rem',
     minInlineSize: '5rem',
     aspectRatio: '16/9',
     ':hover': {
-      backgroundColor: 'green'
+      borderBlockColor: T.color.black,
+
+      borderWidth: 5,
+      borderStyle: 'double',
+      color: T.color.azure
+    }
+  },
+  a: {
+    color: T.color.black,
+    ':hover': {
+      color: T.color.azure
     }
   }
+})
+globalStyle(`${ListPage.li}:hover:has(${ListPage.a}) ${ListPage.a}`, {
+  color: T.color.azure
 })

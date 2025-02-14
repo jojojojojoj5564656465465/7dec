@@ -13,7 +13,7 @@ import { ListPage as s } from '@styles/main.css'
       {
         posts.map((post) => (
           <li class={s.li}>
-            <a href={`/${post.id}`}>{post.data.title}</a>
+            <a class={s.a} href={`/${post.id}`}>{post.data.title}</a>
           </li>
         ))
       }

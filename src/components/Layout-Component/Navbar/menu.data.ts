@@ -11,8 +11,5 @@ export default [
     name: 'list',
     link: '/list',
   },
-  {
-    name: 'bars',
-    link: '/business/bars',
-  },
+
 ] as menu[]
