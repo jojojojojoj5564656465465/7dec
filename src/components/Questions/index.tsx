@@ -1,9 +1,13 @@
 import {
+  useContext,
+  useContextProvider,
+  createContextId,
   component$,
   useSignal,
   $,
   useOn,
   type QRL,
+  type Signal,
   useComputed$
 } from '@builder.io/qwik'
 import s from './Question.css'
@@ -14,8 +18,10 @@ interface PropsElement {
   response: string
   id: number
   fromParentFunction: QRL<(x: number) => void>
-  contextID: number
 }
+
+export const IdContextOpen =
+  createContextId<Signal<number>>('faq-active-open-id')
 
 /***
  * MARK:CARD item
@@ -28,16 +34,13 @@ const Element = component$<PropsElement>((props) => {
       props.fromParentFunction(props.id)
     })
   )
-
-  const activeP = useComputed$(() => props.contextID === props.id)
-
+  const childContextId = useContext(IdContextOpen)
+  const activeP = useComputed$(() => childContextId.value === props.id)
 
   return (
     <div class={s.card}>
       <dt class={s.dt}>
-        <h5 class={s.titleCard}>
-          {props.question}
-        </h5>
+        <h5 class={s.titleCard}>{props.question}</h5>
         <h5>{activeP.value ? '-' : '+︎'}</h5>
       </dt>
       <dd class={activeP.value ? s.open : s.close}>{props.response}</dd>
@@ -54,10 +57,10 @@ export default component$(() => {
   const changeId = $((xIndex: number) => {
     id.value = xIndex
   })
-
+  useContextProvider(IdContextOpen, id)
   return (
-    <>
-      <h1>ID: {id.value}</h1>
+    <section class={s.wrapper}>
+      <h1>Questions / Réponses </h1>
 
       <dl>
         {faqData.map(({ question, response }, index) => {
@@ -68,11 +71,10 @@ export default component$(() => {
               question={question}
               response={response}
               fromParentFunction={changeId}
-              contextID={id.value}
             />
           )
         })}
       </dl>
-    </>
+    </section>
   )
 })
