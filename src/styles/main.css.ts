@@ -92,7 +92,6 @@ export const caseStudy = styleVariants({
       backgroundColor: 'pink',
       color: 'green',
     },
- 
   },
   p: {
     fontSize: T.fontSize.base,
@@ -117,7 +116,7 @@ export const caseStudy = styleVariants({
     ':hover': {
       backgroundColor: 'orange',
       color: 'black',
-      border: '3px solid black',
+      border: `3px solid ${T.color.black}`,
     },
   },
 })

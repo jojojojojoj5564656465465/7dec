@@ -1,6 +1,6 @@
 import { container, fluid, media } from '@/styles/utils'
 import { styleVariants, globalStyle } from '@vanilla-extract/css'
-
+import * as T from '@theme'
 export default styleVariants({
   section: [
     container.xxl,
@@ -16,19 +16,19 @@ export default styleVariants({
           // maxInlineSize: '120rem',
           maxInlineSize: '95%',
 
-          gridTemplateColumns: '1fr 1fr'
-        }
-      }
-    }
+          gridTemplateColumns: '1fr 1fr',
+        },
+      },
+    },
   ],
   wrapperIframe: {
     '@media': {
       [media.lg]: {
         minInlineSize: '100%',
         position: 'sticky',
-        top: 20
-      }
-    }
+        top: 20,
+      },
+    },
   },
   Iframe: {
     border: '0px',
@@ -41,34 +41,62 @@ export default styleVariants({
       [media.mobile.portrait]: {
         width: '100sdw',
         height: '100sdh',
-        aspectRatio: '9/16'
+        aspectRatio: '9/16',
       },
       [media.mobile.landscape]: {
         minInlineSize: '99%',
-        aspectRatio: '16/8'
+        aspectRatio: '16/8',
       },
       [media.md]: {
-        aspectRatio: '16/9'
+        aspectRatio: '16/9',
       },
       [media.tablet.portrait]: {
-        aspectRatio: '16/9'
+        aspectRatio: '16/9',
       },
       [media.lg]: {
-        aspectRatio: '16/9'
+        aspectRatio: '16/9',
       },
-
-    }
+    },
   },
   content: {
     maxInlineSize: 800,
+    order: 0,
     '@media': {
       [media['2xl']]: {
-        maxInlineSize: undefined
-      }
-    }
-  }
+        maxInlineSize: undefined,
+      },
+    },
+  },
+  scrollToTop: {
+    position: 'static',
+    backgroundColor: T.color.black,
+    padding: '0.5rem 1rem',
+    color: 'black',
+    borderRadius: 20,
+    cursor: 'pointer',
+    opacity: 0.5,
+    display: 'none',
+    visibility: 'hidden',
+    '@media': {
+      [media.md]: {
+        display: 'flex',
+        opacity: 0.8,
+        padding: '1.5rem 2rem',
+        visibility: 'initial',
+        marginInline: 'auto',
+        ':hover': {
+          backgroundColor: 'orange',
+          fontWeight: 'bold',
+        },
+      },
+      [media['2xl']]: {
+        borderRadius: 10,
+        order: 4,
+      },
+    },
+  },
 })
 
 globalStyle('ul li', {
-  listStyleType: 'circle'
+  listStyleType: 'circle',
 })

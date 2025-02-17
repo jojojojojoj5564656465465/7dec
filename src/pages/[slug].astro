@@ -3,6 +3,7 @@ import { type CollectionEntry, getCollection } from 'astro:content'
 import Iframe from '@/components/Articles/Iframe.astro'
 import Layout from '../layouts/Layout.astro'
 import { render } from 'astro:content'
+import BtnTop from '@/components/Articles/btnTop'
 
 export async function getStaticPaths() {
   const posts = await getCollection('business')
@@ -29,11 +30,10 @@ import s from '@/components/Articles/main.css'
       <p>Price: {post.data.price} €</p>
       <Content />
     </div>
+    <BtnTop />
     <div class={s.wrapperIframe}>
       <Iframe Link={post.data.Link} />
-      <div>
-        contact moi
-      </div>
+      <div>contact moi</div>
     </div>
   </section>
 

@@ -4,10 +4,12 @@ import Layout from '../layouts/Layout.astro'
 const posts = await getCollection('business')
 import { ListPage as s } from '@styles/main.css'
 import { caseStudy as c } from '@styles/main.css'
+import FAQ from '@/components/Questions' 
 ---
 
 <Layout>
   <section class={s.section}>
+    <FAQ/>
     <h1>Mes articles</h1>
     <ul class={s.ul}>
       {
