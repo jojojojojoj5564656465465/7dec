@@ -7,10 +7,10 @@ const business = defineCollection({
     title: z.string(),
     description: z.string(),
     price: z.number(),
-    Link:z.string().url()
-  })
+    Link: z.string().url(),
+  }),
 })
 
 export const collections = {
-  business
+  business,
 }

@@ -1,15 +1,15 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content'
-import Iframe from '@/components/Articles/Iframe.astro'
-import Layout from '../layouts/Layout.astro'
 import { render } from 'astro:content'
+import Iframe from '@/components/Articles/Iframe.astro'
 import BtnTop from '@/components/Articles/btnTop'
+import Layout from '../layouts/Layout.astro'
 
 export async function getStaticPaths() {
   const posts = await getCollection('business')
-  return [...posts].map((post) => ({
+  return [...posts].map(post => ({
     params: { slug: post.id },
-    props: post
+    props: post,
   }))
 }
 type Props = CollectionEntry<'business'>

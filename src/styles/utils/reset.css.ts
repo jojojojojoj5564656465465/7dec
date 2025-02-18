@@ -1,7 +1,6 @@
-
 import { globalStyle } from '@vanilla-extract/css'
 import { globalLayer } from '@vanilla-extract/css'
-import * as v from "valibot"
+import * as v from 'valibot'
 import * as T from './theme.css'
 globalLayer('reset')
 globalLayer('base')
@@ -113,7 +112,6 @@ globalStyle('a:hover', {
   },
 })
 
-
 globalStyle(':where(h1, h2, h3, h4, h5, h6, p)', {
   margin: 0,
 })
@@ -178,7 +176,7 @@ const responsiveFontSize: Record<string, v.InferInput<typeof ValidObj>> = {
 } as const
 
 for (const [key, value] of Object.entries(responsiveFontSize)) {
-  const { color, fontSize,fontFamily } = v.parse(ValidObj, value)
+  const { color, fontSize, fontFamily } = v.parse(ValidObj, value)
   globalStyle(key, {
     '@layer': {
       custom: {

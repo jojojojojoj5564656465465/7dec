@@ -1,5 +1,5 @@
-import { keyframes, style, styleVariants } from '@vanilla-extract/css'
 import * as T from '@theme'
+import { keyframes, style, styleVariants } from '@vanilla-extract/css'
 
 const videoBase = style({
   position: 'relative',
@@ -16,7 +16,7 @@ const getDownAnimation = keyframes({
 export default styleVariants({
   open: [
     videoBase,
-    { backgroundColor: 'transparent', transition: 'margin-block-start 2s' }
+    { backgroundColor: 'transparent', transition: 'margin-block-start 2s' },
   ],
   closed: [
     {
@@ -33,13 +33,13 @@ export default styleVariants({
           marginBlockStart: 60,
           ':after': {
             position: 'absolute',
-            top: '-2.5rem'
-          }
+            top: '-2.5rem',
+          },
         },
         [T.media['2xl']]: {
           backgroundImage:
-            "image-set(url('@images/videoImage/RetinaJXL.jxl') type('image/jxl'), url('@images/videoImage/RetinaJXL.avif') type('image/avif'))"
-        }
+            "image-set(url('@images/videoImage/RetinaJXL.jxl') type('image/jxl'), url('@images/videoImage/RetinaJXL.avif') type('image/avif'))",
+        },
       },
       ':after': {
         content: 'voir la vidéo',
@@ -59,9 +59,9 @@ export default styleVariants({
         animationName: getDownAnimation,
         animationDuration: '1s',
         animationIterationCount: 'infinite',
-        animationTimingFunction: 'ease-in-out'
-      }
+        animationTimingFunction: 'ease-in-out',
+      },
     },
-    videoBase
-  ]
+    videoBase,
+  ],
 })

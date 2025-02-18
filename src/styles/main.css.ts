@@ -1,7 +1,10 @@
+import * as T from '@theme'
 import { globalStyle, styleVariants } from '@vanilla-extract/css'
 import { container, fluid, media } from './utils'
-import * as T from '@theme'
 
+/**
+ * MARK: EXEMPLES
+ */
 export const ListPage = styleVariants({
   section: [
     container.small,
@@ -10,31 +13,31 @@ export const ListPage = styleVariants({
       justifyContent: 'center',
       justifyItems: 'center',
 
-      backgroundColor: T.color.green,
+      //backgroundColor: T.color.green,
     },
   ],
   ul: {
     gap: '1rem', //gap: fluid(15, 25),
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(150px,1fr))',
+    display: ['grid','flex'],
+    flexWrap:"wrap",
 
-    //marginInline: 'auto',
+
     marginBlock: fluid(20, 45),
     //justifyContent: 'space-between',
     '@media': {
       [media.md]: {
+
+        display:"grid",
+        gridTemplateColumns: 'repeat(3, 1fr)',
         //gridTemplateColumns: 'repeat(3,1fr)'
         //inlineSize: 600
       },
       [media.lg]: {
         maxInlineSize: '60rem',
+        gridTemplateColumns: 'repeat(4, 1fr)',
         //gridTemplateColumns: 'repeat(4, 1fr)'
         //inlineSize: 900
-      },
-      [media['2xl']]: {
-        //gridTemplateColumns: 'repeat(5, 1fr)'
-        //inlineSize: 900
-      },
+      }
     },
   },
   li: {
@@ -44,7 +47,7 @@ export const ListPage = styleVariants({
     backgroundColor: T.color.white,
 
     borderRadius: '0.5rem',
-
+  border:`1px solid ${T.color.black}`,
     minInlineSize: '9rem',
     maxInlineSize: '12rem',
 
@@ -81,13 +84,13 @@ export const caseStudy = styleVariants({
     gap: '1.5rem',
   },
   cardEach: {
-    borderTop: '5px solid light-dark(orange, white)',
+    borderTop: '5px double light-dark(orange, white)',
     display: 'grid',
     gap: '1rem',
   },
   h4: {
     //textDecoration: 'underline solid light-dark(orange, white)',
-    fontFamily: T.fontFamily.numito,
+         fontFamily: T.fontFamily.numito,
     '::selection': {
       backgroundColor: 'pink',
       color: 'green',
@@ -111,12 +114,24 @@ export const caseStudy = styleVariants({
     padding: '0.5rem 1rem',
     fontFamily: T.fontFamily.exo,
     letterSpacing: 2,
-    color: T.color.azure,
+    color: T.color.white,
     borderRadius: '10px',
+
+
+
     ':hover': {
       backgroundColor: 'orange',
-      color: 'black',
       border: `3px solid ${T.color.black}`,
     },
+
   },
+  button_button:{
+    width:"100%",
+    display:"grid",
+    gridTemplateColumns:"1fr auto",
+    ':hover':{
+      color: 'light-dark(white, black)',
+    }
+
+  }
 })

@@ -1,12 +1,13 @@
+'use strict'
 module.exports = {
   plugins: [require.resolve('prettier-plugin-astro')],
   overrides: [
     {
       files: '*.astro',
       options: {
-        parser: 'astro'
-      }
-    }
+        parser: 'astro',
+      },
+    },
   ],
 
   endOfLine: 'lf',
@@ -15,5 +16,5 @@ module.exports = {
   semi: false,
   trailingComma: 'none',
   bracketSpacing: true,
-  htmlWhitespaceSensitivity: 'ignore'
+  htmlWhitespaceSensitivity: 'ignore',
 }

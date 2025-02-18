@@ -2,7 +2,6 @@ import {
   createGlobalTheme,
   globalLayer,
   globalStyle,
-
   style,
   styleVariants,
 } from '@vanilla-extract/css'
@@ -22,7 +21,7 @@ const fontFamily = createGlobalTheme(':root', {
 const color = createGlobalTheme(':root', {
   azure: ld('oklch(58.01% 0.18 259.96)', 'oklch(62.76% 0.18 259.96)'),
   red: ld(
-    'oklch(58.9% 0.2037 13.339641794332277)',
+    'red',
     'oklch(64.84% 0.2037 13.339641794332277)',
   ),
   green: ld('oklch(60% 0.1507 154.1)', 'oklch(68.4% 0.1507 154.1)'),
@@ -95,7 +94,7 @@ const containerSize = {
 
 // This function takes a parameter x of type keyof typeof containerSize and returns a string
 const maxInlineSizeFn = (x: keyof typeof containerSize): string => {
-  // Return a string that calculates the minimum of three values: 
+  // Return a string that calculates the minimum of three values:
   // 1. 100% minus twice the value of the parameter x from the containerSize object
   // 2. The value of the parameter x from the containerSize object
   // 3. 130rem
@@ -130,28 +129,28 @@ const container = styleVariants({
   small: [
     defaultContainer,
     {
-      maxInlineSize: maxInlineSizeFn('small')
-    }
+      maxInlineSize: maxInlineSizeFn('small'),
+    },
   ],
   medium: [
     defaultContainer,
     {
-      maxInlineSize: maxInlineSizeFn('medium')
-    }
+      maxInlineSize: maxInlineSizeFn('medium'),
+    },
   ],
   large: [
     defaultContainer,
     {
-      maxInlineSize: maxInlineSizeFn('large')
-    }
+      maxInlineSize: maxInlineSizeFn('large'),
+    },
   ],
   xxl: [
     defaultContainer,
     {
-      maxInlineSize: maxInlineSizeFn('xxl')
-    }
+      maxInlineSize: maxInlineSizeFn('xxl'),
+    },
   ],
-  full: [defaultContainer, { maxInlineSize: 'none' }]
+  full: [defaultContainer, { maxInlineSize: 'none' }],
 })
 
 globalStyle(`${container.default} > *`, {
@@ -165,10 +164,9 @@ globalStyle(`${container.default} > ${container.large}`, {
   maxInlineSize: maxInlineSizeFn('large'),
 })
 globalStyle(`${container.default} > ${container.xxl}`, {
-  maxInlineSize: maxInlineSizeFn('xxl')
+  maxInlineSize: maxInlineSizeFn('xxl'),
 })
 globalStyle(`${container.default} > ${container.full}`, {
   maxInlineSize: maxInlineSizeFn('full'),
 })
 export { fontFamily, color, fontSize, space, media, container }
-

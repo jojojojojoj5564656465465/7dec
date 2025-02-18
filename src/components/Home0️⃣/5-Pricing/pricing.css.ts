@@ -1,12 +1,12 @@
+import { boxShadowGenerator, fluid, globalStyleTag } from '@/styles/utils'
+import { container, media } from '@theme'
+import * as T from '@theme'
 import {
   createContainer,
   globalStyle,
   style,
   styleVariants,
 } from '@vanilla-extract/css'
-import { container, media } from '@theme'
-import * as T from '@theme'
-import { boxShadowGenerator, fluid, globalStyleTag } from '@/styles/utils'
 
 export const section = style([
   container.small,
@@ -20,19 +20,19 @@ export const section = style([
     marginBlock: T.space.sm,
     '@media': {
       [T.media.mobile.landscape]: {
-        gridTemplateColumns: 'repeat(2, 1fr)'
+        gridTemplateColumns: 'repeat(2, 1fr)',
       },
       'screen and (hover: hover) and (min-width: 37em)': {
         minBlockSize: 500,
-        gridTemplateColumns: '1fr 15rem'
+        gridTemplateColumns: '1fr 15rem',
       },
       [media.md]: {
         marginBlockEnd: T.space.lg,
         minBlockSize: 500,
-        gridTemplateColumns: 'repeat(2, 1fr)'
-      }
-    }
-  }
+        gridTemplateColumns: 'repeat(2, 1fr)',
+      },
+    },
+  },
 ])
 
 export const Box1Wrapper = style({
@@ -59,13 +59,13 @@ export const Box1 = styleVariants({
       //maxInlineSize:20,
       color: T.color.black,
       fontSize: T.fontSize.sm,
-      display: 'block'
+      display: 'block',
     },
     '::selection': {
       color: 'green',
       backgroundColor: 'yellow',
-      padding: 5
-    }
+      padding: 5,
+    },
   },
   ul: {
     listStyle: 'none',
@@ -76,7 +76,7 @@ export const Box1 = styleVariants({
     flexDirection: 'column',
     justifyContent: 'center',
     justifyItems: 'center',
-    marginInline: 10
+    marginInline: 10,
   },
   button: {
     backgroundColor: T.color.black,
@@ -100,18 +100,18 @@ export const Box1 = styleVariants({
           'oklch(77.74% 0.148 155.12)',
           'oklch(51.63% 0.148 268.41)',
           'oklch(86.94% 0.148 155.12)',
-          'oklch(64.09% 0.148 268.41)'
+          'oklch(64.09% 0.148 268.41)',
         ],
-        2
-      )
+        2,
+      ),
     },
     '@media': {
       [T.media.mobile.portrait]: {
         marginBlockStart: 30,
-        minInlineSize: '90%'
-      }
-    }
-  }
+        minInlineSize: '90%',
+      },
+    },
+  },
 })
 
 export const customBullet = style({
@@ -125,8 +125,8 @@ globalStyleTag(Box1.ul, {
     alignItems: 'center',
     placeItems: 'center',
     position: 'relative',
-    display: 'flex'
-  }
+    display: 'flex',
+  },
 })
 
 globalStyle(`${Box1.ul} > li:before`, {
@@ -159,9 +159,9 @@ export const image = styleVariants({
       'screen and (max-width: 460px)': {
         flexDirection: 'column',
         justifyContent: 'end',
-        alignItems: 'center'
-      }
-    }
+        alignItems: 'center',
+      },
+    },
   },
   verticalText: {
     fontSize: fluid(20, 30),
@@ -173,16 +173,15 @@ export const image = styleVariants({
     color: T.color.black,
     '@media': {
       'screen and (max-width: 460px)': {
-
-        display:"none"
-      }
-    }
-  }
+        display: 'none',
+      },
+    },
+  },
 })
 
 globalStyleTag(image.wrapper, {
   svg: {
     stroke: T.color.white,
-    fill: T.color.azure
-  }
+    fill: T.color.azure,
+  },
 })

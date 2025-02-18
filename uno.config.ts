@@ -1,4 +1,3 @@
-
 import {
   defineConfig,
   presetTagify,
@@ -38,7 +37,7 @@ export default defineConfig({
         'build',
         'mock',
         './stats.html',
-        '*.css.ts'
+        '*.css.ts',
       ],
     },
   },

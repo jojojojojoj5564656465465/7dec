@@ -1,15 +1,13 @@
+import * as T from '@theme'
 // styles.css
 import { keyframes, style, styleVariants } from '@vanilla-extract/css'
-import * as T from '@theme'
 
 import { fluid, globalStyleTag } from '@/styles/utils'
 
-
-
 export const icon = style({
   width: 36,
- display:"inline-block",
- aspectRatio: '1',
+  display: 'inline-block',
+  aspectRatio: '1',
 })
 
 export const buttonMobile = styleVariants({
@@ -44,7 +42,7 @@ export const one = styleVariants({
   wrapper: [
     T.container.full,
     {
-      cursor:'pointer',
+      cursor: 'pointer',
       backgroundColor: T.color.black,
       height: 'auto',
       minBlockSize: '70px',
@@ -63,12 +61,12 @@ export const one = styleVariants({
   logo: {
     color: T.color.white,
     marginInline: 20,
-	fontFamily:T.fontFamily.dancingScript,
+    fontFamily: T.fontFamily.dancingScript,
     order: 1,
     fontSize: T.fontSize['2xl'],
     display: 'flex',
     alignItems: 'center',
-    gap:10,
+    gap: 10,
   },
 })
 
@@ -82,6 +80,7 @@ const menuBase = style({
   gridColumn: 'span 2',
   overflow: 'hidden',
   transition: 'max-height 0.3s ease-out, opacity 0.2s ease-out',
+  color: T.color.white,
   '@media': {
     [T.media.lg]: {
       justifyContent: 'end',
@@ -105,6 +104,7 @@ export const menuState = styleVariants({
     {
       maxBlockSize: '500px',
       opacity: 1,
+      color: `${T.color.white} !important`,
     },
   ],
   close: [
@@ -119,19 +119,18 @@ export const menuState = styleVariants({
       },
     },
   ],
+  link:{
+    color:T.color.white,
+    fontSize: T.fontSize.md,
+    textAlign: 'center',
+  }
 })
 
-globalStyleTag(menuState.open, {
-  span: {
-    fontSize: T.fontSize.lg,
-    color: T.color.white,
-    textAlign: 'center',
-  },
-})
+
 
 globalStyleTag(menuState.close, {
   span: {
-    color: T.color.white,
+
     textAlign: 'center',
     marginBlock: 'center',
     fontSize: T.fontSize.lg,

@@ -1,1 +1,1 @@
-export * from "./callout.markdoc";
+export * from './callout.markdoc'

@@ -1,12 +1,12 @@
+import { globalStyleTag } from '@styles/utils'
+import { container } from '@theme'
+import * as T from '@theme'
 import {
   globalStyle,
   keyframes,
   style,
-  styleVariants
+  styleVariants,
 } from '@vanilla-extract/css'
-import { container } from '@theme'
-import { globalStyleTag } from '@styles/utils'
-import * as T from '@theme'
 
 export const contentHeroSpace = style([
   container.small,
@@ -15,18 +15,18 @@ export const contentHeroSpace = style([
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
     gap: T.space.md,
-    marginInline: 'auto'
-  }
+    marginInline: 'auto',
+  },
 ])
 const moveLeft = keyframes({
   '0%': {
     left: '-1.5vw',
-    opacity: 0
+    opacity: 0,
   },
   '100%': {
     left: '-4vw',
-    opacity: 1
-  }
+    opacity: 1,
+  },
 })
 export const image = style({
   position: 'relative',
@@ -39,18 +39,18 @@ export const image = style({
   transition: 'box-shadow 1.5s linear, left 4s linear',
   '@media': {
     [T.media.mobile.landscape]: {
-      maxBlockSize: '90svh'
+      maxBlockSize: '90svh',
     },
     [T.media.md]: {
       boxShadow: `-4vw 0  ${T.color.green}`,
       ':hover': {
-        boxShadow: '0 0 transparent'
+        boxShadow: '0 0 transparent',
       },
       selectors: {
         '&:hover::after': {
           content: '',
-          left: 0
-        }
+          left: 0,
+        },
       },
       '::after': {
         position: 'absolute',
@@ -62,10 +62,10 @@ export const image = style({
         color: T.color.black,
         marginInline: '50px',
         fontSize: T.fontSize.lg,
-        fontFamily: T.fontFamily.dancingScript
-      }
-    }
-  }
+        fontFamily: T.fontFamily.dancingScript,
+      },
+    },
+  },
 })
 export const image2 = styleVariants({
   wrapper: {
@@ -75,9 +75,9 @@ export const image2 = styleVariants({
     maxBlockSize: 500,
     '@media': {
       [T.media.mobile.portrait]: {
-        flexDirection: 'column'
-      }
-    }
+        flexDirection: 'column',
+      },
+    },
   },
   image: {
     flexBasis: 280,
@@ -89,9 +89,9 @@ export const image2 = styleVariants({
     objectFit: 'cover',
     '@media': {
       [T.media.mobile.landscape]: {
-        maxBlockSize: "100svh"
-      }
-    }
+        maxBlockSize: '100svh',
+      },
+    },
   },
   slogan: {
     backgroundColor: T.color.green,
@@ -106,14 +106,14 @@ export const image2 = styleVariants({
     '@media': {
       [T.media.mobile.portrait]: {
         writingMode: 'horizontal-tb',
-        rotate: 'initial'
-      }
-    }
-  }
+        rotate: 'initial',
+      },
+    },
+  },
 })
 
 globalStyle(`${image2.image}:hover + ${image2.slogan}`, {
-  backgroundColor: T.color.azure
+  backgroundColor: T.color.azure,
 })
 
 export const aboutMe = style({
@@ -125,26 +125,26 @@ export const aboutMe = style({
   padding: T.space.md,
   borderRadius: 30,
   backgroundColor: T.color.green,
-  color: T.color.black
+  color: T.color.black,
 })
 
 export const aboutMeList = style([
   container.small,
   {
     listStyle: 'none',
-    margin: '20 auto auto 20'
-  }
+    margin: '20 auto auto 20',
+  },
 ])
 globalStyle(`${aboutMeList} li:before`, {
   content: '✓',
-  color: T.color.green
+  color: T.color.green,
 })
 
 globalStyleTag(contentHeroSpace, {
   h2: {
-    marginInlineEnd: 20
+    marginInlineEnd: 20,
   },
   h5: {
-    textAlign: 'center'
-  }
+    textAlign: 'center',
+  },
 })

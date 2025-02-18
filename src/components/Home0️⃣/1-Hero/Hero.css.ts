@@ -1,13 +1,13 @@
+import { container, media } from '@theme'
+import * as T from '@theme'
 import {
   createContainer,
   createVar,
   globalStyle,
   keyframes,
   style,
-  styleVariants
+  styleVariants,
 } from '@vanilla-extract/css'
-import { media, container } from '@theme'
-import * as T from '@theme'
 
 import { boxShadowGenerator, fluid } from '@/styles/utils'
 
@@ -23,10 +23,10 @@ export const contentHeroSpace = style([
     marginInline: 'auto',
     '@media': {
       [T.media.mobile.portrait]: {
-        textAlign: 'center'
-      }
-    }
-  }
+        textAlign: 'center',
+      },
+    },
+  },
 ])
 
 const baseName = style({
@@ -36,37 +36,37 @@ const baseName = style({
   textAlign: 'center',
   '::selection': {
     color: T.color.green,
-    backgroundColor: T.color.black
+    backgroundColor: T.color.black,
   },
   '@media': {
     [T.media.tablet.portrait]: {
       fontSize: 40,
-      textAlign: 'center'
+      textAlign: 'center',
     },
     [T.media.md]: {
-      textAlign: 'start'
-    }
-  }
+      textAlign: 'start',
+    },
+  },
 })
 
 export const name = styleVariants(
   {
     firstName: T.color.green,
     lastName:
-      'light-dark(oklch(75.58% 0.1513 41.61),oklch(75.58% 0.0887 41.61))'
+      'light-dark(oklch(75.58% 0.1513 41.61),oklch(75.58% 0.0887 41.61))',
   },
-  (color) => [baseName, { color }]
+  color => [baseName, { color }],
 )
 
 const moveUnderlineOffset = keyframes({
   '0%': {
     textUnderlineOffset: '.6em',
-    textDecorationColor: 'whitesmoke'
+    textDecorationColor: 'whitesmoke',
   },
   '100%': {
     textUnderlineOffset: '.1em',
-    textDecorationColor: 'green'
-  }
+    textDecorationColor: 'green',
+  },
 })
 
 export const subTitle = style({
@@ -79,7 +79,7 @@ export const subTitle = style({
   animationIterationCount: 1,
   textDecorationThickness: fluid(5, 9),
   textDecorationLine: 'underline',
-  textAlign: 'center'
+  textAlign: 'center',
 })
 export const text = style({
   lineHeight: 1.7,
@@ -90,10 +90,10 @@ export const text = style({
     [media.lg]: {
       lineHeight: 2,
       ':first-letter': {
-        fontSize: 26
-      }
-    }
-  }
+        fontSize: 26,
+      },
+    },
+  },
 })
 
 export const slogan = style({
@@ -107,11 +107,11 @@ export const slogan = style({
       selectors: {
         'p:hover + &': {
           color: 'orangered',
-          fontSize: fluid(22, 27)
-        }
-      }
-    }
-  }
+          fontSize: fluid(22, 27),
+        },
+      },
+    },
+  },
 })
 
 export const image = style({
@@ -126,19 +126,19 @@ export const image = style({
       T.color.red,
       T.color.green,
       T.color.azure,
-      T.color.red
+      T.color.red,
     ],
-    3.5
-  )
+    3.5,
+  ),
 })
 export const aboutMeList = style([
   container.small,
   {
     listStyle: 'none',
-    margin: '20 auto auto 20'
-  }
+    margin: '20 auto auto 20',
+  },
 ])
 globalStyle(`${aboutMeList} li:before`, {
   content: '✓',
-  color: T.color.green
+  color: T.color.green,
 })

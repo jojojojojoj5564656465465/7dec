@@ -1,24 +1,24 @@
-import { globalStyle, style, type GlobalStyleRule } from '@vanilla-extract/css'
+import { type GlobalStyleRule, globalStyle, style } from '@vanilla-extract/css'
 
 import {
+  type InferInput,
+  array,
+  description,
+  maxLength,
+  maxValue,
+  minLength,
+  minValue,
+  number,
+  object,
+  optional,
   parser,
+  partialCheck,
+  pipe,
   record,
   safeParser,
   string,
-  union,
-  number,
   transform,
-  partialCheck,
-  object,
-  pipe,
-  description,
-  minValue,
-  maxValue,
-  optional,
-  type InferInput,
-  array,
-  minLength,
-  maxLength,
+  union,
 } from 'valibot'
 
 type hoverProps = {
@@ -147,7 +147,6 @@ export const fluid = (minSize: number, maxSize: number) => {
 export const ld = (light: string, dark: string) =>
   `light-dark(${light},${dark})`
 
-
 /**
  * ! ajouter un layer en plus
  */
@@ -180,10 +179,13 @@ export function boxShadowGenerator(
   colors: string[],
   spread = 1,
 ): string | undefined {
-
-  const ArrayLengthSchema = pipe(array(string()), minLength(2), maxLength(7,"limite is 7 colors"))
+  const ArrayLengthSchema = pipe(
+    array(string()),
+    minLength(2),
+    maxLength(7, 'limite is 7 colors'),
+  )
   const parserArrayLength = safeParser(ArrayLengthSchema)
-  const {success,output,issues} = parserArrayLength(colors)
+  const { success, output, issues } = parserArrayLength(colors)
   !success && console.error(issues)
   return success
     ? output

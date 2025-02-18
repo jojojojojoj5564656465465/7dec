@@ -22,7 +22,7 @@ export default [
       '@typescript-eslint/no-unused-vars': 'off',
       '@typescript-eslint/no-var-requires': 'off',
       curly: 'error',
-      'no-new-func': 'error'
-    }
-  }
+      'no-new-func': 'error',
+    },
+  },
 ]

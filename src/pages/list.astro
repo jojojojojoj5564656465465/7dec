@@ -2,15 +2,15 @@
 import { getCollection } from 'astro:content'
 import Layout from '../layouts/Layout.astro'
 const posts = await getCollection('business')
+import FAQ from '@/components/Questions'
 import { ListPage as s } from '@styles/main.css'
 import { caseStudy as c } from '@styles/main.css'
-import FAQ from '@/components/Questions' 
 ---
 
 <Layout>
   <section class={s.section}>
 
-    <h1>Mes articles</h1>
+    <h1>Exemples de Réalisations</h1>
     <ul class={s.ul}>
       {
         posts.map((post) => (
@@ -37,7 +37,10 @@ import FAQ from '@/components/Questions'
         <a
           class={c.button}
           href="https://static.googleusercontent.com/media/www.google.com/fr//maps/about/assets/partners/businessview/casestudies-jffd.pdf">
-          <button>Lire PDF</button>
+          <button class={c.button_button}>
+            <span>Lire PDF</span>
+            <span>↓</span>
+          </button>
         </a>
       </div>
 
@@ -53,7 +56,10 @@ import FAQ from '@/components/Questions'
           <a
             class={c.button}
             href="https://static.googleusercontent.com/media/www.google.com/fr//maps/about/assets/partners/businessview/casestudies-leekes.pdf">
-            <button>Lire PDF</button>
+            <button class={c.button_button}>
+              <span>Lire PDF</span>
+              <span>↓</span>
+            </button>
           </a>
         </div>
       </div>
@@ -64,13 +70,16 @@ import FAQ from '@/components/Questions'
           <p class={c.p}>
             En moyenne, les pages Google Maps qui ont une visite virtuelle,
             enregistrent <span class={c.span}>
-              un taux de clics et réservations supérieur de 30 %
+              un taux de clics et réservations supérieur de 30 %.
             </span>
           </p>
           <a
             class={c.button}
             href="https://static.googleusercontent.com/media/www.google.com/fr//maps/about/assets/partners/businessview/casestudies-nyc.pdf">
-            <button>Lire PDF</button>
+            <button class={c.button_button}>
+              <span>Lire PDF</span>
+              <span>↓</span>
+            </button>
           </a>
         </div>
       </div>

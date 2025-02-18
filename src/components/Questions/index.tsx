@@ -1,14 +1,14 @@
 import {
-  useContext,
-  useContextProvider,
-  createContextId,
-  component$,
-  useSignal,
   $,
-  useOn,
   type QRL,
   type Signal,
-  useComputed$
+  component$,
+  createContextId,
+  useComputed$,
+  useContext,
+  useContextProvider,
+  useOn,
+  useSignal,
 } from '@builder.io/qwik'
 import s from './Question.css'
 import faqData from './data.ts'
@@ -27,12 +27,12 @@ export const IdContextOpen =
  * MARK:CARD item
  *
  */
-const Element = component$<PropsElement>((props) => {
+const Element = component$<PropsElement>(props => {
   useOn(
     'click',
     $(() => {
       props.fromParentFunction(props.id)
-    })
+    }),
   )
   const childContextId = useContext(IdContextOpen)
   const activeP = useComputed$(() => childContextId.value === props.id)
@@ -41,7 +41,7 @@ const Element = component$<PropsElement>((props) => {
     <div class={s.card}>
       <dt class={s.dt}>
         <h5 class={s.titleCard}>{props.question}</h5>
-        <h5>{activeP.value ? '-' : '+︎'}</h5>
+        <h5>{activeP.value || '+︎'}</h5>
       </dt>
       <dd class={activeP.value ? s.open : s.close}>{props.response}</dd>
     </div>
@@ -53,7 +53,7 @@ const Element = component$<PropsElement>((props) => {
  *
  */
 export default component$(() => {
-  const id = useSignal<number>(1610)
+  const id = useSignal<number>(0)
   const changeId = $((xIndex: number) => {
     id.value = xIndex
   })

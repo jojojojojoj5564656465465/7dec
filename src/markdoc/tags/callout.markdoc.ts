@@ -1,19 +1,19 @@
 import { component } from '@astrojs/markdoc/config'
 
- const callout = {
- // render: component('./src/components/Callout.astro'),
+const callout = {
+  // render: component('./src/components/Callout.astro'),
   children: ['paragraph', 'tag', 'list'],
   attributes: {
     type: {
       type: String,
       default: 'note',
       matches: ['caution', 'check', 'note', 'warning'],
-      errorLevel: 'critical'
+      errorLevel: 'critical',
     },
     title: {
-      type: String
-    }
-  }
+      type: String,
+    },
+  },
 }
 
 export const Iframe = {
@@ -22,7 +22,7 @@ export const Iframe = {
     Link: {
       type: String,
       required: true,
-      errorLevel: 'critical'
-    }
-  }
+      errorLevel: 'critical',
+    },
+  },
 }

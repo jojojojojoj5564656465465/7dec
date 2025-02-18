@@ -1,40 +1,40 @@
 import {
   $,
+  type QRL,
+  type Signal,
   component$,
-  useOnDocument,
-  useSignal,
-  useStore,
-  useOnWindow,
   useComputed$,
   useOn,
-  type Signal,
-  type QRL,
+  useOnDocument,
+  useOnWindow,
+  useSignal,
+  useStore,
   useStylesScoped$,
-} from "@builder.io/qwik";
+} from '@builder.io/qwik'
 
+import { assignInlineVars } from '@vanilla-extract/dynamic'
+import * as card from './card.css'
+import list from './data'
 import {
-  carrouselContainer,
   button,
-  sectionWrapperCardButtons,
+  carrouselContainer,
   gridAreaCss,
-  spanAbsolutePriceHover,
   mainSectionRelative,
-} from "./index.css";
-import { assignInlineVars } from "@vanilla-extract/dynamic";
-import * as card from "./card.css";
-import list from "./data";
+  sectionWrapperCardButtons,
+  spanAbsolutePriceHover,
+} from './index.css'
 
-import "@styles/utils/reset.css?inline";
+import '@styles/utils/reset.css?inline'
 //import './test.css?inline'
 
 type CardProps = {
-  Category: string;
-  Image: string;
-  Gif?: string;
-  Price: number;
-  Link: string;
-  fromParentFunction: QRL<(x: number) => void>;
-};
+  Category: string
+  Image: string
+  Gif?: string
+  Price: number
+  Link: string
+  fromParentFunction: QRL<(x: number) => void>
+}
 
 /** MARK: Card
  * @param {CardProps} props - The props for the Card component.
@@ -44,101 +44,100 @@ type CardProps = {
  * @param {string} props.Link - The URL link to the product details.
  * @returns {JSX.Element} The rendered Card component.
  */
-const Card = component$<CardProps>((props) => {
+const Card = component$<CardProps>(props => {
   useOn(
-    "mouseover",
+    'mouseover',
     $(() => {
-      props.fromParentFunction(props.Price);
-    })
-  );
+      props.fromParentFunction(props.Price)
+    }),
+  )
 
   return (
-      <section class={card.wrapperCard}>
-          {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
-          <div
-              class={card.hoverImg}
-              style={assignInlineVars(card.imageHoverContract, {
-                  gif: `url(/images/carrousel/gif/${props.Gif})`,
-                  image: `url(/images/carrousel/images/${props.Image})`
-              })}></div>
-          <p class={card.Title}>{props.Category}</p>
-          <p class={card.price}>{props.Price}</p>
-          <a href={props.Link}>
-              <div class={card.buttonBlue}>
-                  <span class={card.buttonBlue_Text}>Voir la Visite</span>
-              </div>
-          </a>
-      </section>
+    <section class={card.wrapperCard}>
+      {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
+      <div
+        class={card.hoverImg}
+        style={assignInlineVars(card.imageHoverContract, {
+          gif: `url(/images/carrousel/gif/${props.Gif})`,
+          image: `url(/images/carrousel/images/${props.Image})`,
+        })}
+      ></div>
+      <p class={card.Title}>{props.Category}</p>
+      <p class={card.price}>{props.Price}</p>
+      <a href={props.Link}>
+        <div class={card.buttonBlue}>
+          <span class={card.buttonBlue_Text}>Voir la Visite</span>
+        </div>
+      </a>
+    </section>
   )
-});
+})
 
 /** MARK: Cards wrapper */
 export default component$(() => {
-  const wrapperRef = useSignal<HTMLDivElement>();
-  const priceHover = useSignal<number>(450);
+  const wrapperRef = useSignal<HTMLDivElement>()
+  const priceHover = useSignal<number>(450)
   const HandlePriceHoverFromChild = $((x: number): void => {
-    priceHover.value = x;
-  });
+    priceHover.value = x
+  })
 
   type Wrapper = {
-    clientWidth: number;
-    scrollLeft: number;
-    scrollWidth: number;
-  };
+    clientWidth: number
+    scrollLeft: number
+    scrollWidth: number
+  }
   const wrapper = useStore<Wrapper>({
     clientWidth: 500,
     scrollLeft: 0,
     scrollWidth: 3000,
-  });
+  })
   const buttonState = {
     prev: useComputed$(() => {
-      return wrapper.scrollLeft > 8;
+      return wrapper.scrollLeft > 8
     }),
     next: useComputed$(() => {
-      return (
-        wrapper.scrollLeft + 10 < wrapper.scrollWidth - wrapper.clientWidth
-      );
+      return wrapper.scrollLeft + 10 < wrapper.scrollWidth - wrapper.clientWidth
     }),
-  };
+  }
 
   /** MARK: FUNCTIONS
    *
    */
   const initSize = $(() => {
-    if (!wrapperRef.value) return;
-    wrapper.clientWidth = wrapperRef.value.clientWidth;
-    wrapper.scrollWidth = wrapperRef.value.scrollWidth;
-    wrapper.scrollLeft = wrapperRef.value.scrollLeft;
-  });
-  const move = $((direction: "LEFT" | "RIGHT") => {
-    if (!wrapperRef.value) return;
-    initSize();
+    if (!wrapperRef.value) return
+    wrapper.clientWidth = wrapperRef.value.clientWidth
+    wrapper.scrollWidth = wrapperRef.value.scrollWidth
+    wrapper.scrollLeft = wrapperRef.value.scrollLeft
+  })
+  const move = $((direction: 'LEFT' | 'RIGHT') => {
+    if (!wrapperRef.value) return
+    initSize()
     const scrollLength =
-      direction === "RIGHT" ? wrapper.clientWidth : -wrapper.clientWidth;
+      direction === 'RIGHT' ? wrapper.clientWidth : -wrapper.clientWidth
 
     wrapperRef.value.scrollBy({
       left: scrollLength,
-      behavior: "smooth",
-    });
-  });
+      behavior: 'smooth',
+    })
+  })
 
   /** MARK: Event LISTNER
    *
    */
-  useOnWindow("resize", initSize);
-  useOnDocument("scrollend", initSize);
+  useOnWindow('resize', initSize)
+  useOnDocument('scrollend', initSize)
 
   useOn(
-    "keydown",
-    $((event) => {
-      if (event.key === "ArrowRight") {
-        move("RIGHT");
-      } else if (event.key === "ArrowLeft") {
-        move("LEFT");
+    'keydown',
+    $(event => {
+      if (event.key === 'ArrowRight') {
+        move('RIGHT')
+      } else if (event.key === 'ArrowLeft') {
+        move('LEFT')
       }
-      return;
-    })
-  );
+      return
+    }),
+  )
   return (
     <>
       <section class={mainSectionRelative}>
@@ -147,12 +146,12 @@ export default component$(() => {
             <h2>Éxemple de mes réalisations : </h2>
           </div>
           <button
-            type="button"
+            type='button'
             class={[
               gridAreaCss.prevButton,
               buttonState.prev.value ? button.available : button.disable,
             ]}
-            onClick$={$(() => move("LEFT"))}
+            onClick$={$(() => move('LEFT'))}
           />
           <div class={carrouselContainer} ref={wrapperRef}>
             {list.map((el, i) => {
@@ -166,21 +165,21 @@ export default component$(() => {
                   Gif={el.Gif}
                   fromParentFunction={HandlePriceHoverFromChild}
                 />
-              );
+              )
             })}
           </div>
 
           <button
-            type="button"
+            type='button'
             class={[
               gridAreaCss.nextButton,
               buttonState.next.value ? button.available : button.disable,
             ]}
-            onClick$={$(() => move("RIGHT"))}
+            onClick$={$(() => move('RIGHT'))}
           />
         </section>
         <span class={spanAbsolutePriceHover}>{priceHover.value}€</span>
       </section>
     </>
-  );
-});
+  )
+})

@@ -1,11 +1,11 @@
 import { component$ } from '@builder.io/qwik'
-import icons from './icons'
 import {
   ContainerQuery,
-  socialNetwork,
+  DivSocialNetwork,
   noShow,
-  DivSocialNetwork
+  socialNetwork,
 } from './containerQuerry.css'
+import icons from './icons'
 
 type Icons = keyof typeof icons
 
@@ -17,12 +17,12 @@ interface SocialNetworklinkProps {
 export const SocialNetworklink = component$<SocialNetworklinkProps>(
   ({ icon, link }) => {
     return (
-      <a class="" rel="noreferrer" target="_blank" href={link}>
-        <span class="flex">
+      <a class='' rel='noreferrer' target='_blank' href={link}>
+        <span class='flex'>
           <i class={['fill-white']}>{icons[icon]}</i>
           <p class={'inline mr-[2cqw]'}>{icon}</p>
         </span>
       </a>
     )
-  }
+  },
 )

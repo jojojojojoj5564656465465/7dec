@@ -1,6 +1,6 @@
 import { container, fluid, media } from '@/styles/utils'
-import { styleVariants, globalStyle } from '@vanilla-extract/css'
 import * as T from '@theme'
+import { globalStyle, styleVariants } from '@vanilla-extract/css'
 export default styleVariants({
   section: [
     container.xxl,
