@@ -4,16 +4,17 @@ import {
   component$,
   useResource$,
   useSignal,
-  useStyles$
+  useStyles$,
+  useTask$
 } from '@builder.io/qwik'
 
 import wrapper from './container.css'
 import styles from './video.css?inline'
 
 export default component$(() => {
+  useStyles$(styles)
   const open = useSignal<boolean>(false)
 
-  useStyles$(styles)
   const toggleOpen = $(() => {
     open.value = true
   })
@@ -28,7 +29,6 @@ export default component$(() => {
           <script
             async
             src="https://fast.wistia.com/assets/external/E-v1.js"
-            onLoad$={() => console.log('loaded')}
           />
           <wistia-player media-id="ajtj2xpipw" />
         </>
@@ -39,13 +39,14 @@ export default component$(() => {
 
 
 
-const V7 = component$(() => {
+export const V7 = component$(() => {
   const open = useSignal<boolean>(false)
 
   const Video = useResource$<string>(async ({ track }) => {
     track(() => open.value)
     return 'https://fast.wistia.com/assets/external/E-v1.js' as string
   })
+
 
   useStyles$(styles)
 

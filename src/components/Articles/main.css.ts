@@ -1,7 +1,7 @@
 import { container, fluid, media } from '@/styles/utils'
 import * as T from '@theme'
 import { globalStyle, styleVariants } from '@vanilla-extract/css'
-export default styleVariants({
+const article = styleVariants({
   section: [
     container.xxl,
     {
@@ -61,6 +61,7 @@ export default styleVariants({
   content: {
     maxInlineSize: 800,
     order: 0,
+    listStyleType: 'circle',
     '@media': {
       [media['2xl']]: {
         maxInlineSize: undefined,
@@ -96,7 +97,8 @@ export default styleVariants({
     },
   },
 })
-
-globalStyle('ul li', {
+globalStyle(`${article.content} ul li`, {
   listStyleType: 'circle',
 })
+
+export default article

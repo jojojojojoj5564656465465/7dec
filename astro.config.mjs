@@ -1,7 +1,7 @@
 import path from 'node:path'
 import { fileURLToPath } from 'node:url' // Import fileURLToPath from the url module
 import qwikdev from '@qwikdev/astro'
-//import UnoCSS from 'unocss/astro'
+
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import { defineConfig } from 'astro/config'
 //import icon from 'astro-icon'
@@ -43,9 +43,7 @@ export default defineConfig({
     },
   },
   integrations: [
-    // UnoCSS({
-    //   injectReset: false
-    // }),
+
     qwikdev(),
     markdoc(),
     // icon({ iconDir: 'src/assets/icons' })

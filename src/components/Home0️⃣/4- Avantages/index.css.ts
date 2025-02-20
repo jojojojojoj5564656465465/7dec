@@ -18,7 +18,7 @@ export const WrapperAdvantage = style([
     marginInline: 'auto',
     paddingBlock: T.space.md,
     paddingInline: T.space.sm,
-    backgroundColor: T.color.background,
+    //backgroundColor: T.color.background,
     position: 'relative',
     display: ['flex', 'grid', 'block'],
     gap: T.space.sm,

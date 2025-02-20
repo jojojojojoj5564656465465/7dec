@@ -6,7 +6,7 @@ import {
   globalStyle,
   keyframes,
   style,
-  styleVariants,
+  styleVariants
 } from '@vanilla-extract/css'
 
 import { boxShadowGenerator, fluid } from '@/styles/utils'
@@ -23,10 +23,10 @@ export const contentHeroSpace = style([
     marginInline: 'auto',
     '@media': {
       [T.media.mobile.portrait]: {
-        textAlign: 'center',
-      },
-    },
-  },
+        textAlign: 'center'
+      }
+    }
+  }
 ])
 
 const baseName = style({
@@ -36,37 +36,37 @@ const baseName = style({
   textAlign: 'center',
   '::selection': {
     color: T.color.green,
-    backgroundColor: T.color.black,
+    backgroundColor: T.color.black
   },
   '@media': {
     [T.media.tablet.portrait]: {
       fontSize: 40,
-      textAlign: 'center',
+      textAlign: 'center'
     },
     [T.media.md]: {
-      textAlign: 'start',
-    },
-  },
+      textAlign: 'start'
+    }
+  }
 })
 
 export const name = styleVariants(
   {
     firstName: T.color.green,
     lastName:
-      'light-dark(oklch(75.58% 0.1513 41.61),oklch(75.58% 0.0887 41.61))',
+      'light-dark(oklch(75.58% 0.1513 41.61),oklch(75.58% 0.0887 41.61))'
   },
-  color => [baseName, { color }],
+  (color) => [baseName, { color }]
 )
 
 const moveUnderlineOffset = keyframes({
   '0%': {
     textUnderlineOffset: '.6em',
-    textDecorationColor: 'whitesmoke',
+    textDecorationColor: 'whitesmoke'
   },
   '100%': {
     textUnderlineOffset: '.1em',
-    textDecorationColor: 'green',
-  },
+    textDecorationColor: 'green'
+  }
 })
 
 export const subTitle = style({
@@ -79,7 +79,7 @@ export const subTitle = style({
   animationIterationCount: 1,
   textDecorationThickness: fluid(5, 9),
   textDecorationLine: 'underline',
-  textAlign: 'center',
+  textAlign: 'center'
 })
 export const text = style({
   lineHeight: 1.7,
@@ -90,10 +90,10 @@ export const text = style({
     [media.lg]: {
       lineHeight: 2,
       ':first-letter': {
-        fontSize: 26,
-      },
-    },
-  },
+        fontSize: 26
+      }
+    }
+  }
 })
 
 export const slogan = style({
@@ -107,11 +107,11 @@ export const slogan = style({
       selectors: {
         'p:hover + &': {
           color: 'orangered',
-          fontSize: fluid(22, 27),
-        },
-      },
-    },
-  },
+          fontSize: fluid(22, 27)
+        }
+      }
+    }
+  }
 })
 
 export const image = style({
@@ -126,19 +126,95 @@ export const image = style({
       T.color.red,
       T.color.green,
       T.color.azure,
-      T.color.red,
+      T.color.red
     ],
-    3.5,
-  ),
+    3.5
+  )
 })
 export const aboutMeList = style([
   container.small,
   {
     listStyle: 'none',
-    margin: '20 auto auto 20',
-  },
+    margin: '20 auto auto 20'
+  }
 ])
 globalStyle(`${aboutMeList} li:before`, {
   content: '✓',
-  color: T.color.green,
+  color: T.color.green
 })
+
+interface Buble {
+  colors: string[]
+  position: {
+    left: number
+    top: number
+  }
+}
+const bubleColors: Record<string, Buble> = {
+  blue: {
+    colors: [
+      'oklch(58.01% 0.1316 249.88)',
+      'oklch(65.73% 0.1316 249.88)',
+      'oklch(71.96% 0.1316 249.88)'
+    ],
+    position: {
+      left: 50,
+      top: 100
+    }
+  },
+  orange: {
+    colors: [
+      'oklch(62.46% 0.1499 52.94)',
+      'oklch(68.1% 0.1499 52.94)',
+      'oklch(73.44% 0.1499 52.94)',
+      'oklch(77.35% 0.1499 52.94)'
+    ],
+    position: {
+      left: 650,
+      top: 150
+    }
+  },
+  green: {
+    colors: [
+      'oklch(66.32% 0.1504 153.53)',
+      'oklch(70.16% 0.1504 153.53)',
+      'oklch(81.16% 0.1504 153.53)',
+      'oklch(86.16% 0.1504 153.53)'
+    ],
+    position: {
+      left: 850,
+      top: 450
+    }
+  }
+}
+
+const bubleBase = style({
+  position: 'absolute',
+  content: '',
+  borderRadius: '50%',
+  width: '1px',
+  aspectRatio: '1',
+
+  opacity: 0.6,
+  zIndex: -1
+})
+
+export const bubles2 = styleVariants(
+  bubleColors,
+  ({ colors, position: { left, top } }) => [
+    bubleBase,
+    {
+      display: 'none',
+      '@media': {
+        [T.media.md]: {
+          display: 'inline',
+          left,
+          top,
+          boxShadow: colors
+            .map((color) => `0 0 min(30dvw,100vw) 150px ${color}`)
+            .join(', ')
+        }
+      }
+    }
+  ]
+)

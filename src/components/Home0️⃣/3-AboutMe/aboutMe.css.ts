@@ -133,11 +133,17 @@ export const aboutMeList = style([
   {
     listStyle: 'none',
     margin: '20 auto auto 20',
+    '::marker': {
+      listStyleType: 'none !important',
+    },
   },
 ])
 globalStyle(`${aboutMeList} li:before`, {
   content: '✓',
   color: T.color.green,
+})
+globalStyle(`${aboutMeList} li::marker`, {
+  listStyleType: 'none !important',
 })
 
 globalStyleTag(contentHeroSpace, {

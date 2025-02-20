@@ -190,7 +190,7 @@ export function boxShadowGenerator(
   return success
     ? output
         .map((color, index) => {
-          return `0 0 0 ${spread * (index + 1)}px ${color}`
+          return `0 0 0 ${spread * (index + 1)}em ${color}`
         })
         .join(', ')
     : ''
