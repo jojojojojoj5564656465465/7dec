@@ -26,18 +26,13 @@ export default component$(() => {
       class={open.value ? wrapper.open : wrapper.closed}>
       {open.value && (
         <>
-          <script
-            async
-            src="https://fast.wistia.com/assets/external/E-v1.js"
-          />
+          <script async src="https://fast.wistia.com/assets/external/E-v1.js" />
           <wistia-player media-id="ajtj2xpipw" />
         </>
       )}
     </div>
   )
 })
-
-
 
 export const V7 = component$(() => {
   const open = useSignal<boolean>(false)
@@ -46,7 +41,6 @@ export const V7 = component$(() => {
     track(() => open.value)
     return 'https://fast.wistia.com/assets/external/E-v1.js' as string
   })
-
 
   useStyles$(styles)
 
@@ -66,10 +60,12 @@ export const V7 = component$(() => {
         onResolved={(data) => (
           <>
             <script async src={data} />
-            { open.value && (<wistia-player media-id="ajtj2xpipw" />)}
+            {open.value && <wistia-player media-id="ajtj2xpipw" />}
           </>
         )}
       />
     </div>
   )
 })
+
+

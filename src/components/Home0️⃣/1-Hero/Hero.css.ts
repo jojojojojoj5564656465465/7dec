@@ -18,7 +18,9 @@ export const contentHeroSpace = style([
   {
     marginBlockEnd: T.space.xl,
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(min(350px,100%), 1fr))',
+    justifyContent: 'center',
+    alignItems: 'center',
     gap: T.space.md,
     marginInline: 'auto',
     '@media': {
@@ -146,8 +148,8 @@ globalStyle(`${aboutMeList} li:before`, {
 interface Buble {
   colors: string[]
   position: {
-    left: number
-    top: number
+    left: number | string
+    top: number | string
   }
 }
 const bubleColors: Record<string, Buble> = {
@@ -155,37 +157,37 @@ const bubleColors: Record<string, Buble> = {
     colors: [
       'oklch(58.01% 0.1316 249.88)',
       'oklch(65.73% 0.1316 249.88)',
-      'oklch(71.96% 0.1316 249.88)'
+      'oklch(71.96% 0.1316 249.88)',
     ],
     position: {
       left: 50,
-      top: 100
-    }
+      top: 100,
+    },
   },
   orange: {
     colors: [
       'oklch(62.46% 0.1499 52.94)',
       'oklch(68.1% 0.1499 52.94)',
       'oklch(73.44% 0.1499 52.94)',
-      'oklch(77.35% 0.1499 52.94)'
+      'oklch(77.35% 0.1499 52.94)',
     ],
     position: {
-      left: 650,
-      top: 150
-    }
+      left: 'min(650px,75dvw)',
+      top: 150,
+    },
   },
   green: {
     colors: [
       'oklch(66.32% 0.1504 153.53)',
       'oklch(70.16% 0.1504 153.53)',
       'oklch(81.16% 0.1504 153.53)',
-      'oklch(86.16% 0.1504 153.53)'
+      'oklch(86.16% 0.1504 153.53)',
     ],
     position: {
-      left: 850,
-      top: 450
-    }
-  }
+      left: 'min(80dvw, 950px)',
+      top: 'min(50vh, 350px)',
+    },
+  },
 }
 
 const bubleBase = style({

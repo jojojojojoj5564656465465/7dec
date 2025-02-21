@@ -1,7 +1,7 @@
 import {
   $,
   type QRL,
-  type Signal,
+
   component$,
   useComputed$,
   useOn,
@@ -9,7 +9,7 @@ import {
   useOnWindow,
   useSignal,
   useStore,
-  useStylesScoped$,
+
 } from '@builder.io/qwik'
 
 import { assignInlineVars } from '@vanilla-extract/dynamic'
@@ -25,7 +25,7 @@ import {
 } from './index.css'
 
 import '@styles/utils/reset.css?inline'
-//import './test.css?inline'
+
 
 type CardProps = {
   Category: string

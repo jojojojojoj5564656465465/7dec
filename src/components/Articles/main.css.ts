@@ -58,6 +58,13 @@ const article = styleVariants({
       },
     },
   },
+  tags: {
+    display: 'flex',
+    gap: 10,
+    flexWrap: 'wrap',
+    marginBlock:20,
+    justifyContent:"end",
+  },
   content: {
     maxInlineSize: 800,
     order: 0,
@@ -99,6 +106,17 @@ const article = styleVariants({
 })
 globalStyle(`${article.content} ul li`, {
   listStyleType: 'circle',
+})
+globalStyle(`${article.tags} p`, {
+  border: `0.10rem solid ${T.color.black}`,
+  padding: '0.3rem 0.6rem',
+  borderRadius: 30,
+  textTransform: 'capitalize',
+'@media': {
+  [media.md]: {
+    padding: 'min(1rem, 0.3rem + 15%) 2rem',
+  },
+},
 })
 
 export default article

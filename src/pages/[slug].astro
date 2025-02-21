@@ -7,9 +7,9 @@ import Layout from '../layouts/Layout.astro'
 
 export async function getStaticPaths() {
   const posts = await getCollection('business')
-  return [...posts].map(post => ({
+  return [...posts].map((post) => ({
     params: { slug: post.id },
-    props: post,
+    props: post
   }))
 }
 type Props = CollectionEntry<'business'>
@@ -26,8 +26,11 @@ import s from '@/components/Articles/main.css'
   <section class={s.section}>
     <div class={s.content}>
       <h1>{post.data.title}</h1>
-      <p>{post.data.description}</p>
-      <p>Price: {post.data.price} €</p>
+      <div class={s.tags}>
+        <p>Temps de réalisation : {post.data.description}</p>
+        <p>À partir de : {post.data.price} €</p>
+      </div>
+
       <Content />
     </div>
     <BtnTop />
