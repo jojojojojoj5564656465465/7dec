@@ -134,6 +134,13 @@ const baseButton = style({
       display: 'none',
     },
   },
+  ':disabled': {
+    backgroundColor: T.color.red,
+    cursor: 'not-allowed',
+    pointerEvents: 'painted',
+
+    boxShadow: '0 1.51px 0 0 oklch(82.35% 0.1191 348.14 / 52.89%)',
+  },
 })
 
 const increaseArrowAvailable = keyframes({

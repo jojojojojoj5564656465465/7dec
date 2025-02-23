@@ -3,7 +3,8 @@ import {
   component$,
   useComputed$,
   useSignal,
-  useStore
+  useStore,
+  useTask$
 } from '@builder.io/qwik'
 import { Tarif as s } from './Tarif.css'
 
@@ -45,6 +46,17 @@ export const Zero = component$(() => {
 
   const wrapperRef = useSignal<HTMLDivElement>()
   const activeIndex = useSignal(0) // Suivi de l'index actif
+  const zeroEffect = useSignal(true)
+
+  useTask$(({ track }) => {
+    track(() => activeIndex.value)
+    setTimeout(() => {
+      zeroEffect.value = !zeroEffect.value
+      setTimeout(() => {
+        zeroEffect.value = !zeroEffect.value
+      }, 600)
+    }, 100)
+  })
 
   const buttonState = {
     prev: useComputed$(() => activeIndex.value > 0),
@@ -106,7 +118,9 @@ export const Zero = component$(() => {
 
   return (
     <section class={s.wrapper}>
-      <h3 class={s.zero}>0€</h3>
+      <h3 class={[s.zeroBase, zeroEffect.value ? s.zeroActive : s.zeroEffect]}>
+        0€
+      </h3>
       <ul class={s.ul}>
         {ZeroData.map((item, i) => (
           <li

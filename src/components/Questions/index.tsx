@@ -41,7 +41,14 @@ const Element = component$<PropsElement>(props => {
     <div class={s.card}>
       <dt class={s.dt}>
         <h5 class={s.titleCard}>{props.question}</h5>
-        <h5>{activeP.value || '+︎'}</h5>
+        <button 
+        class={s.dt__button}
+          type="button"
+          disabled={!activeP.value}
+          aria-expanded={activeP.value}>
+          +
+        </button>
+        {/* <h5></h5> */}
       </dt>
       <dd class={activeP.value ? s.open : s.close}>{props.response}</dd>
     </div>

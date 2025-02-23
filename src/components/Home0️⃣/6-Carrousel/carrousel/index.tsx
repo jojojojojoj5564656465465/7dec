@@ -146,11 +146,12 @@ export default component$(() => {
             <h2>Éxemple de mes réalisations : </h2>
           </div>
           <button
-            type='button'
+            type="button"
             class={[
               gridAreaCss.prevButton,
-              buttonState.prev.value ? button.available : button.disable,
+              buttonState.prev.value ? button.available : button.disable
             ]}
+            disabled={!buttonState.prev.value}
             onClick$={$(() => move('LEFT'))}
           />
           <div class={carrouselContainer} ref={wrapperRef}>
@@ -170,10 +171,11 @@ export default component$(() => {
           </div>
 
           <button
-            type='button'
+            disabled={!buttonState.next.value}
+            type="button"
             class={[
               gridAreaCss.nextButton,
-              buttonState.next.value ? button.available : button.disable,
+              buttonState.next.value ? button.available : button.disable
             ]}
             onClick$={$(() => move('RIGHT'))}
           />

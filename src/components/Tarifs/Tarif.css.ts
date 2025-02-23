@@ -11,7 +11,7 @@ export const Tarif = styleVariants({
       gridTemplateRows: 'auto 1fr auto',
       gap: '2rem',
       color: '#333',
-      backgroundColor: '#f9f9f9',
+      backgroundColor: 'light-dark(oklch(93.32% 0 0),oklch(28.04% 0 0))',
       padding: '2rem',
       borderRadius: '15px',
       boxShadow: '0 6px 12px rgba(0, 0, 0, 0.15)',
@@ -21,26 +21,32 @@ export const Tarif = styleVariants({
       },
     },
   ],
-  zero: {
-    fontSize: '2.75rem',
+  zeroBase: {
+    fontSize: T.fontSize['4xl'],
     fontWeight: 'bold',
     textAlign: 'center',
-    color: '#ff4d4f',
+
     textShadow: '1px 1px 9px rgba(0, 0, 0, 0.2)',
     marginBottom: '1rem',
-    position:"relative",
+    position: 'relative',
     '::after': {
-      content: 'TTC',
+      content: ' TTC',
       fontSize: '0.45em',
-      position:"absolute",
-      
+      position: 'absolute',
+    },
+    '::selection': {
+      backgroundColor: 'yellow',
+      color: 'green',
     },
   },
-
-
-
-  zeroSup: {
-    fontSize: '0.65em',
+  zeroActive: {
+    color: 'oklch(72.06% 0.1692 54)',
+    transition: 'color 0.3s ease',
+  },
+  zeroEffect: {
+    color: 'oklch(91.47% 0.1692 99.53)',
+    textShadow: '1px 1px 49px oklch(72.06% 0.1692 54 / 40%)',
+    transition: 'text-shadow 0.3s ease',
   },
   ul: {
     display: 'grid',
