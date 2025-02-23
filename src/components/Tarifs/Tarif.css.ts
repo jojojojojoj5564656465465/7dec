@@ -1,6 +1,6 @@
 import { container } from '@/styles/utils'
 import { styleVariants, style, globalStyle } from '@vanilla-extract/css'
-
+import * as T from '@theme'
 const BorderBottom = '10px solid black'
 
 export const Tarif = styleVariants({
@@ -26,12 +26,25 @@ export const Tarif = styleVariants({
     fontWeight: 'bold',
     textAlign: 'center',
     color: '#ff4d4f',
-    textShadow: '1px 1px 3px rgba(0, 0, 0, 0.2)',
+    textShadow: '1px 1px 9px rgba(0, 0, 0, 0.2)',
     marginBottom: '1rem',
+    position:"relative",
+    '::after': {
+      content: 'TTC',
+      fontSize: '0.45em',
+      position:"absolute",
+      
+    },
+  },
+
+
+
+  zeroSup: {
+    fontSize: '0.65em',
   },
   ul: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(150px,1fr))',
     gap: '1rem',
     listStyle: 'none',
     padding: 0,
@@ -59,29 +72,45 @@ export const Tarif = styleVariants({
     },
   },
   content: {
-    display: 'flex',
+    display: 'grid',
+    gridTemplateColumns: '1fr',
+
     alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: '1rem',
     backgroundColor: '#fff',
-    padding: '1rem',
+    padding: '1.5rem 1rem',
     borderRadius: '10px',
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+    justifyContent: 'space-between',
+
+    '@media': {
+      [T.media.md]: {
+        gridTemplateColumns: 'auto 1fr auto',
+        gap: '0.81rem',
+      },
+    },
   },
   contentUl: {
+    backgroundColor: 'undefined',
+
     display: 'flex',
     overflowX: 'scroll',
     width: '100%',
+    gap: '0.5rem',
     scrollSnapType: 'x mandatory', // Ajout de scrollSnapType pour un défilement fluide
     scrollbarWidth: 'none', // Masque la barre de défilement
     msOverflowStyle: 'none', // Pour IE/Edge
     '&::-webkit-scrollbar': {
       display: 'none', // Pour Chrome/Safari
     },
+    '@media': {
+      [T.media.md]: {
+        // display: 'inline-block',
+      },
+    },
   },
-  contentText: {
-    minWidth: '100%',
-    padding: '1.5rem',
+  contentUlText: {
+    minInlineSize: 'calc(100% + 1rem)',
+    paddingInline: '1.5rem',
     backgroundColor: '#fafafa',
     border: '1px solid #ddd',
     borderRadius: '8px',
@@ -91,15 +120,18 @@ export const Tarif = styleVariants({
     color: '#444',
     scrollSnapAlign: 'start', // Aligne chaque élément au début du conteneur
     transition: 'transform 0.3s ease',
-    ':hover': {
-      transform: 'scale(1.05)',
-    },
   },
   contentArrow: {
+    display: 'none',
+    '@media': {
+      [T.media.md]: {
+        display: 'inline-block',
+      },
+    },
     appearance: 'none',
-    background: '#ff4d4f',
+    background: T.color.red,
     color: '#fff',
-    padding: '0.75rem',
+    padding: '0.5rem 0.75rem',
     borderRadius: '50%',
     border: 'none',
     cursor: 'pointer',
@@ -107,6 +139,7 @@ export const Tarif = styleVariants({
     ':disabled': {
       opacity: 0.5,
       cursor: 'not-allowed',
+      pointerEvents: 'none',
     },
     ':hover': {
       backgroundColor: '#e53935',
@@ -119,7 +152,4 @@ export const Tarif = styleVariants({
   },
 })
 
-// Ajout de styles globaux pour améliorer l'accessibilité
-globalStyle('.contentArrow[disabled]', {
-  pointerEvents: 'none', // Empêche tout clic sur les boutons désactivés
-})
+

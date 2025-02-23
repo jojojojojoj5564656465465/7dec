@@ -38,13 +38,13 @@ export const Zero = component$(() => {
   }
 
   const wrapper = useStore<Wrapper>({
-    clientWidth: 500,
+    clientWidth: 250,
     scrollLeft: 0,
-    scrollWidth: 3000
+    scrollWidth: 800
   })
 
   const wrapperRef = useSignal<HTMLDivElement>()
-  const activeIndex = useSignal(0) // Nouveau signal pour suivre l'index actif
+  const activeIndex = useSignal(0) // Suivi de l'index actif
 
   const buttonState = {
     prev: useComputed$(() => activeIndex.value > 0),
@@ -58,9 +58,25 @@ export const Zero = component$(() => {
     wrapper.scrollLeft = wrapperRef.value.scrollLeft
   })
 
-  const move = $((direction: 'LEFT' | 'RIGHT') => {
+  // Gestionnaire de défilement pour mettre à jour activeIndex
+  const handleScroll = $(() => {
     if (!wrapperRef.value) return
 
+    initSize() // Mettre à jour les dimensions du conteneur
+
+    const scrollPosition = wrapper.scrollLeft
+    const newActiveIndex = Math.round(scrollPosition / wrapper.clientWidth)
+
+    if (newActiveIndex !== activeIndex.value) {
+      activeIndex.value = Math.max(
+        0,
+        Math.min(newActiveIndex, ZeroData.length - 1)
+      )
+    }
+  })
+
+  const move = $((direction: 'LEFT' | 'RIGHT') => {
+    if (!wrapperRef.value) return
     initSize()
 
     let newIndex = activeIndex.value
@@ -71,7 +87,6 @@ export const Zero = component$(() => {
     }
 
     activeIndex.value = newIndex
-
     const scrollPosition = newIndex * wrapper.clientWidth
     wrapperRef.value.scrollTo({
       left: scrollPosition,
@@ -81,9 +96,7 @@ export const Zero = component$(() => {
 
   const selectItem = $((index: number) => {
     if (!wrapperRef.value) return
-
     activeIndex.value = index
-
     const scrollPosition = index * wrapper.clientWidth
     wrapperRef.value.scrollTo({
       left: scrollPosition,
@@ -116,10 +129,10 @@ export const Zero = component$(() => {
           disabled={!buttonState.prev.value}>
           ←
         </button>
-        <ul class={s.contentUl} ref={wrapperRef}>
-          {ZeroData.map((item, i) => (
-            <li key={`${item.title} ${i}`} class={s.contentText}>
-              {item.description}
+        <ul onScroll$={handleScroll} class={s.contentUl} ref={wrapperRef}>
+          {ZeroData.map(({ description }, i) => (
+            <li key={`${i}`} class={s.contentUlText}>
+              {description}
             </li>
           ))}
         </ul>
