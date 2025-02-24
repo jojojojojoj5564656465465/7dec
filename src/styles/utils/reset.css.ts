@@ -19,7 +19,7 @@ globalStyle('*', {
   '@layer': {
     reset: {
       margin: 0,
-      maxWidth: '100dvw',
+      maxInlineSize: '100dvw',
       boxSizing: 'border-box',
     },
   },

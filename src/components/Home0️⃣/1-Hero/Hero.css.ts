@@ -9,8 +9,6 @@ import {
 
 import { boxShadowGenerator, fluid } from '@/styles/utils'
 
-//const font = new FontSizeGenerator(380, 2100, 16)
-
 export const contentHeroSpace = style([
   container.small,
   {
@@ -97,7 +95,7 @@ export const text = style({
 })
 
 export const slogan = style({
-  color: 'orange',
+  color: T.color.orange,
   fontSize: fluid(19, 25),
   textAlign: 'center',
   transition: 'color 1s, font-size 3s',
@@ -189,7 +187,7 @@ const bubleColors: Record<string, Buble> = {
   }
 }
 
-const bubleBase = style({
+const bubbleBase = style({
   position: 'absolute',
   content: '',
   borderRadius: '50%',
@@ -200,10 +198,10 @@ const bubleBase = style({
   zIndex: -1
 })
 
-export const bubles2 = styleVariants(
+export const bubble = styleVariants(
   bubleColors,
   ({ colors, position: { left, top } }) => [
-    bubleBase,
+    bubbleBase,
     {
       display: 'none',
       '@media': {
