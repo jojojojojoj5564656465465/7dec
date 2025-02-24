@@ -1,6 +1,7 @@
 import { container } from '@/styles/utils'
-import { styleVariants, style, globalStyle } from '@vanilla-extract/css'
+import { styleVariants } from '@vanilla-extract/css'
 import * as T from '@theme'
+
 const BorderBottom = '10px solid black'
 
 export const Tarif = styleVariants({
@@ -17,9 +18,9 @@ export const Tarif = styleVariants({
       boxShadow: '0 6px 12px rgba(0, 0, 0, 0.15)',
       transition: 'box-shadow 0.3s ease',
       ':hover': {
-        boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
-      },
-    },
+        boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)'
+      }
+    }
   ],
   zeroBase: {
     fontSize: T.fontSize['4xl'],
@@ -32,21 +33,21 @@ export const Tarif = styleVariants({
     '::after': {
       content: ' TTC',
       fontSize: '0.45em',
-      position: 'absolute',
+      position: 'absolute'
     },
     '::selection': {
       backgroundColor: 'yellow',
-      color: 'green',
-    },
+      color: 'green'
+    }
   },
   zeroActive: {
     color: 'oklch(72.06% 0.1692 54)',
-    transition: 'color 0.3s ease',
+    transition: 'color 0.3s ease'
   },
   zeroEffect: {
     color: 'oklch(91.47% 0.1692 99.53)',
     textShadow: '1px 1px 49px oklch(72.06% 0.1692 54 / 40%)',
-    transition: 'text-shadow 0.3s ease',
+    transition: 'text-shadow 0.3s ease'
   },
   ul: {
     display: 'grid',
@@ -59,7 +60,7 @@ export const Tarif = styleVariants({
     border: '2px solid #ddd',
     borderRadius: '10px',
     overflow: 'hidden',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
   },
   item: {
     color: '#1e88e5',
@@ -70,12 +71,12 @@ export const Tarif = styleVariants({
     transition: 'background-color 0.3s ease, transform 0.3s ease',
     ':hover': {
       backgroundColor: '#e0e0e0',
-      transform: 'scale(1.05)',
+      transform: 'scale(1.05)'
     },
     ':focus-visible': {
       outline: '2px solid #1e88e5',
-      outlineOffset: '2px',
-    },
+      outlineOffset: '2px'
+    }
   },
   content: {
     display: 'grid',
@@ -91,9 +92,9 @@ export const Tarif = styleVariants({
     '@media': {
       [T.media.md]: {
         gridTemplateColumns: 'auto 1fr auto',
-        gap: '0.81rem',
-      },
-    },
+        gap: '0.81rem'
+      }
+    }
   },
   contentUl: {
     backgroundColor: 'undefined',
@@ -106,13 +107,13 @@ export const Tarif = styleVariants({
     scrollbarWidth: 'none', // Masque la barre de défilement
     msOverflowStyle: 'none', // Pour IE/Edge
     '&::-webkit-scrollbar': {
-      display: 'none', // Pour Chrome/Safari
+      display: 'none' // Pour Chrome/Safari
     },
     '@media': {
       [T.media.md]: {
         // display: 'inline-block',
-      },
-    },
+      }
+    }
   },
   contentUlText: {
     minInlineSize: 'calc(100% + 1rem)',
@@ -125,14 +126,14 @@ export const Tarif = styleVariants({
     lineHeight: '1.6',
     color: '#444',
     scrollSnapAlign: 'start', // Aligne chaque élément au début du conteneur
-    transition: 'transform 0.3s ease',
+    transition: 'transform 0.3s ease'
   },
   contentArrow: {
     display: 'none',
     '@media': {
       [T.media.md]: {
-        display: 'inline-block',
-      },
+        display: 'inline-block'
+      }
     },
     appearance: 'none',
     background: T.color.red,
@@ -145,17 +146,15 @@ export const Tarif = styleVariants({
     ':disabled': {
       opacity: 0.5,
       cursor: 'not-allowed',
-      pointerEvents: 'none',
+      pointerEvents: 'none'
     },
     ':hover': {
       backgroundColor: '#e53935',
-      transform: 'scale(1.1)',
+      transform: 'scale(1.1)'
     },
     ':focus-visible': {
       outline: '2px solid #1e88e5',
-      outlineOffset: '2px',
-    },
-  },
+      outlineOffset: '2px'
+    }
+  }
 })
-
-

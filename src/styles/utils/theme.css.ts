@@ -3,7 +3,7 @@ import {
   globalLayer,
   globalStyle,
   style,
-  styleVariants,
+  styleVariants
 } from '@vanilla-extract/css'
 import f from './fontFace.css'
 import { ld } from './utils'
@@ -15,19 +15,17 @@ globalLayer('custom')
 const fontFamily = createGlobalTheme(':root', {
   dancingScript: `${f.dancingScript}, Times, serif`,
   exo: `${f.exo}, Times, serif`,
-  numito: `${f.nunito}, Arial, sans-serif`,
+  numito: `${f.nunito}, Arial, sans-serif`
 })
 
 const color = createGlobalTheme(':root', {
   azure: ld('oklch(58.01% 0.18 259.96)', 'oklch(62.76% 0.18 259.96)'),
-  red: ld(
-    'red',
-    'oklch(64.84% 0.2037 13.339641794332277)',
-  ),
+  red: ld('#CE5555', 'oklch(64.84% 0.2037 13.339641794332277)'),
+  orange: ld('#FFAE00', '#765306'),
   green: ld('oklch(60% 0.1507 154.1)', 'oklch(68.4% 0.1507 154.1)'),
   black: ld('oklch(19.28% 0.0452 243.97)', 'oklch(97.57% 0.0017 247.84)'),
   white: ld('oklch(97.57% 0.0017 247.84)', 'oklch(19.28% 0.0452 243.97)'),
-  background: ld('oklch(93.62% 0.0132 168.35)', 'oklch(17.36% 0.0132 168.35)'),
+  background: ld('oklch(93.62% 0.0132 168.35)', 'oklch(17.36% 0.0132 168.35)')
 })
 
 const space = {
@@ -39,7 +37,7 @@ const space = {
   lg: 'clamp(2.25em, 1.6223em + 0.4348dvw, 2.5em)',
   xl: 'clamp(3.375em, 1.6223em + 0.6522dvw, 3.75em)',
   xxl: 'clamp(4.5em, 4.3261em + 0.8696dvw, 5em)',
-  xxxl: 'clamp(6.75em, 6.4891em + 1.3043dvw, 7.5em)',
+  xxxl: 'clamp(6.75em, 6.4891em + 1.3043dvw, 7.5em)'
 }
 Object.freeze(space)
 
@@ -55,20 +53,20 @@ const fontSize = {
   '3xl': 'clamp(2.80rem, calc(2.45rem + 1.77vw), 3.82rem)',
   '4xl': 'clamp(3.36rem, calc(2.87rem + 2.45vw), 4.77rem)',
   '5xl': 'clamp(4.03rem, calc(3.36rem + 3.36vw), 5.96rem)',
-  '6xl': 'clamp(4.84rem, calc(3.93rem + 4.54vw), 7.45rem)',
+  '6xl': 'clamp(4.84rem, calc(3.93rem + 4.54vw), 7.45rem)'
 }
 Object.freeze(fontSize)
 
 const media = {
   mobile: {
     portrait: 'screen and (max-width: 26.875em)',
-    landscape: 'screen and (orientation: landscape) and (max-height: 26.875em)',
+    landscape: 'screen and (orientation: landscape) and (max-height: 26.875em)'
   },
   tablet: {
     portrait:
       'screen and (orientation: portrait) and (27em <= width <= 52.02em)',
     landscape:
-      'screen and (orientation: landscape) and (27em <= height <= 51em)',
+      'screen and (orientation: landscape) and (27em <= height <= 51em)'
   },
   md: 'screen and (hover: hover) and (min-width: 51em)',
   lg: 'screen and (min-width: 64em)',
@@ -76,7 +74,7 @@ const media = {
   '2xl': 'screen and (min-width: 110em)',
   motionSafe: 'screen and (prefers-reduced-motion: no-preference)',
   retina: '(-webkit-min-device-pixel-ratio: 2),(min-resolution: 192dpi)',
-  dark: 'screen and (prefers-color-scheme: dark)',
+  dark: 'screen and (prefers-color-scheme: dark)'
 } as const
 Object.freeze(media)
 
@@ -89,7 +87,7 @@ const containerSize = {
   medium: '72rem',
   large: '90rem',
   xxl: '120rem',
-  full: '100svw',
+  full: '100svw'
 } as const
 
 // This function takes a parameter x of type keyof typeof containerSize and returns a string
@@ -110,18 +108,18 @@ const defaultContainer = style({
       marginBlockEnd: space.lg,
       '@media': {
         [media.tablet.portrait]: {
-          marginBlockEnd: space.md,
-        },
-      },
-    },
-  },
+          marginBlockEnd: space.md
+        }
+      }
+    }
+  }
 })
 
-const cos = styleVariants(containerSize, x => [
+const cos = styleVariants(containerSize, (x) => [
   defaultContainer,
   {
-    maxInlineSize: `min(calc(100% - clamp(0.75rem, 0.42rem + 1.7vw, 1.7rem) * 2), ${x}, 130rem)`,
-  },
+    maxInlineSize: `min(calc(100% - clamp(0.75rem, 0.42rem + 1.7vw, 1.7rem) * 2), ${x}, 130rem)`
+  }
 ])
 
 const container = styleVariants({
@@ -129,44 +127,44 @@ const container = styleVariants({
   small: [
     defaultContainer,
     {
-      maxInlineSize: maxInlineSizeFn('small'),
-    },
+      maxInlineSize: maxInlineSizeFn('small')
+    }
   ],
   medium: [
     defaultContainer,
     {
-      maxInlineSize: maxInlineSizeFn('medium'),
-    },
+      maxInlineSize: maxInlineSizeFn('medium')
+    }
   ],
   large: [
     defaultContainer,
     {
-      maxInlineSize: maxInlineSizeFn('large'),
-    },
+      maxInlineSize: maxInlineSizeFn('large')
+    }
   ],
   xxl: [
     defaultContainer,
     {
-      maxInlineSize: maxInlineSizeFn('xxl'),
-    },
+      maxInlineSize: maxInlineSizeFn('xxl')
+    }
   ],
-  full: [defaultContainer, { maxInlineSize: 'none' }],
+  full: [defaultContainer, { maxInlineSize: 'none' }]
 })
 
 globalStyle(`${container.default} > *`, {
   marginInline: 'auto',
-  maxInlineSize: maxInlineSizeFn('default'),
+  maxInlineSize: maxInlineSizeFn('default')
 })
 globalStyle(`${container.default} > ${container.medium}`, {
-  maxInlineSize: maxInlineSizeFn('medium'),
+  maxInlineSize: maxInlineSizeFn('medium')
 })
 globalStyle(`${container.default} > ${container.large}`, {
-  maxInlineSize: maxInlineSizeFn('large'),
+  maxInlineSize: maxInlineSizeFn('large')
 })
 globalStyle(`${container.default} > ${container.xxl}`, {
-  maxInlineSize: maxInlineSizeFn('xxl'),
+  maxInlineSize: maxInlineSizeFn('xxl')
 })
 globalStyle(`${container.default} > ${container.full}`, {
-  maxInlineSize: maxInlineSizeFn('full'),
+  maxInlineSize: maxInlineSizeFn('full')
 })
 export { fontFamily, color, fontSize, space, media, container }

@@ -115,7 +115,7 @@ globalStyle(`${article.tags} p`, {
   textTransform: 'capitalize',
   '@media': {
     [media.md]: {
-      padding: 'min(1rem, 0.3rem + 15%) 2rem'
+      padding: 'min(1rem, 0.3rem + 15%), 2rem'
     }
   }
 })

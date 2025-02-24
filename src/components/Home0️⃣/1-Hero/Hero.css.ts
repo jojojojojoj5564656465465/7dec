@@ -1,8 +1,6 @@
-import { container, media } from '@theme'
 import * as T from '@theme'
+import { container, media } from '@theme'
 import {
-  createContainer,
-  createVar,
   globalStyle,
   keyframes,
   style,
@@ -55,7 +53,7 @@ export const name = styleVariants(
   {
     firstName: T.color.green,
     lastName:
-      'light-dark(oklch(75.58% 0.1513 41.61),oklch(75.58% 0.0887 41.61))'
+      'light-dark(oklch(62.17% 0.1535 49.76),oklch(76.47% 0.1535 49.76))'
   },
   (color) => [baseName, { color }]
 )
@@ -152,42 +150,43 @@ interface Buble {
     top: number | string
   }
 }
+
 const bubleColors: Record<string, Buble> = {
   blue: {
     colors: [
       'oklch(58.01% 0.1316 249.88)',
       'oklch(65.73% 0.1316 249.88)',
-      'oklch(71.96% 0.1316 249.88)',
+      'oklch(71.96% 0.1316 249.88)'
     ],
     position: {
       left: 50,
-      top: 100,
-    },
+      top: 100
+    }
   },
   orange: {
     colors: [
       'oklch(62.46% 0.1499 52.94)',
       'oklch(68.1% 0.1499 52.94)',
       'oklch(73.44% 0.1499 52.94)',
-      'oklch(77.35% 0.1499 52.94)',
+      'oklch(77.35% 0.1499 52.94)'
     ],
     position: {
       left: 'min(650px,75dvw)',
-      top: 150,
-    },
+      top: 150
+    }
   },
   green: {
     colors: [
       'oklch(66.32% 0.1504 153.53)',
       'oklch(70.16% 0.1504 153.53)',
       'oklch(81.16% 0.1504 153.53)',
-      'oklch(86.16% 0.1504 153.53)',
+      'oklch(86.16% 0.1504 153.53)'
     ],
     position: {
       left: 'min(80dvw, 950px)',
-      top: 'min(50vh, 350px)',
-    },
-  },
+      top: 'min(50vh, 350px)'
+    }
+  }
 }
 
 const bubleBase = style({
