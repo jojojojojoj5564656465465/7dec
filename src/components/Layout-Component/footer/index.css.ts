@@ -1,5 +1,6 @@
 import { ContainerQuery } from './SocialNetwork/containerQuerry.css'
 import { globalStyle, style, styleVariants } from '@vanilla-extract/css'
+import * as T from '@theme'
 
 export const base = style({
   backgroundColor: 'purple'

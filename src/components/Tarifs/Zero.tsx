@@ -6,7 +6,7 @@ import {
   useStore,
   useTask$
 } from '@builder.io/qwik'
-import { Tarif as s } from './Tarif.css'
+import { Tarif as s, WrapStyle } from './Tarif.css.ts'
 
 interface TarifProps {
   title: string
@@ -32,11 +32,7 @@ const ZeroData: TarifProps[] = [
 ]
 
 export const Zero = component$(() => {
-  type Wrapper = {
-    clientWidth: number
-    scrollLeft: number
-    scrollWidth: number
-  }
+  type Wrapper = Record<'clientWidth' | 'scrollLeft' | 'scrollWidth', number>
 
   const wrapper = useStore<Wrapper>({
     clientWidth: 250,
@@ -44,9 +40,9 @@ export const Zero = component$(() => {
     scrollWidth: 800
   })
 
-  const wrapperRef = useSignal<HTMLDivElement>()
-  const activeIndex = useSignal(0) // Suivi de l'index actif
-  const zeroEffect = useSignal(true)
+  const wrapperRef = useSignal<HTMLDivElement>(),
+    activeIndex = useSignal<number>(0),
+    zeroEffect = useSignal<boolean>(true)
 
   useTask$(({ track }) => {
     track(() => activeIndex.value)
@@ -161,3 +157,16 @@ export const Zero = component$(() => {
     </section>
   )
 })
+
+const Wpp = component$(() => {
+  return (
+    <section class={WrapStyle.WRAPPER}>
+      <div class={WrapStyle.orange}></div>
+      <div class={WrapStyle.zero}>
+        <Zero />
+      </div>
+    </section>
+  )
+})
+
+export default Wpp

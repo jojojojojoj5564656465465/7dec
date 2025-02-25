@@ -158,3 +158,38 @@ export const Tarif = styleVariants({
     }
   }
 })
+
+export const WrapStyle = styleVariants({
+  WRAPPER: {
+    display: 'grid',
+    gridTemplateRows: '1fr',
+    '@media': {
+      [T.media.md]: {
+        gridTemplateColumns: 'repeat(12,1fr)',
+        gridTemplateRows: '80px auto 80px',
+        gap: '1rem'
+      }
+    }
+  },
+  orange: {
+    visibility: 'hidden',
+    '@media': {
+      [T.media.md]: {
+        backgroundColor: 'orange',
+        visibility: 'visible',
+        gridRow: '1 / 4',
+        gridColumn: '1 / 8'
+      }
+    }
+  },
+  zero: {
+    gridRow: '1 / 3',
+    gridColumn: '1 / 13',
+    '@media': {
+      [T.media.md]: {
+        gridRow: '2 / 3',
+        gridColumn: '3 / 10'
+      }
+    }
+  }
+})
