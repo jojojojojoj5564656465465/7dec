@@ -1,8 +1,8 @@
 import { container } from '@/styles/utils'
-import { styleVariants } from '@vanilla-extract/css'
+import { createContainer, styleVariants } from '@vanilla-extract/css'
 import * as T from '@theme'
 
-const BorderBottom = '10px solid black'
+const iconShow = createContainer()
 
 export const Tarif = styleVariants({
   wrapper: [
@@ -34,10 +34,6 @@ export const Tarif = styleVariants({
       content: ' TTC',
       fontSize: '0.45em',
       position: 'absolute'
-    },
-    '::selection': {
-      backgroundColor: 'yellow',
-      color: 'green'
     }
   },
   zeroActive: {
@@ -63,6 +59,8 @@ export const Tarif = styleVariants({
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)'
   },
   item: {
+    containerName: iconShow,
+    containerType: 'inline-size',
     color: '#1e88e5',
     fontWeight: 'bold',
     textAlign: 'center',
@@ -76,6 +74,14 @@ export const Tarif = styleVariants({
     ':focus-visible': {
       outline: '2px solid #1e88e5',
       outlineOffset: '2px'
+    }
+  },
+  itemIcon: {
+    marginLeft: 'min(0.5rem,3vw)',
+    '@container': {
+      [`${iconShow} (width < 150px)`]: {
+        display: 'none'
+      }
     }
   },
   content: {
@@ -96,6 +102,7 @@ export const Tarif = styleVariants({
       }
     }
   },
+
   contentUl: {
     backgroundColor: 'undefined',
 

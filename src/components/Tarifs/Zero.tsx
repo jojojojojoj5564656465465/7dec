@@ -8,26 +8,25 @@ import {
 } from '@builder.io/qwik'
 import { Tarif as s, WrapStyle } from './Tarif.css.ts'
 
-interface TarifProps {
-  title: string
-  description: string
-}
-
+type TarifProps = Record<'title' | 'description' | 'icon', string>
 const ZeroData: TarifProps[] = [
   {
     title: 'Abonnement',
     description:
-      'Vous payez une seule et unique fois ! Aucun coût récurrent ne vous sera demandé.'
+      'Vous payez une seule et unique fois ! Aucun coût récurrent ne vous sera demandé.',
+    icon: '🆓'
   },
   {
     title: 'Hébergement',
     description:
-      'Votre visite virtuelle est hébergée sur les serveurs de Google et vous n’avez donc pas à vous soucier du stockage du fichier de votre Google Business View.'
+      'Votre visite virtuelle est hébergée sur les serveurs de Google et vous n’avez donc pas à vous soucier du stockage du fichier de votre Google Business View.',
+    icon: '🌍'
   },
   {
     title: 'Coût par clic',
     description:
-      'Vous ne payez qu’une seule fois ! Que les internautes visitent votre commerce 1 ou 100 fois par jour, vous n’avez rien à débourser à la fin du mois.'
+      'Vous ne payez qu’une seule fois ! Que les internautes visitent votre commerce 1 ou 100 fois par jour, vous n’avez rien à débourser à la fin du mois.',
+    icon: '🖱️'
   }
 ]
 
@@ -128,6 +127,7 @@ export const Zero = component$(() => {
                 activeIndex.value === i ? '#e0e0e0' : 'transparent'
             }}>
             {item.title}
+            <span class={s.itemIcon}>{item.icon}</span>
           </li>
         ))}
       </ul>
