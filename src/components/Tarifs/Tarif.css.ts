@@ -182,7 +182,11 @@ export const WrapStyle = styleVariants({
     visibility: 'hidden',
     '@media': {
       [T.media.md]: {
-        backgroundColor: 'orange',
+        backgroundColor: T.color.orange,
+        backgroundImage: 'url(public/images/happyGuy.jpg)',
+        backgroundPositionX: '-20rem',
+        backgroundBlendMode: 'multiply',
+        backgroundRepeat: 'no-repeat',
         visibility: 'visible',
         gridRow: '1 / 4',
         gridColumn: '1 / 8'

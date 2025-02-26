@@ -71,8 +71,8 @@ export const Zero = component$(() => {
 
     initSize() // Mettre à jour les dimensions du conteneur
 
-    const scrollPosition = wrapper.scrollLeft
-    const newActiveIndex = Math.round(scrollPosition / wrapper.clientWidth)
+    const scrollPosition = wrapper.scrollLeft,
+      newActiveIndex = Math.round(scrollPosition / wrapper.clientWidth)
 
     if (newActiveIndex !== activeIndex.value) {
       activeIndex.value = Math.max(
@@ -121,7 +121,7 @@ export const Zero = component$(() => {
           <li
             key={`${item.title} ${i}`}
             class={s.item}
-            onClick$={$(() => selectItem(i))}
+            onClick$={() => selectItem(i)}
             style={{
               backgroundColor:
                 activeIndex.value === i ? '#e0e0e0' : 'transparent'
@@ -135,7 +135,7 @@ export const Zero = component$(() => {
         <button
           type="button"
           class={s.contentArrow}
-          onClick$={$(() => move('LEFT'))}
+          onClick$={() => move('LEFT')}
           disabled={!buttonState.prev.value}>
           ←
         </button>
@@ -149,7 +149,7 @@ export const Zero = component$(() => {
         <button
           type="button"
           class={s.contentArrow}
-          onClick$={$(() => move('RIGHT'))}
+          onClick$={() => move('RIGHT')}
           disabled={!buttonState.next.value}>
           →
         </button>
