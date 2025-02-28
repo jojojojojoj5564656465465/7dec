@@ -1,12 +1,7 @@
 import { boxShadowGenerator, fluid, globalStyleTag } from '@/styles/utils'
 import * as T from '@theme'
 import { container, media } from '@theme'
-import {
-  createVar,
-  globalStyle,
-  style,
-  styleVariants
-} from '@vanilla-extract/css'
+import { createVar, globalStyle, keyframes, style, styleVariants } from '@vanilla-extract/css'
 
 export const section = style([
   container.small,
@@ -20,19 +15,19 @@ export const section = style([
     marginBlock: T.space.sm,
     '@media': {
       [T.media.mobile.landscape]: {
-        gridTemplateColumns: 'repeat(2, 1fr)'
+        gridTemplateColumns: 'repeat(2, 1fr)',
       },
       'screen and (hover: hover) and (min-width: 37em)': {
         minBlockSize: 500,
-        gridTemplateColumns: '1fr 15rem'
+        gridTemplateColumns: '1fr 15rem',
       },
       [media.md]: {
         marginBlockEnd: T.space.lg,
         minBlockSize: 500,
-        gridTemplateColumns: 'repeat(2, 1fr)'
-      }
-    }
-  }
+        gridTemplateColumns: 'repeat(2, 1fr)',
+      },
+    },
+  },
 ])
 
 export const Box1Wrapper = style({
@@ -44,7 +39,7 @@ export const Box1Wrapper = style({
   display: 'flex', // Ajoutez cette ligne
   flexDirection: 'column', // Ajoutez cette ligne
   alignItems: 'center', // Ajoutez cette ligne
-  justifyContent: 'space-between'
+  justifyContent: 'space-between',
 })
 export const Box1 = styleVariants({
   prixApartir: {
@@ -59,13 +54,13 @@ export const Box1 = styleVariants({
       //maxInlineSize:20,
       color: T.color.black,
       fontSize: T.fontSize.sm,
-      display: 'block'
+      display: 'block',
     },
     '::selection': {
       color: 'green',
       backgroundColor: 'yellow',
-      padding: 5
-    }
+      padding: 5,
+    },
   },
   ul: {
     listStyle: 'none',
@@ -76,7 +71,7 @@ export const Box1 = styleVariants({
     flexDirection: 'column',
     justifyContent: 'center',
     justifyItems: 'center',
-    marginInline: 10
+    marginInline: 10,
   },
   button: {
     backgroundColor: T.color.black,
@@ -100,24 +95,24 @@ export const Box1 = styleVariants({
           'oklch(77.74% 0.148 155.12)',
           'oklch(51.63% 0.148 268.41)',
           'oklch(86.94% 0.148 155.12)',
-          'oklch(64.09% 0.148 268.41)'
+          'oklch(64.09% 0.148 268.41)',
         ],
-        2
-      )
+        2,
+      ),
     },
     '@media': {
       [T.media.mobile.portrait]: {
         marginBlockStart: 30,
-        minInlineSize: '90%'
-      }
-    }
-  }
+        minInlineSize: '90%',
+      },
+    },
+  },
 })
 
 export const customBullet = style({
   listStyleType: 'none',
   padding: '0',
-  color: 'green'
+  color: 'green',
 })
 
 globalStyleTag(Box1.ul, {
@@ -125,8 +120,8 @@ globalStyleTag(Box1.ul, {
     alignItems: 'center',
     placeItems: 'center',
     position: 'relative',
-    display: 'flex'
-  }
+    display: 'flex',
+  },
 })
 
 globalStyle(`${Box1.ul} > li:before`, {
@@ -138,9 +133,9 @@ globalStyle(`${Box1.ul} > li:before`, {
       marginInline: '0.7em',
       //marginBlock: '0.5rem',
       top: 0,
-      left: 0
-    }
-  }
+      left: 0,
+    },
+  },
 })
 
 /**
@@ -159,9 +154,9 @@ export const image = styleVariants({
       'screen and (max-width: 460px)': {
         flexDirection: 'column',
         justifyContent: 'end',
-        alignItems: 'center'
-      }
-    }
+        alignItems: 'center',
+      },
+    },
   },
   verticalText: {
     fontSize: fluid(20, 30),
@@ -173,48 +168,65 @@ export const image = styleVariants({
     color: T.color.black,
     '@media': {
       'screen and (max-width: 460px)': {
-        display: 'none'
-      }
-    }
-  }
+        display: 'none',
+      },
+    },
+  },
 })
 
 globalStyleTag(image.wrapper, {
   svg: {
     stroke: T.color.white,
-    fill: T.color.azure
-  }
+    fill: T.color.azure,
+  },
+})
+const opacity = keyframes({
+  '0%': { opacity: 0 },
+  '100%': { opacity: 1 },
 })
 
-export const flexRowDirection = createVar()
-/**
- * MARK: CONTACT Button Element
+/** MARK: RADIO
+ *
  */
-export const element = styleVariants({
-  wrapperMain: { display: 'flex', gap: 4, marginBlock: fluid(10, 30) },
-  wrapper: {
-    display: 'flex',
-    border: `2px solid ${T.color.black}`,
-    borderRadius: 1,
-    flexDirection: flexRowDirection,
-  },
-  button: {
-    backgroundColor: 'white',
-    minWidth: 80,
-    aspectRation: '1',
-    cursor: 'pointer',
-    display: 'grid',
-    padding: '5px 10px',
-    placeItems: 'center',
 
-    ':hover': { backgroundColor: T.color.azure },
-  },
-  text: {
-    color: T.color.black,
-    transition: 'all 0.3s ease',
-    borderInlineStart: `2px solid ${T.color.black}`,
-    disabled: {
-      display: 'none',
+export const radio = styleVariants({
+  wrapper: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(2,1fr)',
+    gap: 10,
+    marginBlock: '2rem',
+    '@media': {
+      [T.media.md]: {
+        marginBlock: '0.5rem',
+      },
     },
+  },
+  eachRadio: {
+    border: '3px black solid',
+    color: 'black',
+    padding: '.5rem 1rem',
+    borderRadius: 10,
+    backgroundColor: 'pink',
+    cursor: 'pointer',
+    '@media': {
+      [T.media.md]: {
+        padding: '1rem 2rem',
+      },
+    },
+    ':hover': {
+      outline: `2px solid ${T.color.green}`,
+    },
+    ':active': {
+      outline: `2px solid ${T.color.green}`,
+    },
+    ':focus-visible': {
+      outline: `2px solid ${T.color.green}`,
+    },
+  },
+  value: {
+    color: T.color.black,
+    gridColumn: 'span 2',
+    marginInline: 'auto',
+    animation: `${opacity} 2s `,
   },
 })
