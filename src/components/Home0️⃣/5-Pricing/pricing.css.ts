@@ -221,6 +221,7 @@ export const radio = styleVariants({
     },
     ':focus-visible': {
       outline: `2px solid ${T.color.green}`,
+      outlineOffset:3             
     },
   },
   value: {

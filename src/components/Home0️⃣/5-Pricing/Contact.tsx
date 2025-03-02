@@ -54,7 +54,7 @@ export default component$(() => {
             type="radio"
             name="contact"
             value={item.id}
-            checked={phone__or__email.value === item.id || false}
+            checked={phone__or__email.value === item.id}
             onChange$={() => handleModeChange(item.id)}
           />
           {item.label}

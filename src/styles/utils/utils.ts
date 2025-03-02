@@ -32,38 +32,36 @@ type hoverProps = {
  * @param {hoverProps} props
  * @returns {*}
  */
-export const hover = (obj: hoverProps) => {
+const hover = (obj: hoverProps) => {
   const vObjValidatorKeyValues = object({
     backgroundColor: string(),
     color: optional(string()),
   })
-  const parserHover = safeParser(vObjValidatorKeyValues)
+  const parserHover = parser(vObjValidatorKeyValues)
 
-  const result = parserHover(obj)
-  if (result.success) {
-    const { backgroundColor, color } = result.output
+  const { backgroundColor, color } = parserHover(obj)
 
-    return style({
-      ':active': {
-        backgroundColor,
-        color: 'inherit',
-      },
-      ':focus': {
-        outline: `min(4px, 3px + 0.1vw) solid ${backgroundColor}`,
-        outlineOffset: '1px',
-        color: 'inherit',
-      },
-      '@media': {
-        'screen and (hover: hover) and (min-width: 51em)': {
-          ':hover': {
-            backgroundColor,
-            color: color ?? 'inherit',
-          },
+  return style({
+    ':active': {
+      backgroundColor,
+      color: 'inherit',
+    },
+    ':focus': {
+      outline: `min(4px, 3px + 0.1vw) solid ${backgroundColor}`,
+      outlineOffset: '1px',
+      color: 'inherit',
+    },
+    '@media': {
+      'screen and (hover: hover) and (min-width: 51em)': {
+        ':hover': {
+          backgroundColor,
+          color: color ?? 'inherit',
         },
       },
-    })
-  }
+    },
+  })
 }
+
 
 /**
  * Description placeholder
@@ -74,10 +72,7 @@ export const hover = (obj: hoverProps) => {
  * @returns {*}
  * MARK: FLEX
  */
-export function flex(
-  direction: 'row' | 'column',
-  flexNumber: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9,
-) {
+function flex(direction: 'row' | 'column', flexNumber: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9) {
   type PositionProps = Readonly<'start' | 'center' | 'end'>
   const positions = {
     1: ['start', 'start'],
@@ -89,10 +84,7 @@ export function flex(
     7: ['start', 'end'],
     8: ['center', 'end'],
     9: ['end', 'end'],
-  } as const satisfies Record<
-    typeof flexNumber,
-    readonly [PositionProps, PositionProps]
-  >
+  } as const satisfies Record<typeof flexNumber, readonly [PositionProps, PositionProps]>
   const [justify, align] = positions[flexNumber]
   return style({
     display: 'flex',
@@ -110,7 +102,7 @@ export function flex(
  * @version 1.0.2
  * @todo Implement this function.
  */
-export const fluid = (minSize: number, maxSize: number) => {
+const fluid = (minSize: number, maxSize: number) => {
   const numberConvertToRem = pipe(
     number(),
     maxValue(190),
@@ -144,8 +136,7 @@ export const fluid = (minSize: number, maxSize: number) => {
  * @param {string} dark
  * @returns {string}
  */
-export const ld = (light: string, dark: string) =>
-  `light-dark(${light},${dark})`
+const ld = (light: string, dark: string) => `light-dark(${light},${dark})`
 
 /**
  * ! ajouter un layer en plus
@@ -156,12 +147,8 @@ type HtmlP = Partial<Record<string, GlobalStyleRule>>
  * @param parent - Le sélecteur parent pour les styles.
  * @param obj - Un objet de styles à appliquer aux éléments HTML.
  */
-export const globalStyleTag = (parent: string, obj: HtmlP): void => {
-  const vObjValidatorKeyValues = record(
-    string(),
-    union([string(), number()]),
-    'Css Object not valid in globalStyleTag',
-  )
+const globalStyleTag = (parent: string, obj: HtmlP): void => {
+  const vObjValidatorKeyValues = record(string(), union([string(), number()]), 'Css Object not valid in globalStyleTag')
   const checkCss = safeParser(vObjValidatorKeyValues)
   for (const [key, value] of Object.entries(obj)) {
     const result = checkCss(value)
@@ -175,15 +162,8 @@ export const globalStyleTag = (parent: string, obj: HtmlP): void => {
   }
 }
 
-export function boxShadowGenerator(
-  colors: string[],
-  spread = 1,
-): string | undefined {
-  const ArrayLengthSchema = pipe(
-    array(string()),
-    minLength(2),
-    maxLength(7, 'limite is 7 colors'),
-  )
+function boxShadowGenerator(colors: string[], spread = 1): string | undefined {
+  const ArrayLengthSchema = pipe(array(string()), minLength(2), maxLength(7, 'limite is 7 colors'))
   const parserArrayLength = safeParser(ArrayLengthSchema)
   const { success, output, issues } = parserArrayLength(colors)
   !success && console.error(issues)
@@ -195,3 +175,4 @@ export function boxShadowGenerator(
         .join(', ')
     : ''
 }
+export { boxShadowGenerator, globalStyleTag, ld, fluid, flex, hover }

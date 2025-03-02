@@ -115,11 +115,14 @@ const defaultContainer = style({
   }
 })
 
-const cos = styleVariants(containerSize, (x) => [
+/**
+ * @deprecated
+ */
+const cos = styleVariants(containerSize, x => [
   defaultContainer,
   {
-    maxInlineSize: `min(calc(100% - clamp(0.75rem, 0.42rem + 1.7vw, 1.7rem) * 2), ${x}, 130rem)`
-  }
+    maxInlineSize: `min(calc(100% - clamp(0.75rem, 0.42rem + 1.7vw, 1.7rem) * 2), ${x}, 130rem)`,
+  },
 ])
 
 const container = styleVariants({

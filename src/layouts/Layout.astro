@@ -3,6 +3,7 @@ import '@/styles/utils/index.ts'
 //import 'virtual:uno.css'
 //import '@unocss/reset/tailwind.css' override my reset
 import Navbar from '@/components/Layout-Component/Navbar/Navbar.astro'
+import Footer from 'src/components/Layout-Component/footer2/index.astro'
 ---
 
 <!doctype html>
@@ -13,10 +14,10 @@ import Navbar from '@/components/Layout-Component/Navbar/Navbar.astro'
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro Basics</title>
-
   </head>
   <body>
     <Navbar />
     <slot />
+    <Footer />
   </body>
 </html>
