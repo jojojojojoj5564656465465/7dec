@@ -7,12 +7,12 @@ import * as s from './footer.css'
   {
     [
       { icon: 'A', text: 'Paris,Ile de France' },
-      { icon: 'T', text: '06 70 75 50 94 99' }
+      { icon: 'T', text: '06 70 75 50 94' }
     ].map((e) => {
       return (
-        <div class={s.item}>
-          <span>{e.icon}</span>
-          <p>{e.text}</p>
+        <div class={s.itemWrapper}>
+          <span class={s.item}>{e.icon}</span>
+          <p class={s.text}>{e.text}</p>
         </div>
       )
     })

@@ -1,38 +1,50 @@
-import { style, globalStyle } from '@vanilla-extract/css'
-import { fontFamily, color, fontSize, space, media, container } from '@theme'
-import { boxShadowGenerator, globalStyleTag, ld, fluid, flex, hover } from '@styles/utils'
+import { style } from '@vanilla-extract/css'
+import { color, container, fontFamily, fontSize, media } from '@theme'
 
 export const wrapper = style([
   container.full,
   {
-    marginBlockStart:'auto',
-    
     display: 'grid',
     gap: '3rem',
-    backgroundColor: color.background,
-    height: fluid(100,190),
+
+    borderTopColor: 'oklch(66% 0 313.41)',
+    borderTopWidth: 6,
+    borderTopStyle: 'double',
+    alignItems: 'center',
+    justifyContent: 'center',
     '@media': {
       [media.md]: {
-        gridTemplateColumns: 'repeat(4,1fr)',
-
-      },
-    },
-  },
+        justifyContent: 'stretch',
+        gridTemplateColumns: 'repeat(4,1fr)'
+      }
+    }
+  }
 ])
 
 export const slogan = style({
   gridColumn: 'span 2',
   fontSize: fontSize['3xl'],
   fontFamily: fontFamily.dancingScript,
-  color: color.orange,
+  color: color.orange
 })
 
-export const item = style([
-  hover({ backgroundColor: 'green', color: color.green }),
+export const itemWrapper = style([
   {
     display: 'flex',
     gap: '0.5rem',
     color: color.black,
-    cursor: 'pointer',
-  },
+    cursor: 'pointer'
+  }
 ])
+export const item = style({
+  backgroundColor: 'red',
+  padding: 5,
+  selectors: {
+    [`${itemWrapper}:hover > &`]: {
+      backgroundColor: 'green'
+    }
+  }
+})
+export const text = style({
+  verticalAlign: 'middle'
+})
