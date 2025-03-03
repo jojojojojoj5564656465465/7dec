@@ -1,5 +1,6 @@
 import * as T from '@theme'
 import { assignVars, createThemeContract, style } from '@vanilla-extract/css'
+
 const ld = (light: string, dark: string) => `light-dark(${light},${dark})`
 /* =====================================
 =               theme contract         =
@@ -8,43 +9,43 @@ const ld = (light: string, dark: string) => `light-dark(${light},${dark})`
 export const vars = createThemeContract({
   space: {
     items: null,
-    gap: null,
-  },
+    gap: null
+  }
 })
 
 export const responsiveTheme = style({
   vars: assignVars(vars, {
     space: {
       items: '4',
-      gap: '1rem',
-    },
+      gap: '1rem'
+    }
   }),
   '@media': {
     'screen and (width > 1224px)': {
       vars: assignVars(vars, {
         space: {
           items: '4',
-          gap: '1.16rem',
-        },
-      }),
+          gap: '1.16rem'
+        }
+      })
     },
     'screen and (394px < width < 790px ) and (pointer: coarse)': {
       vars: assignVars(vars, {
         space: {
           items: '3',
-          gap: '0.60rem',
-        },
-      }),
+          gap: '0.60rem'
+        }
+      })
     },
     'screen and (width < 394px) and (pointer: coarse)': {
       vars: assignVars(vars, {
         space: {
           items: '2',
-          gap: '0.40rem',
-        },
-      }),
-    },
-  },
+          gap: '0.39rem'
+        }
+      })
+    }
+  }
 })
 
 export const varsColor = createThemeContract({
@@ -52,7 +53,7 @@ export const varsColor = createThemeContract({
   description: null,
   backgroundColor: null,
   btnBgColor: null,
-  btnTextColor: null,
+  btnTextColor: null
 })
 
 export const ColorTheme = style({
@@ -61,20 +62,20 @@ export const ColorTheme = style({
     description: ld('#3B3561', 'white'),
     backgroundColor: ld('#D1D1D1', 'black'),
     btnBgColor: T.color.green,
-    btnTextColor: 'white',
+    btnTextColor: 'white'
   }),
   ':hover': {
     vars: assignVars(varsColor, {
       title: ld('oklch(39.33% 0.188 263.65)', 'oklch(25.29% 0.0595 155.65)'),
       description: ld(
         'oklch(19.33% 0.1473 261.53)',
-        'oklch(19.33% 0.1473 261.53)',
+        'oklch(19.33% 0.1473 261.53)'
       ),
       backgroundColor: 'oklch(83.23% 0.0564 243.53)',
       btnBgColor: ld(T.color.azure, 'oklch(25.29% 0.0595 155.65)'),
-      btnTextColor: 'white',
-    }),
-  },
+      btnTextColor: 'white'
+    })
+  }
 })
 
 export const wrapperCard = style([
@@ -82,7 +83,6 @@ export const wrapperCard = style([
     display: 'grid',
     gridColumn: '1fr',
     gridTemplateRows: 'auto min-content 1fr 1fr',
-    //width: "23px",
     rowGap: 5,
     maxInlineSize: `calc((100% - (${vars.space.items} - 1) * ${vars.space.gap}) / ${vars.space.items})`,
 
@@ -94,32 +94,31 @@ export const wrapperCard = style([
     boxShadow:
       '0px 10px 12px rgba(0,0,0,0.08) , -4px -4px 12px rgba(0,0,0,0.08)',
     overflow: 'hidden',
-    transition: 'all 0.5s',
+    transition: 'all 0.6s',
     cursor: 'progress',
     boxSizing: 'border-box',
     padding: '10px',
     '@media': {
       [T.media.md]: {
-        transform: 'translateY(-10px)',
-      },
+        transform: 'translateY(-10px)'
+      }
     },
     ':hover': {
       transform: 'translateY(-2px)',
       boxShadow:
-        '0px 20px 20px rgba(0,0,0,0.1) , -4px -4px 12px rgba(0,0,0,0.08)',
+        '0px 20px 20px rgba(0,0,0,0.1) , -4px -4px 12px rgba(0,0,0,0.08)'
     },
     ':active': {
       transform: 'translateY(-10px)',
       boxShadow:
-        '0px 20px 20px rgba(0,0,0,0.1) , -4px -4px 12px rgba(0,0,0,0.08)',
-    },
+        '0px 20px 20px rgba(0,0,0,0.1) , -4px -4px 12px rgba(0,0,0,0.08)'
+    }
   },
-  ColorTheme,
+  ColorTheme
 ])
 
 export const price = style([
   {
-    WebkitBoxOrient: 'vertical',
     overflow: 'hidden',
     display: 'block',
     WebkitLineClamp: '1',
@@ -131,12 +130,12 @@ export const price = style([
     color: varsColor.description,
     cursor: 'default',
     '::before': {
-      content: 'À partir de ',
+      content: 'À partir de '
     },
     '::after': {
-      content: '€',
-    },
-  },
+      content: '€'
+    }
+  }
 ])
 
 export const Title = style({
@@ -150,7 +149,7 @@ export const Title = style({
   overflow: 'hidden',
   display: '-webkit-box',
   WebkitLineClamp: '1',
-  lineClamp: '1',
+  lineClamp: '1'
 })
 
 export const buttonBlue = style({
@@ -179,7 +178,7 @@ export const buttonBlue = style({
     borderRadius: '8px',
     height: '30px',
 
-    padding: '0',
+    padding: '0'
   },
   selectors: {
     [`${wrapperCard}:hover &`]: {
@@ -190,9 +189,9 @@ export const buttonBlue = style({
       height: '30px',
       gap: '10px',
       padding: '0',
-      color: varsColor.btnTextColor,
-    },
-  },
+      color: varsColor.btnTextColor
+    }
+  }
 })
 
 export const buttonBlue_Text = style({
@@ -203,13 +202,13 @@ export const buttonBlue_Text = style({
   selectors: {
     [`${wrapperCard}:hover  &`]: {
       opacity: '1',
-      fontSize: '15px',
+      fontSize: '15px'
     },
     [`${buttonBlue}:hover &`]: {
       opacity: '1',
-      fontSize: '15px',
-    },
-  },
+      fontSize: '15px'
+    }
+  }
 })
 
 /**
@@ -219,7 +218,7 @@ export const buttonBlue_Text = style({
  */
 export const imageHoverContract = createThemeContract({
   image: null,
-  gif: null,
+  gif: null
 })
 const ImageContainer = style([
   {
@@ -228,8 +227,8 @@ const ImageContainer = style([
     overflow: 'hidden',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    aspectRatio: '16 / 9',
-  },
+    aspectRatio: '16 / 9'
+  }
 ])
 export const hoverImg = style([
   ImageContainer,
@@ -237,11 +236,11 @@ export const hoverImg = style([
     backgroundImage: imageHoverContract.image,
     selectors: {
       [`${wrapperCard}:hover > &`]: {
-        backgroundImage: imageHoverContract.gif,
+        backgroundImage: imageHoverContract.gif
       },
       [`${wrapperCard}:focus > &`]: {
-        backgroundImage: imageHoverContract.gif,
-      },
-    },
-  },
+        backgroundImage: imageHoverContract.gif
+      }
+    }
+  }
 ])

@@ -1,14 +1,14 @@
 import { style } from '@vanilla-extract/css'
 import { color, container, fontFamily, fontSize, media } from '@theme'
+import { fluid } from '@styles/utils'
 
 export const wrapper = style([
   container.full,
   {
     display: 'grid',
     gap: '3rem',
-
     borderTopColor: 'oklch(66% 0 313.41)',
-    borderTopWidth: 6,
+    borderTopWidth: fluid(6, 10),
     borderTopStyle: 'double',
     alignItems: 'center',
     justifyContent: 'center',
@@ -36,15 +36,17 @@ export const itemWrapper = style([
     cursor: 'pointer'
   }
 ])
+
 export const item = style({
-  backgroundColor: 'red',
+  backgroundColor: color.green,
   padding: 5,
   selectors: {
     [`${itemWrapper}:hover > &`]: {
-      backgroundColor: 'green'
+      backgroundColor: color.azure
     }
   }
 })
+
 export const text = style({
   verticalAlign: 'middle'
 })

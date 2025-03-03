@@ -8,6 +8,7 @@ export const Tarif = styleVariants({
   wrapper: [
     container.small,
     {
+      positionAnchor:'--progi',
       display: 'grid',
       gridTemplateRows: 'auto 1fr auto',
       gap: '2rem',
