@@ -4,19 +4,21 @@ import qwikdev from '@qwikdev/astro'
 
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import { defineConfig } from 'astro/config'
+import markdoc from '@astrojs/markdoc'
 //import icon from 'astro-icon'
 //import robotsTxt from 'astro-robots-txt'
 
 // Get the directory name of the current module
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-import markdoc from '@astrojs/markdoc'
 
 export default defineConfig({
   output: 'static',
   server: {
+    host: true,
+    port: 3000,
     watch: {
-      usePolling: true,
-    },
+      usePolling: true
+    }
   },
   vite: {
     resolve: {
@@ -25,28 +27,27 @@ export default defineConfig({
         '@styles': path.resolve(__dirname, 'src/styles'),
         '@fonts': path.resolve(__dirname, 'public/fonts'),
         '@images': path.resolve(__dirname, 'public/images'),
-        '@theme': path.resolve(__dirname, 'src/styles/utils'),
-      },
+        '@theme': path.resolve(__dirname, 'src/styles/utils')
+      }
     },
     css: {
-      transformer: 'lightningcss',
+      transformer: 'lightningcss'
     },
     plugins: [
       vanillaExtractPlugin({
         enabled: true,
-        identifiers: 'short',
-      }),
+        identifiers: 'short'
+      })
     ],
     optimizeDeps: {
-      noDiscovery: true,
+      noDiscovery: true
       //include: [] // Empty array instead of undefined
-    },
+    }
   },
   integrations: [
-
     qwikdev(),
-    markdoc(),
+    markdoc()
     // icon({ iconDir: 'src/assets/icons' })
     //robotsTxt()
-  ],
+  ]
 })

@@ -1,23 +1,21 @@
 wistia-player[media-id="ajtj2xpipw"]:not(:defined) {
-  background: center / contain no-repeat;
-  display: block;
-  filter: blur(5px);
-  padding-top: 56.25%;
+	background: center / contain no-repeat;
+	display: block;
+	filter: blur(5px);
+	padding-top: 56.25%;
 }
 
 @media (max-width: 30em) {
-  wistia-player[media-id="ajtj2xpipw"]:not(:defined) {
-    background-image: url("public/images/videoImage/Visite virtuelle Google mini.avif");
-  }
+	wistia-player[media-id="ajtj2xpipw"]:not(:defined) {
+		background-image: url("public/images/videoImage/Visite virtuelle Google mini.avif");
+	}
 }
 
 @media (min-width: 30em) {
-  wistia-player[media-id="ajtj2xpipw"]:not(:defined) {
-    background-image: image-set(
-      url("public/images/videoImage/Visite virtuelle Google mini.avif") 1x
-        type("image/avif"),
-      url("public/images/videoImage/Visite virtuelle Google.avif") 2x
-        type("image/avif")
-    );
-  }
+	wistia-player[media-id="ajtj2xpipw"]:not(:defined) {
+		background-image: image-set(
+			url("public/images/videoImage/Visite virtuelle Google mini.avif") 1x type("image/avif"),
+			url("public/images/videoImage/Visite virtuelle Google.avif") 2x type("image/avif")
+		);
+	}
 }

@@ -1,14 +1,14 @@
 export type menu = {
-  name: string
-  link: string
+	name: string
+	link: string
 }
 export default [
-  {
-    name: 'Exemples',
-    link: '/list',
-  },
-  {
-    name: 'Tarifs',
-    link: '/Tarif',
-  },
+	{
+		name: 'Exemples',
+		link: '/list',
+	},
+	{
+		name: 'Tarifs',
+		link: '/Tarif',
+	},
 ] as menu[]
