@@ -1,1 +1,6 @@
 export * from './Zero.tsx'
+export * from './Hero.tsx'
+export * from './Pricing.tsx'
+export * from './Benefits.tsx'
+export * from './Expertise.tsx'
+export * from './Cta.tsx'

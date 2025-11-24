@@ -1,7 +1,7 @@
 import { container } from '@/styles/utils'
-import { createContainer, styleVariants } from '@vanilla-extract/css'
+import { createContainer, style, styleVariants } from '@vanilla-extract/css'
 import * as T from '@theme'
-
+import {fluid} from '@/styles/utils'
 const iconShow = createContainer()
 
 export const Tarif = styleVariants({
@@ -16,6 +16,7 @@ export const Tarif = styleVariants({
 			backgroundColor: 'light-dark(oklch(93.32% 0 0),oklch(28.04% 0 0))',
 			padding: '2rem',
 			borderRadius: '15px',
+			maxInlineSize: '60rem',
 			boxShadow: '0 6px 12px rgba(0, 0, 0, 0.15)',
 			transition: 'box-shadow 0.3s ease',
 			':hover': {
@@ -203,5 +204,235 @@ export const WrapStyle = styleVariants({
 				gridColumn: '3 / 10',
 			},
 		},
+	},
+})
+
+export const HeroStyle = styleVariants({
+	wrapper: [
+		container.medium,
+		{
+			textAlign: 'center',
+			paddingBlock: '4rem',
+			display: 'grid',
+			gap: '1.5rem',
+		},
+	],
+	title: {
+		fontSize: T.fontSize['4xl'],
+		fontFamily: T.fontFamily.dancingScript,
+		color: T.color.orange,
+		marginBottom: '1rem',
+	},
+	subtitle: {
+		fontSize: T.fontSize['2xl'],
+		fontFamily: T.fontFamily.exo,
+		color: T.color.black,
+		textTransform: 'uppercase',
+		letterSpacing: '2px',
+		marginBottom: '1rem',
+	},
+	description: {
+		fontSize: T.fontSize.lg,
+		maxWidth: '800px',
+		marginInline: 'auto',
+		color: '#555',
+		lineHeight: 1.6,
+	},
+})
+
+export const PricingStyle = styleVariants({
+	wrapper: [
+		container.small,
+		{
+			paddingBlock: '4rem',
+			display: 'grid',
+			gap: '2rem',
+			textAlign: 'center',
+		},
+	],
+	card: {
+		backgroundColor: T.color.white,
+		borderRadius: '20px',
+		padding: '2.5rem',
+		boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
+		border: `2px solid ${T.color.orange}`,
+		display: 'grid',
+		gap: '2rem',
+		position: 'relative',
+		overflow: 'hidden',
+		transition: 'transform 0.3s ease',
+		':hover': {
+			transform: 'translateY(-5px)',
+		},
+	},
+	header: {
+		display: 'grid',
+		gap: '0.5rem',
+	},
+	price: {
+		fontSize: T.fontSize['4xl'],
+		color: T.color.green,
+		fontWeight: 'bold',
+		fontFamily: T.fontFamily.exo,
+	},
+	subPrice: {
+		fontSize: T.fontSize.sm,
+		color: '#666',
+		fontStyle: 'italic',
+	},
+	features: {
+		display: 'grid',
+		gap: '1.5rem',
+		textAlign: 'left',
+		marginBlock: '1rem',
+	},
+	featureItem: {
+		display: 'grid',
+		gridTemplateColumns: 'auto 1fr',
+		gap: '1rem',
+		alignItems: 'start',
+	},
+	featureIcon: {
+		fontSize: '1.5rem',
+	},
+	featureTitle: {
+		fontWeight: 'bold',
+		color: T.color.black,
+		marginBottom: '0.25rem',
+		display: 'block',
+	},
+	featureDesc: {
+		fontSize: '0.9rem',
+		color: '#555',
+	},
+})
+
+export const BenefitsStyle = styleVariants({
+	wrapper: [
+		container.medium,
+		{
+			//maxInlineSize: '70rem',
+			paddingBlock: '4rem',
+			marginInline: 'auto',
+		},
+	],
+	title: {
+		fontSize: T.fontSize['3xl'],
+		textAlign: 'center',
+		fontFamily: T.fontFamily.exo,
+		color: T.color.black,
+		marginBottom: '2rem',
+	},
+	grid: {
+		display: 'grid',
+		gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+		gap: '2rem',
+		overflowX: "scroll",
+	},
+
+	item: {
+		backgroundColor: '#f9f9f9',
+		padding: '2rem',
+		borderRadius: '15px',
+		display: 'inline',
+	
+		transition: 'background-color 0.3s ease',
+		':hover': {
+			backgroundColor: '#f0f0f0',
+		},
+	},
+	check: {
+		float: 'left',
+		fontSize: fluid(25, 35),
+		color: T.color.green,
+		fontWeight: 'bold',
+		
+		marginRight: '0.5rem',
+		marginTop: '0.2rem',
+	},
+	text: {
+		fontSize: T.fontSize.base,
+		color: '#444',
+		lineHeight: 1.5,
+	},
+})
+
+export const ExpertiseStyle = styleVariants({
+	wrapper: [
+		container.medium,
+		{
+			paddingBlock: '4rem',
+			textAlign: 'center',
+			backgroundColor: '#fafafa',
+			borderRadius: '20px',
+			marginBlock: '2rem',
+		},
+	],
+	title: {
+		fontSize: T.fontSize['3xl'],
+		fontFamily: T.fontFamily.dancingScript,
+		color: T.color.orange,
+		marginBottom: '1rem',
+	},
+	subtitle: {
+		fontSize: T.fontSize.xl,
+		fontWeight: 'bold',
+		color: T.color.black,
+		marginBottom: '2rem',
+	},
+	stats: {
+		display: 'flex',
+		flexWrap: 'wrap',
+		justifyContent: 'center',
+		gap: '2rem',
+		marginTop: '2rem',
+	},
+	statItem: {
+		backgroundColor: T.color.white,
+		padding: '1rem 2rem',
+		borderRadius: '10px',
+		boxShadow: '0 4px 6px rgba(0,0,0,0.05)',
+		fontWeight: 'bold',
+		color: '#555',
+	},
+})
+
+export const CtaStyle = styleVariants({
+	wrapper: [
+		container.small,
+		{
+			paddingBlock: '4rem',
+			textAlign: 'center',
+			display: 'grid',
+			gap: '2rem',
+			justifyItems: 'center',
+		},
+	],
+	title: {
+		fontSize: T.fontSize['3xl'],
+		fontFamily: T.fontFamily.exo,
+		color: T.color.black,
+	},
+	button: {
+		backgroundColor: T.color.orange,
+		color: T.color.white,
+		padding: '1rem 2.5rem',
+		fontSize: T.fontSize.xl,
+		borderRadius: '50px',
+		border: 'none',
+		cursor: 'pointer',
+		fontWeight: 'bold',
+		boxShadow: '0 4px 15px rgba(255, 174, 0, 0.4)',
+		transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+		textDecoration: 'none',
+		display: 'inline-block',
+		':hover': {
+			transform: 'scale(1.05)',
+			boxShadow: '0 6px 20px rgba(255, 174, 0, 0.6)',
+		},
+	},
+	subtext: {
+		fontSize: T.fontSize.base,
+		color: '#666',
 	},
 })
