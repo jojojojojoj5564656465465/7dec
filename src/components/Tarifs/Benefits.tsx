@@ -17,7 +17,6 @@ export const Benefits = component$(() => {
 			<div class={s.grid}>
 				{benefits.map((benefit, i) => (
 					<div key={i} class={s.item}>
-						<span class={s.check}>✓</span>
 						<p class={s.text}>{benefit}</p>
 					</div>
 				))}

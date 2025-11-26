@@ -1,5 +1,5 @@
 import { container } from '@/styles/utils'
-import { createContainer, style, styleVariants } from '@vanilla-extract/css'
+import { createContainer, createVar, style, styleVariants } from '@vanilla-extract/css'
 import * as T from '@theme'
 import {fluid} from '@/styles/utils'
 const iconShow = createContainer()
@@ -307,6 +307,11 @@ export const PricingStyle = styleVariants({
 	},
 })
 
+const pad = createVar({
+	inherits: false,
+	syntax: '<length>',
+	initialValue: "2rem"
+})
 export const BenefitsStyle = styleVariants({
 	wrapper: [
 		container.medium,
@@ -332,28 +337,32 @@ export const BenefitsStyle = styleVariants({
 
 	item: {
 		backgroundColor: '#f9f9f9',
-		padding: '2rem',
+		padding: "2rem",
 		borderRadius: '15px',
 		display: 'inline',
-	
+		alignItems: "stretch",
 		transition: 'background-color 0.3s ease',
+		isolation: 'isolate',
+		position: "relative",
 		':hover': {
 			backgroundColor: '#f0f0f0',
 		},
 	},
-	check: {
-		float: 'left',
-		fontSize: fluid(25, 35),
-		color: T.color.green,
-		fontWeight: 'bold',
-		
-		marginRight: '0.5rem',
-		marginTop: '0.2rem',
-	},
+
 	text: {
 		fontSize: T.fontSize.base,
 		color: '#444',
-		lineHeight: 1.5,
+		//lineHeight: 1.5,
+		':before': {
+			content: "✓",
+			position: "absolute",
+			fontSize: fluid(30, 45),
+			color: T.color.green,
+			fontWeight: 'bold',
+			//backgroundColor: 'red',
+			left: "0rem",
+			top: "1rem"
+		}
 	},
 })
 
@@ -377,8 +386,14 @@ export const ExpertiseStyle = styleVariants({
 	subtitle: {
 		fontSize: T.fontSize.xl,
 		fontWeight: 'bold',
-		color: T.color.black,
+		color: "black",
 		marginBottom: '2rem',
+	},
+	text: {
+		fontSize: T.fontSize.md,
+		
+		color: "black",
+		
 	},
 	stats: {
 		display: 'flex',

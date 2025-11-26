@@ -1,0 +1,28 @@
+---
+import SvgPlanningIMG from '@/assets/images/shapes at 25-11-26 13.11.45.svg'
+import SvgMobil from '@/assets/images/svg-mobil.svg'
+---
+
+<div>
+  <SvgPlanningIMG class="ss landing" />
+  <SvgMobil class="ss mobile" />
+</div>
+
+<style>
+  .ss {
+    margin-inline: auto;
+    border-radius: 60px;
+    margin-block-end: 80px;
+  }
+.mobile {
+    display: none;
+  }
+  @media screen and (width < 500px) {
+    .landing {
+      display: none;
+    }
+    .mobile {
+      display: block;
+    }
+  }
+</style>

@@ -2,13 +2,21 @@
 import Layout from '../layouts/Layout.astro'
 import ZeroFees from '@/components/Tarifs/Zero'
 import { Benefits, Cta, Expertise, Hero, Pricing } from '@/components/Tarifs'
+import { getCollection } from 'astro:content'
+const posts = await getCollection('business')
+
+import SvgPlanning from '@/components/Tarifs/SvgPlanning.astro'
 ---
 
 <Layout>
-	<Hero />
-	<Pricing />
-	<ZeroFees />
-	<Benefits />
-	<Expertise />
-	<Cta />
+  <section>
+    <Hero />
+
+    <Pricing />
+    <ZeroFees />
+    <Benefits />
+    <Expertise />
+    <Cta />
+    <SvgPlanning />
+  </section>
 </Layout>
