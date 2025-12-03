@@ -5,6 +5,7 @@ import qwikdev from '@qwikdev/astro'
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 import { defineConfig } from 'astro/config'
 import markdoc from '@astrojs/markdoc'
+import tailwindcss from '@tailwindcss/vite';
 //import icon from 'astro-icon'
 //import robotsTxt from 'astro-robots-txt'
 
@@ -33,12 +34,10 @@ export default defineConfig({
     css: {
       transformer: 'lightningcss'
     },
-    plugins: [
-      vanillaExtractPlugin({
-        enabled: true,
-        identifiers: 'short'
-      })
-    ],
+    plugins: [vanillaExtractPlugin({
+      enabled: true,
+      identifiers: 'short'
+    }), tailwindcss()],
     optimizeDeps: {
       noDiscovery: true
       //include: [] // Empty array instead of undefined

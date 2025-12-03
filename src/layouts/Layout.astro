@@ -2,6 +2,8 @@
 import '@/styles/utils/index.ts'
 import Navbar from '@/components/Layout-Component/Navbar/Navbar.astro'
 import Footer from 'src/components/Layout-Component/footer2/index.astro'
+import { Navbar as NavBarQwik } from 'src/components/Layout-Component/Navbar_Qwik/index.tsx'
+import 'src/styles/global.css'
 ---
 
 <!doctype html>
@@ -14,7 +16,7 @@ import Footer from 'src/components/Layout-Component/footer2/index.astro'
     <title>Jh Astro</title>
   </head>
   <body>
-    <Navbar />
+    <NavBarQwik />
     <slot />
     <Footer />
   </body>
