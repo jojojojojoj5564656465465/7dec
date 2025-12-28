@@ -1,5 +1,5 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { space } from "../token";
+import { space } from "../utils/theme.css.ts";
 
 export const flex = recipe({
 	base: {

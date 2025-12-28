@@ -13,6 +13,9 @@ import tailwindcss from '@tailwindcss/vite';
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
+  experimental: {
+    contentLayer: true
+  },
   output: 'static',
   server: {
     host: true,
@@ -24,18 +27,18 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, 'src'),
-        '@styles': path.resolve(__dirname, 'src/styles'),
+        '@': path.resolve(__dirname, './src'),
+        '@styles': path.resolve(__dirname, './src/styles'),
         '@fonts': path.resolve(__dirname, 'public/fonts'),
         '@images': path.resolve(__dirname, 'public/images'),
-        '@theme': path.resolve(__dirname, 'src/styles/utils')
+        '@theme': path.resolve(__dirname, './src/styles/utils')
       }
     },
     css: {
       transformer: 'lightningcss'
     },
     plugins: [vanillaExtractPlugin({
-      enabled: true,
+      
       identifiers: 'short'
     }), tailwindcss()],
     optimizeDeps: {
@@ -44,8 +47,8 @@ export default defineConfig({
     }
   },
   integrations: [
-    qwikdev(),
-    markdoc()
+    markdoc(),
+    qwikdev()
     // icon({ iconDir: 'src/assets/icons' })
     //robotsTxt()
   ]

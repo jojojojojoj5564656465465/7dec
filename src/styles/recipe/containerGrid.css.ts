@@ -7,9 +7,8 @@ import {
 	styleVariants,
 } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { media } from "../token";
-import { containerSize, maxInlineSizeFn } from "../utils/base.css.ts";
-import { colorTheme, theme } from "../utils/themeNew.css.ts";
+import { media, colorTheme, color as theme } from "../utils/theme.css.ts";
+import { containerSize, maxInlineSizeFn } from "../utils/utils.ts";
 import { fluid } from "../utils/utils.ts";
 
 const spaceLrVar = createVar({

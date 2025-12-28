@@ -1,6 +1,6 @@
 import { createGlobalTheme, globalLayer, globalStyle, style, styleVariants } from '@vanilla-extract/css'
 import f from './fontFace.css'
-import { ld } from './utils'
+import { ld, containerSize, maxInlineSizeFn } from './utils'
 
 globalLayer('reset')
 globalLayer('base')
@@ -20,7 +20,12 @@ const color = createGlobalTheme(':root', {
 	black: ld('oklch(19.28% 0.0452 243.97)', 'oklch(97.57% 0.0017 247.84)'),
 	white: ld('oklch(97.57% 0.0017 247.84)', 'oklch(19.28% 0.0452 243.97)'),
 	background: ld('oklch(93.62% 0.0132 168.35)', 'oklch(17.36% 0.0132 168.35)'),
+	text: ld('oklch(19.28% 0.0452 243.97)', 'oklch(97.57% 0.0017 247.84)'),
+	textHover: ld('oklch(19.28% 0.0452 243.97)', 'oklch(97.57% 0.0017 247.84)'),
+	backgroundHover: ld('oklch(85% 0.01 168)', 'oklch(25% 0.01 168)'),
 })
+
+const colorTheme = {}
 
 const space = {
 	xxxs: 'clamp(0.3125em, 0.3125em + 0dvw, 0.3125em)',
@@ -73,23 +78,6 @@ Object.freeze(media)
 /**
  * MARK: Container Rules
  */
-const containerSize = {
-	default: '60rem',
-	small: '60rem',
-	medium: '72rem',
-	large: '90rem',
-	xxl: '120rem',
-	full: '100svw',
-} as const
-
-// This function takes a parameter x of type keyof typeof containerSize and returns a string
-const maxInlineSizeFn = (x: keyof typeof containerSize): string => {
-	// Return a string that calculates the minimum of three values:
-	// 1. 100% minus twice the value of the parameter x from the containerSize object
-	// 2. The value of the parameter x from the containerSize object
-	// 3. 130rem
-	return `min(calc(100% - clamp(0.75rem, 0.42rem + 1.7vw, 1.7rem) * 2), ${containerSize[x]}, 130rem)`
-}
 
 const defaultContainer = style({
 	'@layer': {
@@ -162,4 +150,4 @@ globalStyle(`${container.default} > ${container.xxl}`, {
 globalStyle(`${container.default} > ${container.full}`, {
 	maxInlineSize: maxInlineSizeFn('full'),
 })
-export { fontFamily, color, fontSize, space, media, container }
+export { fontFamily, color, fontSize, space, media, container, containerSize, colorTheme }

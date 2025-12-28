@@ -1,5 +1,5 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { theme } from "../utils/themeNew.css.ts";
+import { color as theme } from "../utils/theme.css.ts";
 import { textSprinkles } from "./textSprinkles.css.ts";
 
 export const textRecipe = recipe({

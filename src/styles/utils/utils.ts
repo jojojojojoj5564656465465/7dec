@@ -174,4 +174,22 @@ function boxShadowGenerator(colors: string[], spread = 1): string | undefined {
 				.join(', ')
 		: ''
 }
-export { boxShadowGenerator, globalStyleTag, ld, fluid, flex, hover }
+const containerSize = {
+	default: '60rem',
+	small: '60rem',
+	medium: '72rem',
+	large: '90rem',
+	xxl: '120rem',
+	full: '100svw',
+} as const
+
+// This function takes a parameter x of type keyof typeof containerSize and returns a string
+const maxInlineSizeFn = (x: keyof typeof containerSize): string => {
+	// Return a string that calculates the minimum of three values:
+	// 1. 100% minus twice the value of the parameter x from the containerSize object
+	// 2. The value of the parameter x from the containerSize object
+	// 3. 130rem
+	return `min(calc(100% - clamp(0.75rem, 0.42rem + 1.7vw, 1.7rem) * 2), ${containerSize[x]}, 130rem)`
+}
+
+export { boxShadowGenerator, globalStyleTag, ld, fluid, flex, hover, containerSize, maxInlineSizeFn }

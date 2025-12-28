@@ -1,8 +1,8 @@
 import { createVar, fallbackVar } from "@vanilla-extract/css";
 import { calc } from "@vanilla-extract/css-utils"; // Import calc utility
 import { recipe } from "@vanilla-extract/recipes";
-import { maxInlineSizeFn } from "../utils/base.css";
-//import { colorTheme, theme } from "../utils/themeNew.css";
+import { colorTheme, color as theme } from "../utils/theme.css.ts";
+import { maxInlineSizeFn } from "../utils/utils.ts";
 
 import { textSprinkles } from "./textSprinkles.css";
 

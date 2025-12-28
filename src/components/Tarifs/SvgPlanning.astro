@@ -1,11 +1,12 @@
 ---
+import { Image } from 'astro:assets'
 import SvgPlanningIMG from '@/assets/images/shapes at 25-11-26 13.11.45.svg'
 import SvgMobil from '@/assets/images/svg-mobil.svg'
 ---
 
 <div>
-  <SvgPlanningIMG class="ss landing" />
-  <SvgMobil class="ss mobile" />
+  <Image src={SvgPlanningIMG} class="ss landing" alt="Planning" />
+  <Image src={SvgMobil} class="ss mobile" alt="Planning Mobile" />
 </div>
 
 <style>

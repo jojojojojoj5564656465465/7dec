@@ -1,6 +1,5 @@
 import { defineProperties } from "@vanilla-extract/sprinkles";
-
-import { media, space } from "../token";
+import { media, space } from "../utils/theme.css.ts";
 
 export default defineProperties({
 	conditions: {
