@@ -2,10 +2,10 @@ export type menu = {
 	name: string
 	link: string
 }
-export default [
+const fe = [
 	{
-		name: 'Exemples',
-		link: '/list',
+		name: 'Exemple',
+		link: '/exemple',
 	},
 	{
 		name: 'Tarifs',

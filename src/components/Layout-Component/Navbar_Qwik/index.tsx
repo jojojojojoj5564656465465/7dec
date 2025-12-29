@@ -32,9 +32,13 @@ export type SubmenuItem = Base & {
 	readonly submenu: readonly aItem[];
 };
 
+/**
+ * MARK: Menu de navigation principal.
+ * @description Structure du menu de navigation principal avec des liens simples et des sous-menus.
+ */
 export const menu: readonly (SubmenuItem | aItem)[] = [
 	{ type: "a", name: "Accueil", a: "/" },
-	{ type: "a", name: "Exemples", a: "/list" },
+	{ type: "a", name: "Exemples", a: "/exemple" },
 
 
 	{ type: "a", name: "Tarif", a: "/Tarif" },
@@ -49,7 +53,7 @@ export const ActiveDesktopSubmenuContext = createContextId<Signal<number>>(
 // --- 3. Icônes SVG (Composants Inline) ---
 const LogoIcon = () => (
 	<svg class="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-		<title>DentaCare Logo</title>
+
 		<path d="M12 2C8.13 2 5 5.13 5 9c0 1.74.5 3.37 1.41 4.84.95 1.54 2.2 2.86 3.72 3.9C10.74 18.45 11.35 19 12 19s1.26-.55 1.87-1.26c1.52-1.04 2.77-2.36 3.72-3.9C18.5 12.37 19 10.74 19 9c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
 	</svg>
 );
@@ -325,7 +329,7 @@ export const Navbar = component$(() => {
 						<div class="flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-to-br from-sky-500 to-blue-800">
 							<LogoIcon />
 						</div>
-						<span class="ml-3 text-xl font-bold text-blue-800">DentaCare</span>
+						<span class="ml-3 text-xl font-bold text-blue-800">Jonathan Hayat</span>
 					</a>
 
 					<ul class="hidden items-center space-x-1 md:flex">
@@ -342,7 +346,7 @@ export const Navbar = component$(() => {
 						)}
 						<li>
 							<a
-								href="/rdv"
+								href="mailto:lrid1g2x@jonathanh55.anonaddy.com"
 								class="ml-4 transform rounded-full bg-gradient-to-r from-sky-500 to-blue-800 px-6 py-2 text-sm font-medium text-white transition-all duration-200 hover:scale-105 hover:shadow-lg"
 							>
 								Prendre RDV
@@ -396,7 +400,7 @@ export const Navbar = component$(() => {
 					)}
 					<li class="pt-3">
 						<a
-							href="/rdv"
+							href="mailto:lrid1g2x@jonathanh55.anonaddy.com"
 							class="mx-4 my-2 block rounded-full bg-gradient-to-r from-sky-500 to-blue-800 px-4 py-2 text-center font-medium text-white transition-all duration-200 hover:shadow-lg"
 							onClick$={closeMobileMenu$}
 						>

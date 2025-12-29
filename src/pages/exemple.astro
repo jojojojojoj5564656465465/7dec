@@ -15,7 +15,7 @@ import { caseStudy as c } from '@styles/main.css'
       {
         posts.map((post) => (
           <li class={s.li}>
-            <a class={s.a} href={`/${post.id}`}>
+            <a class={s.a} href={`/${post.id.replace('.mdoc', '')}`}>
               {post.data.title}
             </a>
           </li>

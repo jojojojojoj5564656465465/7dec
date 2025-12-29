@@ -6,17 +6,17 @@ import BtnTop from '@/components/Articles/btnTop'
 import Layout from '../layouts/Layout.astro'
 
 export async function getStaticPaths() {
-	const posts = await getCollection('business')
-	return [...posts].map(post => ({
-		params: { slug: post.id },
-		props: post,
-	}))
+  const posts = await getCollection('business')
+  return [...posts].map((post) => ({
+    params: { slug: post.id.replace('.mdoc', '') },
+    props: post
+  }))
 }
 type Props = CollectionEntry<'business'>
 //const { slug } = Astro.params
 const post = Astro.props
 if (!post) {
-	throw new Error('Post not found')
+  throw new Error('Post not found')
 }
 const { Content } = await render(post)
 import s from '@/components/Articles/main.css'
