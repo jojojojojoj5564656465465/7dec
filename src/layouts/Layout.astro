@@ -13,6 +13,55 @@ import 'src/styles/global.css'
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Photographe 360° Google</title>
+    
+    <!-- AI and SEO Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="ai-indexing" content="allow" />
+    <meta name="ai-training" content="allow" />
+    <meta name="ai-caching" content="allow" />
+    
+    <!-- OpenGraph / Social Media Meta Tags -->
+    <meta property="og:title" content="Photographe 360° Google - Visite Virtuelle" />
+    <meta property="og:description" content="Photographe professionnel spécialisé dans les visites virtuelles 360° pour entreprises, restaurants, hôtels et biens immobiliers" />
+    <meta property="og:url" content="https://visite-virtuelle.photography/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Visite Virtuelle Photography" />
+    
+    <!-- Schema.org markup for AI understanding -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Visite Virtuelle Photography",
+      "description": "Photographe professionnel spécialisé dans les visites virtuelles 360° pour entreprises et biens immobiliers",
+      "url": "https://visite-virtuelle.photography/",
+      "telephone": "+33670755094",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "France",
+        "addressCountry": "FR"
+      },
+      "openingHours": "Mo,Tu,We,Th,Fr,Sa,Su 09:00-18:00",
+      "areaServed": {
+        "@type": "Country",
+        "name": "France"
+      },
+      "hasMap": "https://www.google.fr/maps/place/Jonathan/@48.6788936,1.8420064,252873m/data=!3m2!1e3!4b1!4m6!3m5!1s0x47e6650ad9837c05:0xee1084e5e2e49f05!8m2!3d48.6807824!4d2.5026636!16s%2Fg%2F11h9q04d1x?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D",
+      
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "48.6807824",
+        "longitude": "2.5026636"
+      }
+    }
+    </script>
+    
+    <!-- AI-specific meta tags -->
+    <meta name="ai:content-type" content="professional-services" />
+    <meta name="ai:language" content="fr-FR" />
+    <meta name="ai:update-frequency" content="yearly" />
+    <meta name="ai:license" content="CC-BY-NC-ND-4.0" />
   </head>
   <body>
     <NavBarQwik />

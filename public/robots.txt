@@ -1,2 +1,25 @@
 User-agent: *
 Allow: /
+
+# Sitemaps
+Sitemap: https://visite-virtuelle.photography/sitemap.xml
+AI-Sitemap: https://visite-virtuelle.photography/ai.txt
+
+# Crawl-delay directive for polite crawling
+Crawl-delay: 5
+
+# AI-specific user agents
+User-agent: Google-Extended
+User-agent: CCBot
+User-agent: Anthropic-AI
+User-agent: GPTBot
+User-agent: FacebookBot
+User-agent: Bytespider
+Allow: /
+
+# Disallow crawling of specific directories that don't need to be indexed
+Disallow: /assets/
+Disallow: /images/
+Disallow: /fonts/
+
+# Allow all other pages to be crawled and indexed

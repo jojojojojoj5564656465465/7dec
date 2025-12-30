@@ -1,0 +1,36 @@
+# AI.txt - Directives for AI crawlers and tools
+# Last updated: 2025-12-30
+
+User-agent: *
+Allow: /
+
+# AI-specific permissions
+Permit-AI-Training: yes
+Permit-AI-Indexing: yes
+Permit-AI-Caching: yes
+
+# Contact information for AI providers
+AI-Contact: webmaster@visite-virtuelle.photography
+
+# Sitemap for AI tools
+AI-Sitemap: https://visite-virtuelle.photography/sitemap.xml
+
+# API endpoint for structured data
+AI-API-Endpoint: https://visite-virtuelle.photography/api/ai-data.json
+AI-API-Documentation: https://visite-virtuelle.photography/api/ai-data.json
+AI-API-Version: 1.0
+AI-API-Format: JSON
+AI-API-License: CC-BY-NC-ND-4.0
+
+# Content licensing information
+AI-License: CC-BY-NC-ND-4.0
+AI-License-URL: https://creativecommons.org/licenses/by-nc-nd/4.0/
+
+# Content categories for AI understanding
+AI-Content-Categories: photography, virtual-tour, business-services, real-estate, hospitality
+
+# Language information
+AI-Language: fr-FR
+
+# Content update frequency
+AI-Update-Frequency: yearly
